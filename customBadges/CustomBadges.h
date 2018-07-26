@@ -7,6 +7,8 @@
 #include <cstddef>
 #include <string>
 
+#define MAX_BADGES 3
+
 #ifdef WIN32
 #define PLUGINS_EXPORTDLL __declspec(dllexport)
 #else
@@ -25,6 +27,11 @@ PLUGINS_EXPORTDLL const char *ts3plugin_description();
 PLUGINS_EXPORTDLL void ts3plugin_setFunctionPointers(const struct TS3Functions funcs);
 PLUGINS_EXPORTDLL int ts3plugin_init();
 PLUGINS_EXPORTDLL void ts3plugin_shutdown();
+PLUGINS_EXPORTDLL int ts3plugin_offersConfigure();
+PLUGINS_EXPORTDLL void ts3plugin_configure(void* handle, void* qParentWidget);
+
+bool sendBadgeCommand();
+
 #ifdef __cplusplus
 }
 #endif

@@ -4,6 +4,8 @@
 #include <iostream>
 #include <api/api.h>
 #include "CustomBadges.h"
+#include "QtConfig.h"
+#include "config.h"
 
 using namespace std;
 using namespace std::chrono;
@@ -69,10 +71,17 @@ void ts3plugin_shutdown() {
 	hook_functions = {};
 }
 
-#define HOSTNAME_BUFFER_LENGTH 20
+int ts3plugin_offersConfigure() {
+	return PLUGIN_OFFERS_CONFIGURE_QT_THREAD;
+}
 
-bool overwolf = true;
-string badges = "f22c22f1-8e2d-4d99-8de9-f352dc26ac5b, f22c22f1-8e2d-4d99-8de9-f352dc26ac5b";
+void ts3plugin_configure(void* handle, void* qParentWidget)
+{
+	Q_UNUSED(handle);
+	QtConfig* cfg = new QtConfig((QWidget*)qParentWidget);
+	cfg->setAttribute(Qt::WA_DeleteOnClose);
+	cfg->show();
+}
 
 void onPacketOut(api::SCHId schId, api::CommandPacket* command, bool &canceled)
 {
@@ -83,9 +92,13 @@ void onPacketOut(api::SCHId schId, api::CommandPacket* command, bool &canceled)
 	{
 		size_t clientBadgesPos = buffer.find("client_badges="); //14 long
 		size_t clientBadgesEndPos = buffer.find(' ', clientBadgesPos);
-		string overwolfStr = (overwolf ? "1" : "0");
+		if (clientBadgesEndPos == string::npos)
+			clientBadgesEndPos = buffer.length();
+
+		string overwolfStr = (config->overwolfBadge ? "1" : "0");
+
 		buffer = buffer.substr(0, clientBadgesPos + 14) + 
-				 "overwolf=" + overwolfStr + badges + 
+				 "overwolf=" + overwolfStr + ":badges=" + config->buildBadges() + 
 				 buffer.substr(clientBadgesEndPos, buffer.length());
 		command->data(buffer);
 	}
@@ -97,6 +110,16 @@ void onPacketIn(api::SCHId schId, api::CommandPacket* command, bool &canceled)
 	printf("Command in: %s\n", command->data().c_str());
 }
 
+bool sendBadgeCommand()
+{
+	string overwolfStr = (config->overwolfBadge ? "1" : "0");
+	string cmd = "clientupdate\\sclient_badges=overwolf=" + overwolfStr +
+				 ":badges=" + config->buildBadges();
+
+	bool success = false;
+	hook_functions.raw_sendCommand(1, cmd.c_str(), success);
+	return success;
+}
 
 int hook_initialized(const wolverindev::ts::ApiFunctions fn) {
 	printf("%s: Hook called me for initialisation!\n", ts3plugin_name());

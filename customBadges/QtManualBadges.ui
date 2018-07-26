@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>BadgesWindow</class>
+ <widget class="QMainWindow" name="BadgesWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>251</width>
+    <height>147</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Badges</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="closeButton">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>120</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Close</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="addButton">
+    <property name="geometry">
+     <rect>
+      <x>214</x>
+      <y>120</y>
+      <width>31</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>+</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>closeButton</sender>
+   <signal>clicked()</signal>
+   <receiver>BadgesWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>127</x>
+     <y>121</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>140</x>
+     <y>73</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>closeButton</sender>
+   <signal>clicked()</signal>
+   <receiver>BadgesWindow</receiver>
+   <slot>saveToConfig()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>127</x>
+     <y>121</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>140</x>
+     <y>73</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>addButton</sender>
+   <signal>clicked()</signal>
+   <receiver>BadgesWindow</receiver>
+   <slot>addBadge()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>229</x>
+     <y>131</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>125</x>
+     <y>73</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>saveToConfig()</slot>
+  <slot>addBadge()</slot>
+ </slots>
+</ui>

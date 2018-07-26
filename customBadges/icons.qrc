@@ -1,0 +1,39 @@
+<RCC>
+  <qresource prefix="badge">
+    <file>icons/overwolf.png</file>
+    <file>icons/4netplayers.png</file>
+    <file>icons/addon_author.png</file>
+    <file>icons/addon_author_bronze.png</file>
+    <file>icons/addon_author_gold.png</file>
+    <file>icons/addon_author_silver.png</file>
+    <file>icons/gamescom_2014.png</file>
+    <file>icons/gamescom_2016.png</file>
+    <file>icons/gamescom_2017.png</file>
+    <file>icons/hero_2017.png</file>
+    <file>icons/mifcom.png</file>
+    <file>icons/paris_gamesweek_2014.png</file>
+    <file>icons/paris_gamesweek_2016.png</file>
+    <file>icons/rbtv.png</file>
+    <file>icons/e3_2018.png</file>
+    <file>icons/ts_2018.png</file>
+    <file>icons/ts_early_2018.png</file>
+  </qresource>
+  <qresource prefix="badge64">
+    <file>icons/4netplayers_64.png</file>
+    <file>icons/addon_author_64.png</file>
+    <file>icons/addon_author_bronze_64.png</file>
+    <file>icons/addon_author_gold_64.png</file>
+    <file>icons/addon_author_silver_64.png</file>
+    <file>icons/gamescom_2014_64.png</file>
+    <file>icons/e3_2018_64.png</file>
+    <file>icons/ts_2018_64.png</file>
+    <file>icons/ts_early_2018_64.png</file>
+    <file>icons/gamescom_2016_64.png</file>
+    <file>icons/gamescom_2017_64.png</file>
+    <file>icons/hero_2017_64.png</file>
+    <file>icons/mifcom_64.png</file>
+    <file>icons/paris_gamesweek_2014_64.png</file>
+    <file>icons/paris_gamesweek_2016_64.png</file>
+    <file>icons/rbtv_64.png</file>
+  </qresource>
+</RCC>
