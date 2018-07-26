@@ -80,7 +80,7 @@ int hook_initialized(const wolverindev::ts::ApiFunctions fn) {
 	return 0;
 }
 extern void hook_finalized() {
-	printf("Hook called me for finalisation!\n");
+	printf("%s: Hook called me for finalisation!\n", ts3plugin_name());
 	if(local_hook_test) hook_functions.unregisterHook(local_hook_test.get());
 	hook_functions = {};
 }

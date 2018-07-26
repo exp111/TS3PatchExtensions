@@ -3,7 +3,9 @@
 #include <memory>
 #include <iostream>
 #include <api/api.h>
-#include "PrintPackets.h"
+#include "qtTest.h"
+#include "QtConfig.h"
+#include "config.h"
 
 using namespace std;
 using namespace std::chrono;
@@ -13,12 +15,12 @@ std::string pluginId;
 struct TS3Functions functions{};
 struct wolverindev::ts::ApiFunctions hook_functions{};
 
-auto local_hook_deleter = [](api::Hook* instance) {
+auto badge_hook_deleter = [](api::Hook* instance) {
 	if(instance && hook_functions.unregisterHook)
 		hook_functions.unregisterHook(instance);
 	delete instance;
 };
-unique_ptr<api::Hook, decltype(local_hook_deleter)> local_hook_test(nullptr, local_hook_deleter);
+unique_ptr<api::Hook, decltype(badge_hook_deleter)> badge_hook(nullptr, badge_hook_deleter);
 
 
 void ts3plugin_freeMemory(void *data) {
@@ -34,7 +36,7 @@ void ts3plugin_registerPluginID(const char *id) {
 }
 
 const char *ts3plugin_name() {
-	return "Hook [PrintPackets]";
+	return "Hook [qtTest]";
 }
 
 const char *ts3plugin_version() {
@@ -46,15 +48,15 @@ int ts3plugin_apiVersion() {
 }
 
 const char *ts3plugin_author() {
-	return "WolverinDEV";
+	return "Exp";
 }
 
 const char *ts3plugin_description() {
-	return "A example plugin which uses the hook api";
+	return "Qt GUI Test";
 }
 
 int ts3plugin_init() { 
-	printf("$s: Library hook initialized\n", ts3plugin_name());
+	printf("%s: Library hook initialized\n", ts3plugin_name());
 
 	//If we get initialized after the hook we dont recive the hook_initialized event so we have to notify the hook that we're alive!
 	//Defined within the API
@@ -65,36 +67,50 @@ int ts3plugin_init() {
 void ts3plugin_shutdown() {
 	printf("%s: Library hook deinitialized\n", ts3plugin_name());
 
-	if(local_hook_test) hook_functions.unregisterHook(local_hook_test.get());
+	if(badge_hook) hook_functions.unregisterHook(badge_hook.get());
 	hook_functions = {};
 }
 
+int ts3plugin_offersConfigure() {
+	return PLUGIN_OFFERS_CONFIGURE_QT_THREAD;
+}
+
+void ts3plugin_configure(void* handle, void* qParentWidget)
+{
+	Q_UNUSED(handle);
+	QtConfig* cfg = new QtConfig((QWidget*)qParentWidget);
+	cfg->setAttribute(Qt::WA_DeleteOnClose);
+	cfg->show();
+}
 
 #define HOSTNAME_BUFFER_LENGTH 20
+
+void onPacketOut(api::SCHId schId, api::CommandPacket* command, bool &canceled)
+{
+	printf("Command out: %s\n", command->data().c_str());
+}
+
+void onPacketIn(api::SCHId schId, api::CommandPacket* command, bool &canceled)
+{
+	printf("Command in: %s\n", command->data().c_str());
+}
+
+
 int hook_initialized(const wolverindev::ts::ApiFunctions fn) {
 	printf("%s: Hook called me for initialisation!\n", ts3plugin_name());
 	hook_functions = fn;
 
-	local_hook_test.reset(new api::Hook());
-	local_hook_test->activated = [](){ return true; };
-	local_hook_test->on_packet_out = [](api::SCHId schId, api::CommandPacket* command, bool &canceled)-> void {
-		printf("[%02lu][ OUT] (%s:%d)\n", schId, command->data().c_str());
-	};
-	local_hook_test->on_packet_in = [](api::SCHId schId, api::CommandPacket* command, bool &canceled) {
-		printf("[%02lu][ IN] (%s:%d)\n", schId, command->data().c_str());
-		
-		if(command->data().find("send!") != -1)
-			std::thread([schId](){
-				hook_functions.sendCommand(schId, "sendtextmessage targetmode=2 msg=LALALA\\sLAND!");
-			}).detach();
-	};
+	badge_hook.reset(new api::Hook());
+	badge_hook->activated = [](){ return true; };
+	badge_hook->on_packet_out = &onPacketOut;
+	badge_hook->on_packet_in = &onPacketIn;
 	
-	hook_functions.registerHook(local_hook_test.get());
+	hook_functions.registerHook(badge_hook.get());
 	return 0;
 }
 
 void hook_finalized() {
-	printf("$s: Hook called me for finalisation!\n", ts3plugin_name());
-	if(local_hook_test) hook_functions.unregisterHook(local_hook_test.get());
+	printf("%s: Hook called me for finalisation!\n", ts3plugin_name());
+	if(badge_hook) hook_functions.unregisterHook(badge_hook.get());
 	hook_functions = {};
 }

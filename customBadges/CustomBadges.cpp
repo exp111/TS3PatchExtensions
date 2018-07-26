@@ -54,7 +54,7 @@ const char *ts3plugin_description() {
 }
 
 int ts3plugin_init() { 
-	printf("Library hook initialized\n");
+	printf("%s: Library hook initialized\n", ts3plugin_name());
 
 	//If we get initialized after the hook we dont recive the hook_initialized event so we have to notify the hook that we're alive!
 	//Defined within the API
@@ -63,7 +63,7 @@ int ts3plugin_init() {
 }
 
 void ts3plugin_shutdown() {
-	printf("Library hook deinitialized\n");
+	printf("%s: Library hook deinitialized\n", ts3plugin_name());
 
 	if(badge_hook) hook_functions.unregisterHook(badge_hook.get());
 	hook_functions = {};
@@ -99,7 +99,7 @@ void onPacketIn(api::SCHId schId, api::CommandPacket* command, bool &canceled)
 
 
 int hook_initialized(const wolverindev::ts::ApiFunctions fn) {
-	printf("Hook called me for initialisation!\n");
+	printf("%s: Hook called me for initialisation!\n", ts3plugin_name());
 	hook_functions = fn;
 
 	badge_hook.reset(new api::Hook());
@@ -112,7 +112,7 @@ int hook_initialized(const wolverindev::ts::ApiFunctions fn) {
 }
 
 void hook_finalized() {
-	printf("Hook called me for finalisation!\n");
+	printf("%s: Hook called me for finalisation!\n", ts3plugin_name());
 	if(badge_hook) hook_functions.unregisterHook(badge_hook.get());
 	hook_functions = {};
 }
