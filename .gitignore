@@ -30,3 +30,10 @@
 *.exe
 *.out
 *.app
+
+.vs/
+Debug/
+Release/
+Win32/
+x64/
+CMakeFiles/

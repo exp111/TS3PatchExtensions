@@ -1,0 +1,641 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|Win32">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{8434C3E2-77E7-36E2-9B4D-7E54672B15A1}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>CustomBadges</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">print_packets.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CustomBadges</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CustomBadges</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.dll</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">print_packets.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CustomBadges</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CustomBadges</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.dll</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">print_packets.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">CustomBadges</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">CustomBadges</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.dll</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">true</GenerateManifest>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">print_packets.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">CustomBadges</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">CustomBadges</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.dll</TargetExt>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</GenerateManifest>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>../../;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>../../;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
+    <IncludePath>../../;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <IncludePath>../../;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>../../;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>../../;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <IncludePath>../../;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <IncludePath>../../;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\teamspeak;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SuppressStartupBanner>
+      </SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;CMAKE_INTDIR="Debug";print_packets_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\";print_packets_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\teamspeak;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\teamspeak;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges/Debug/print_packets.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges/Debug/print_packets.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\teamspeak;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SuppressStartupBanner>
+      </SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_WINDOWS;CMAKE_INTDIR="Debug";print_packets_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\";print_packets_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\teamspeak;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\teamspeak;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges/Debug/print_packets.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges/Debug/print_packets.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\teamspeak;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SuppressStartupBanner>
+      </SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="Release";print_packets_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\";print_packets_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\teamspeak;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\teamspeak;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges/Release/print_packets.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges/Release/print_packets.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\teamspeak;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SuppressStartupBanner>
+      </SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_WINDOWS;NDEBUG;CMAKE_INTDIR="Release";print_packets_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\";print_packets_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\teamspeak;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\teamspeak;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges/Release/print_packets.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges/Release/print_packets.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\teamspeak;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SuppressStartupBanner>
+      </SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="MinSizeRel";print_packets_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\";print_packets_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\teamspeak;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\teamspeak;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges/MinSizeRel/print_packets.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges/MinSizeRel/print_packets.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\teamspeak;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SuppressStartupBanner>
+      </SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_WINDOWS;NDEBUG;CMAKE_INTDIR="MinSizeRel";print_packets_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\";print_packets_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\teamspeak;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\teamspeak;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges/MinSizeRel/print_packets.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges/MinSizeRel/print_packets.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\teamspeak;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SuppressStartupBanner>
+      </SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="RelWithDebInfo";print_packets_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\";print_packets_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\teamspeak;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\teamspeak;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges/RelWithDebInfo/print_packets.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges/RelWithDebInfo/print_packets.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\teamspeak;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SuppressStartupBanner>
+      </SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_WINDOWS;NDEBUG;CMAKE_INTDIR="RelWithDebInfo";print_packets_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\";print_packets_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\teamspeak;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\teamspeak;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges/RelWithDebInfo/print_packets.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges/RelWithDebInfo/print_packets.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule D:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+D:\Programme\CMake\bin\cmake.exe "-HD:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges" "-BD:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges" --check-stamp-file "D:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+D:\Programme\CMake\bin\cmake.exe "-HD:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges" "-BD:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges" --check-stamp-file "D:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges/CMakeLists.txt;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeCXXCompiler.cmake.in;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeCXXCompilerABI.cpp;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeCompilerIdDetection.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineCXXCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineCompileFeatures.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineCompilerABI.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineCompilerId.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineRCCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineSystem.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeFindBinUtils.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeParseImplicitLinkInfo.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeRCCompiler.cmake.in;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeSystem.cmake.in;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeTestCXXCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeTestCompilerCommon.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeTestRCCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\ADSP-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\ARMCC-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\AppleClang-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Borland-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Clang-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Cray-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\GHS-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\IAR-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Intel-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\MIPSpro-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX-FeatureTests.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\MSVC-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\PGI-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\PathScale-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\SCO-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\TI-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Watcom-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CompilerId\VS-10.vcxproj.in;D:\Programme\CMake\share\cmake-3.12\Modules\Internal\FeatureTesting.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Platform\Windows-Determine-CXX.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeFiles\3.12.0\CMakeCXXCompiler.cmake;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeFiles\3.12.0\CMakeRCCompiler.cmake;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeFiles\3.12.0\CMakeSystem.cmake;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeFiles\feature_tests.cxx;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeLists.txt;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges/CMakeLists.txt;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeCXXCompiler.cmake.in;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeCXXCompilerABI.cpp;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeCompilerIdDetection.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineCXXCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineCompileFeatures.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineCompilerABI.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineCompilerId.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineRCCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineSystem.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeFindBinUtils.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeParseImplicitLinkInfo.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeRCCompiler.cmake.in;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeSystem.cmake.in;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeTestCXXCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeTestCompilerCommon.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeTestRCCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\ADSP-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\ARMCC-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\AppleClang-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Borland-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Clang-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Cray-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\GHS-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\IAR-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Intel-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\MIPSpro-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX-FeatureTests.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\MSVC-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\PGI-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\PathScale-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\SCO-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\TI-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Watcom-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CompilerId\VS-10.vcxproj.in;D:\Programme\CMake\share\cmake-3.12\Modules\Internal\FeatureTesting.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Platform\Windows-Determine-CXX.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeFiles\3.12.0\CMakeCXXCompiler.cmake;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeFiles\3.12.0\CMakeRCCompiler.cmake;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeFiles\3.12.0\CMakeSystem.cmake;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeFiles\feature_tests.cxx;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeLists.txt;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule D:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+D:\Programme\CMake\bin\cmake.exe "-HD:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges" "-BD:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges" --check-stamp-file "D:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+D:\Programme\CMake\bin\cmake.exe "-HD:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges" "-BD:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges" --check-stamp-file "D:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges/CMakeLists.txt;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeCXXCompiler.cmake.in;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeCXXCompilerABI.cpp;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeCompilerIdDetection.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineCXXCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineCompileFeatures.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineCompilerABI.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineCompilerId.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineRCCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineSystem.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeFindBinUtils.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeParseImplicitLinkInfo.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeRCCompiler.cmake.in;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeSystem.cmake.in;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeTestCXXCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeTestCompilerCommon.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeTestRCCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\ADSP-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\ARMCC-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\AppleClang-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Borland-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Clang-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Cray-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\GHS-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\IAR-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Intel-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\MIPSpro-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX-FeatureTests.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\MSVC-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\PGI-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\PathScale-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\SCO-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\TI-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Watcom-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CompilerId\VS-10.vcxproj.in;D:\Programme\CMake\share\cmake-3.12\Modules\Internal\FeatureTesting.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Platform\Windows-Determine-CXX.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeFiles\3.12.0\CMakeCXXCompiler.cmake;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeFiles\3.12.0\CMakeRCCompiler.cmake;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeFiles\3.12.0\CMakeSystem.cmake;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeFiles\feature_tests.cxx;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeLists.txt;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges/CMakeLists.txt;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeCXXCompiler.cmake.in;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeCXXCompilerABI.cpp;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeCompilerIdDetection.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineCXXCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineCompileFeatures.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineCompilerABI.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineCompilerId.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineRCCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineSystem.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeFindBinUtils.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeParseImplicitLinkInfo.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeRCCompiler.cmake.in;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeSystem.cmake.in;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeTestCXXCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeTestCompilerCommon.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeTestRCCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\ADSP-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\ARMCC-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\AppleClang-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Borland-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Clang-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Cray-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\GHS-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\IAR-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Intel-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\MIPSpro-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX-FeatureTests.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\MSVC-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\PGI-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\PathScale-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\SCO-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\TI-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Watcom-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CompilerId\VS-10.vcxproj.in;D:\Programme\CMake\share\cmake-3.12\Modules\Internal\FeatureTesting.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Platform\Windows-Determine-CXX.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeFiles\3.12.0\CMakeCXXCompiler.cmake;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeFiles\3.12.0\CMakeRCCompiler.cmake;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeFiles\3.12.0\CMakeSystem.cmake;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeFiles\feature_tests.cxx;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeLists.txt;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule D:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule D:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+D:\Programme\CMake\bin\cmake.exe "-HD:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges" "-BD:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges" --check-stamp-file "D:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+D:\Programme\CMake\bin\cmake.exe "-HD:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges" "-BD:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges" --check-stamp-file "D:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges/CMakeLists.txt;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeCXXCompiler.cmake.in;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeCXXCompilerABI.cpp;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeCompilerIdDetection.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineCXXCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineCompileFeatures.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineCompilerABI.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineCompilerId.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineRCCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineSystem.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeFindBinUtils.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeParseImplicitLinkInfo.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeRCCompiler.cmake.in;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeSystem.cmake.in;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeTestCXXCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeTestCompilerCommon.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeTestRCCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\ADSP-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\ARMCC-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\AppleClang-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Borland-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Clang-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Cray-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\GHS-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\IAR-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Intel-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\MIPSpro-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX-FeatureTests.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\MSVC-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\PGI-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\PathScale-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\SCO-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\TI-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Watcom-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CompilerId\VS-10.vcxproj.in;D:\Programme\CMake\share\cmake-3.12\Modules\Internal\FeatureTesting.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Platform\Windows-Determine-CXX.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeFiles\3.12.0\CMakeCXXCompiler.cmake;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeFiles\3.12.0\CMakeRCCompiler.cmake;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeFiles\3.12.0\CMakeSystem.cmake;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeFiles\feature_tests.cxx;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeLists.txt;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges/CMakeLists.txt;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeCXXCompiler.cmake.in;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeCXXCompilerABI.cpp;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeCompilerIdDetection.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineCXXCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineCompileFeatures.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineCompilerABI.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineCompilerId.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineRCCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineSystem.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeFindBinUtils.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeParseImplicitLinkInfo.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeRCCompiler.cmake.in;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeSystem.cmake.in;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeTestCXXCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeTestCompilerCommon.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeTestRCCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\ADSP-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\ARMCC-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\AppleClang-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Borland-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Clang-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Cray-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\GHS-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\IAR-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Intel-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\MIPSpro-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX-FeatureTests.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\MSVC-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\PGI-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\PathScale-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\SCO-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\TI-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Watcom-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CompilerId\VS-10.vcxproj.in;D:\Programme\CMake\share\cmake-3.12\Modules\Internal\FeatureTesting.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Platform\Windows-Determine-CXX.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeFiles\3.12.0\CMakeCXXCompiler.cmake;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeFiles\3.12.0\CMakeRCCompiler.cmake;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeFiles\3.12.0\CMakeSystem.cmake;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeFiles\feature_tests.cxx;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeLists.txt;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule D:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule D:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+D:\Programme\CMake\bin\cmake.exe "-HD:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges" "-BD:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges" --check-stamp-file "D:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+D:\Programme\CMake\bin\cmake.exe "-HD:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges" "-BD:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges" --check-stamp-file "D:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges/CMakeLists.txt;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeCXXCompiler.cmake.in;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeCXXCompilerABI.cpp;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeCompilerIdDetection.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineCXXCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineCompileFeatures.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineCompilerABI.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineCompilerId.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineRCCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineSystem.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeFindBinUtils.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeParseImplicitLinkInfo.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeRCCompiler.cmake.in;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeSystem.cmake.in;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeTestCXXCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeTestCompilerCommon.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeTestRCCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\ADSP-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\ARMCC-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\AppleClang-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Borland-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Clang-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Cray-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\GHS-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\IAR-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Intel-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\MIPSpro-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX-FeatureTests.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\MSVC-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\PGI-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\PathScale-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\SCO-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\TI-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Watcom-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CompilerId\VS-10.vcxproj.in;D:\Programme\CMake\share\cmake-3.12\Modules\Internal\FeatureTesting.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Platform\Windows-Determine-CXX.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeFiles\3.12.0\CMakeCXXCompiler.cmake;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeFiles\3.12.0\CMakeRCCompiler.cmake;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeFiles\3.12.0\CMakeSystem.cmake;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeFiles\feature_tests.cxx;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeLists.txt;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:/Visual Studio/TS3/ts3PatchPlugin/extentions/CustomBadges/CMakeLists.txt;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeCXXCompiler.cmake.in;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeCXXCompilerABI.cpp;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeCXXInformation.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeCommonLanguageInclude.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeCompilerIdDetection.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineCXXCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineCompileFeatures.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineCompilerABI.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineCompilerId.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineRCCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeDetermineSystem.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeFindBinUtils.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeGenericSystem.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeInitializeConfigs.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeLanguageInformation.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeParseImplicitLinkInfo.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeRCCompiler.cmake.in;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeRCInformation.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeSystem.cmake.in;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInformation.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeSystemSpecificInitialize.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeTestCXXCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeTestCompilerCommon.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CMakeTestRCCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\ADSP-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\ARMCC-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\AppleClang-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Borland-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Clang-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Cray-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\GHS-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\IAR-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Intel-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\MIPSpro-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX-FeatureTests.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\MSVC-CXX.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\MSVC-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\PGI-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\PathScale-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\SCO-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\TI-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\Watcom-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\CompilerId\VS-10.vcxproj.in;D:\Programme\CMake\share\cmake-3.12\Modules\Internal\FeatureTesting.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Platform\Windows-Determine-CXX.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC-CXX.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Platform\Windows-MSVC.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Platform\Windows.cmake;D:\Programme\CMake\share\cmake-3.12\Modules\Platform\WindowsPaths.cmake;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeFiles\3.12.0\CMakeCXXCompiler.cmake;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeFiles\3.12.0\CMakeRCCompiler.cmake;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeFiles\3.12.0\CMakeSystem.cmake;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeFiles\feature_tests.cxx;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeLists.txt;D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\CustomBadges\CustomBadges.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:\Visual Studio\TS3\ts3PatchPlugin\extentions\CustomBadges\ZERO_CHECK.vcxproj">
+      <Project>{0D7FCAB0-53F0-3BCA-8AAB-02DD9A302177}</Project>
+      <Name>ZERO_CHECK</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CustomBadges.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
