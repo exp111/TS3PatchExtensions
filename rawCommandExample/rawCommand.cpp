@@ -72,7 +72,7 @@ int ts3plugin_offersConfigure()
 	return PLUGIN_OFFERS_NO_CONFIGURE;
 }
 const char* ts3plugin_commandKeyword() {
-	return "";
+	return "rawCommandTest";
 }
 const char* ts3plugin_infoTitle() {
 	return "Raw Command Test";
@@ -132,6 +132,14 @@ void ts3plugin_onMenuItemEvent(uint64 serverConnectionHandlerID, enum PluginMenu
 	default:
 		break;
 	}
+}
+
+int ts3plugin_processCommand(uint64 serverConnectionHandlerID, const char* command) 
+{
+	//ex: /spongeMock example => command = "example"
+	uint64 success = 0;
+	hook_functions.raw_sendCommand(serverConnectionHandlerID, "sendtextmessage\\stargetmode=2\\smsg=asdasd", success);
+	return !(bool)success; //0 = We handled the command
 }
 
 int hook_initialized(const wolverindev::ts::ApiFunctions fn) {

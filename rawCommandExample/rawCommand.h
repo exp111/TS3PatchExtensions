@@ -32,6 +32,7 @@ PLUGINS_EXPORTDLL int ts3plugin_offersConfigure();
 PLUGINS_EXPORTDLL const char* ts3plugin_commandKeyword();
 PLUGINS_EXPORTDLL const char* ts3plugin_infoTitle();
 PLUGINS_EXPORTDLL int ts3plugin_requestAutoload();
+PLUGINS_EXPORTDLL int ts3plugin_processCommand(uint64 serverConnectionHandlerID, const char* command);
 
 #ifdef __cplusplus
 }
