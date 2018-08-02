@@ -7,8 +7,20 @@
     <x>0</x>
     <y>0</y>
     <width>348</width>
-    <height>115</height>
+    <height>326</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>348</width>
+    <height>326</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>348</width>
+    <height>326</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Connection Info Spoofer</string>
@@ -17,7 +29,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>80</y>
+     <y>290</y>
      <width>111</width>
      <height>23</height>
     </rect>
@@ -33,7 +45,7 @@
    <property name="geometry">
     <rect>
      <x>230</x>
-     <y>80</y>
+     <y>290</y>
      <width>111</width>
      <height>23</height>
     </rect>
@@ -42,7 +54,7 @@
     <string>Abbrechen</string>
    </property>
   </widget>
-  <widget class="QCheckBox" name="checkBox">
+  <widget class="QCheckBox" name="blockSetConnectionInfoBox">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -55,7 +67,7 @@
     <string>Block setConnectionInfo</string>
    </property>
   </widget>
-  <widget class="QCheckBox" name="checkBox_2">
+  <widget class="QCheckBox" name="blockConnectionInfoAutoUpdateBox">
    <property name="geometry">
     <rect>
      <x>160</x>
@@ -67,6 +79,71 @@
    <property name="text">
     <string>Block connectionInfoAutoUpdate</string>
    </property>
+  </widget>
+  <widget class="QTableWidget" name="tableWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>41</y>
+     <width>331</width>
+     <height>241</height>
+    </rect>
+   </property>
+   <property name="verticalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOff</enum>
+   </property>
+   <property name="horizontalScrollBarPolicy">
+    <enum>Qt::ScrollBarAlwaysOff</enum>
+   </property>
+   <property name="sizeAdjustPolicy">
+    <enum>QAbstractScrollArea::AdjustIgnored</enum>
+   </property>
+   <property name="selectionMode">
+    <enum>QAbstractItemView::SingleSelection</enum>
+   </property>
+   <property name="showGrid">
+    <bool>true</bool>
+   </property>
+   <property name="cornerButtonEnabled">
+    <bool>true</bool>
+   </property>
+   <attribute name="horizontalHeaderVisible">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="horizontalHeaderCascadingSectionResizes">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="horizontalHeaderDefaultSectionSize">
+    <number>280</number>
+   </attribute>
+   <attribute name="horizontalHeaderHighlightSections">
+    <bool>true</bool>
+   </attribute>
+   <attribute name="horizontalHeaderMinimumSectionSize">
+    <number>50</number>
+   </attribute>
+   <attribute name="horizontalHeaderStretchLastSection">
+    <bool>true</bool>
+   </attribute>
+   <attribute name="verticalHeaderVisible">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="verticalHeaderCascadingSectionResizes">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="verticalHeaderStretchLastSection">
+    <bool>false</bool>
+   </attribute>
+   <column>
+    <property name="text">
+     <string>name</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>value</string>
+    </property>
+   </column>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

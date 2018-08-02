@@ -7,32 +7,50 @@ QtConfig::QtConfig(QWidget *parent)
 {
 	ui.setupUi(this);
 
-	for (auto os : config->OSList)
-		ui.OSComboBox->addItem(QString(os.c_str()));
+	size_t setConnectionInfoSize = config->setConnectionInfo.size();
+	for (int i = 0; i < setConnectionInfoSize; i++)
+	{
+		ui.tableWidget->insertRow(i);
+		QTableWidgetItem* item = new QTableWidgetItem(QString(config->setConnectionInfo[i].first.c_str()));
+		ui.tableWidget->setItem(i, 0, item);
+		QTableWidgetItem* item2 = new QTableWidgetItem(QString(config->setConnectionInfo[i].second.c_str()));
+		ui.tableWidget->setItem(i, 1, item2);
+	}
 
-	//No need to add versions to other combo as the updateVersionCombo action gets triggered by the currentIndexChanged event here
+	size_t connectionInfoAutoUpdateSize = config->connectionInfoAutoUpdate.size();
+	for (int i = 0; i < connectionInfoAutoUpdateSize; i++)
+	{
+		int j = setConnectionInfoSize + i;
+		ui.tableWidget->insertRow(j);
+		QTableWidgetItem* item = new QTableWidgetItem(QString(config->connectionInfoAutoUpdate[i].first.c_str()));
+		ui.tableWidget->setItem(j, 0, item);
+		QTableWidgetItem* item2 = new QTableWidgetItem(QString(config->connectionInfoAutoUpdate[i].second.c_str()));
+		ui.tableWidget->setItem(j, 1, item2);
+	}
 }
 
 QtConfig::~QtConfig()
 {
 }
 
-void QtConfig::updateVersionCombo(QString newOS)
-{
-	vector<pair<string, string>> versions = config->versionList[newOS.toStdString().c_str()];
-
-	ui.versionComboBox->clear();
-	for (auto versionPair : versions)
-		ui.versionComboBox->addItem(QString(versionPair.first.c_str()));
-}
-
 void QtConfig::saveToConfig()
 {
-	string OS = config->OSList[ui.OSComboBox->currentIndex()];
-	config->OS = OS;
-	pair<string, string> versionPair = config->versionList[OS][ui.versionComboBox->currentIndex()];
-	config->version = versionPair.first;
-	config->versionHash = versionPair.second;
+	config->blockSetConnectionInfo = ui.blockSetConnectionInfoBox->isChecked();
+	config->blockConnectionInfoAutoUpdate = ui.blockConnectionInfoAutoUpdateBox->isChecked();
+
+
+	size_t setConnectionInfoSize = config->setConnectionInfo.size();
+	for (int i = 0; i < setConnectionInfoSize; i++)
+	{
+		config->setConnectionInfo[i].second = ui.tableWidget->item(i, 1)->text().toStdString();
+	}
+
+	size_t connectionInfoAutoUpdateSize = config->connectionInfoAutoUpdate.size();
+	for (int i = 0; i < connectionInfoAutoUpdateSize; i++)
+	{
+		int j = setConnectionInfoSize + i;
+		config->connectionInfoAutoUpdate[i].second = ui.tableWidget->item(j, 1)->text().toStdString();
+	}
 
 	config->writeConfig();
 }
