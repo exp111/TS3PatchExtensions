@@ -2,28 +2,6 @@
 
 Config* config = new Config;
 
-vector<string> getNextLineAndSplitIntoTokens(istream& str)
-{
-	vector<std::string>   result;
-	string                line;
-	getline(str, line);
-
-	stringstream          lineStream(line);
-	string                cell;
-
-	while (getline(lineStream, cell, ','))
-	{
-		result.push_back(cell);
-	}
-	// This checks for a trailing comma with no data after it.
-	if (!lineStream && cell.empty())
-	{
-		// If there was a trailing comma then add an empty element.
-		result.push_back("");
-	}
-	return result;
-}
-
 string getShitAfterDelim(string line, char delim)
 {
 	auto findPos = line.find(delim);
@@ -37,13 +15,11 @@ bool Config::readConfig(string dir)
 {
 	directory = dir;
 	/*
-	OS=iOS
-	Version=3.0.11 [Build: 1374563791]
-	VersionHash=hQCwiLP5f4GIcDG5KQ1T+CNFGqRxyw5MXCHE8KjWRIgkjCuGSryK4vpPy70EURH3blQ8TKrax8BEorHlpnpdAQ==
+	connection_ping=0.000
+	...
 	*/
 
-	string configFile = dir + configName;
-	readCSV(dir);
+	string configFile = this->directory + this->configName;
 
 	ifstream file(configFile);
 
@@ -51,55 +27,33 @@ bool Config::readConfig(string dir)
 		return false;
 
 	string line;
-	getline(file, line);
-	OS = getShitAfterDelim(line, '='); //OS
-	getline(file, line);
-	version = getShitAfterDelim(line, '='); //version
-	getline(file, line);
-	versionHash = getShitAfterDelim(line, '='); //versionHash
-
-	return false;
-}
-
-bool Config::readCSV(string dir)
-{
-	string configFile = dir + csvName;
+	for (int i = 0; i < this->setConnectionInfo.size(); i++)
+	{
+		getline(file, line);
+		this->setConnectionInfo[i].second = getShitAfterDelim(line, '=');
+	}
 	
-	ifstream file(configFile);
-
-	if (!file.good())
-		return false;
-
-	string line;
-	getline(file, line); //skip the first line
-	while (!file.eof())
-		readLine(getNextLineAndSplitIntoTokens(file));
-
-	file.close();
+	for (int i = 0; i < this->connectionInfoAutoUpdate.size(); i++)
+	{
+		getline(file, line);
+		this->connectionInfoAutoUpdate[i].second = getShitAfterDelim(line, '=');
+	}
 
 	return true;
 }
 
-void Config::readLine(vector<string> results)
-{
-	//channel,version,platform,hash
-	if (find(OSList.begin(), OSList.end(), results[2]) == OSList.end())
-		OSList.push_back(results[2]);
-
-	pair<string, string> pair = { results[1], results[3] };
-	versionList[results[2]].push_back(pair);
-}
-
 bool Config::writeConfig()
 {
-	if (directory.empty())
+	if (this->directory.empty())
 		return false;
 
-	ofstream file(directory + configName, ofstream::out | ofstream::trunc);
+	ofstream file(this->directory + this->configName, ofstream::out | ofstream::trunc);
 
-	file << "OS=" << OS << endl;
-	file << "version=" << version << endl;
-	file << "versionHash=" << versionHash << endl;
+	for (pair<string, string> pair : this->setConnectionInfo)
+		file << pair.first << "=" << pair.second << endl;
+	
+	for (pair<string, string> pair : this->connectionInfoAutoUpdate)
+		file << pair.first << "=" << pair.second << endl;
 
 	file.close();
 

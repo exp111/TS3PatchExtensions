@@ -117,8 +117,6 @@ void onPacketOut(api::SCHId schId, api::CommandPacket* command, bool &canceled)
 	if (find_pos == string::npos)
 		return;
 
-	printf("%s\n", buffer.c_str());
-
 	size_t find_pos2 = buffer.find(" client_input_hardware=");
 	if (find_pos2 == string::npos)
 		return;
@@ -137,7 +135,6 @@ void onPacketOut(api::SCHId schId, api::CommandPacket* command, bool &canceled)
 	for (int i = findPos4; i < buffer.size(); i++)
 		s += buffer.at(i);	
 	
-	printf("%s\n", s.c_str());
 	command->data(s);
 }
 

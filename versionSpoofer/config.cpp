@@ -58,7 +58,7 @@ bool Config::readConfig(string dir)
 	getline(file, line);
 	versionHash = getShitAfterDelim(line, '='); //versionHash
 
-	return false;
+	return true;
 }
 
 bool Config::readCSV(string dir)

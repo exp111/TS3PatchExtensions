@@ -57,8 +57,6 @@ public:
 		{"connection_server2client_packetloss_total",	"0.0000" }};
 
 	bool readConfig(string directory);
-	bool readCSV(string directory);
-	void readLine(vector<string> results);
 	bool writeConfig();
 };
 
