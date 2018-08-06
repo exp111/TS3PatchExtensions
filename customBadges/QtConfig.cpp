@@ -1,7 +1,7 @@
 #include "QtConfig.h"
 
 #include "config.h"
-#include "CustomBadges.h"
+#include "customBadges.h"
 
 QtConfig::QtConfig(QWidget *parent, int currentTab)
 	: QMainWindow(parent)
@@ -42,9 +42,9 @@ void QtConfig::updateBoxes()
 		}
 	}
 
-	for (int i = tempBadges.size(); i < MAX_BADGES; i++) //delete empty ones
+	for (size_t i = tempBadges.size(); i < MAX_BADGES; i++) //delete empty ones
 	{
-		QPixmap null = nullptr;
+		QPixmap null = QPixmap();
 		switch (i)
 		{
 		case 0:

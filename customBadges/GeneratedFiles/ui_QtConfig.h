@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'QtConfig.ui'
+** Form generated from reading UI file 'QtConfigp16772.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.9.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef UI_QTCONFIG_H
-#define UI_QTCONFIG_H
+#ifndef QTCONFIGP16772_H
+#define QTCONFIGP16772_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -159,13 +159,22 @@ public:
         QObject::connect(acceptButton, SIGNAL(clicked()), QtConfig, SLOT(close()));
         QObject::connect(rejectButton, SIGNAL(clicked()), QtConfig, SLOT(close()));
         QObject::connect(acceptButton, SIGNAL(clicked()), QtConfig, SLOT(saveToConfig()));
+        QObject::connect(badge1Label, SIGNAL(clicked()), QtConfig, SLOT(deleteBadge1()));
+        QObject::connect(badge2Label, SIGNAL(clicked()), QtConfig, SLOT(deleteBadge2()));
+        QObject::connect(badge3Label, SIGNAL(clicked()), QtConfig, SLOT(deleteBadge3()));
+        QObject::connect(manualBadgeOverride, SIGNAL(clicked()), QtConfig, SLOT(openManualBadges()));
+        QObject::connect(badgeList, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)), QtConfig, SLOT(addBadge(QTreeWidgetItem*)));
+        QObject::connect(badgeList, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)), QtConfig, SLOT(updateBoxes()));
+        QObject::connect(badge1Label, SIGNAL(clicked()), QtConfig, SLOT(updateBoxes()));
+        QObject::connect(badge2Label, SIGNAL(clicked()), QtConfig, SLOT(updateBoxes()));
+        QObject::connect(badge3Label, SIGNAL(clicked()), QtConfig, SLOT(updateBoxes()));
 
         QMetaObject::connectSlotsByName(QtConfig);
     } // setupUi
 
     void retranslateUi(QMainWindow *QtConfig)
     {
-        QtConfig->setWindowTitle(QApplication::translate("QtConfig", "TS3Hook", Q_NULLPTR));
+        QtConfig->setWindowTitle(QApplication::translate("QtConfig", "CustomBadges", Q_NULLPTR));
         overwolfCheckBox->setText(QApplication::translate("QtConfig", "Overwolf", Q_NULLPTR));
         QTreeWidgetItem *___qtreewidgetitem = badgeList->headerItem();
         ___qtreewidgetitem->setText(0, QApplication::translate("QtConfig", "Badges", Q_NULLPTR));
@@ -225,4 +234,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // UI_QTCONFIG_H
+#endif // QTCONFIGP16772_H

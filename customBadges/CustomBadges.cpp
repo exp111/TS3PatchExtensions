@@ -3,7 +3,7 @@
 #include <memory>
 #include <iostream>
 #include <api/api.h>
-#include "CustomBadges.h"
+#include "customBadges.h"
 #include "QtConfig.h"
 #include "config.h"
 
@@ -102,12 +102,6 @@ void onPacketOut(api::SCHId schId, api::CommandPacket* command, bool &canceled)
 				 buffer.substr(clientBadgesEndPos, buffer.length());
 		command->data(buffer);
 	}
-	printf("Command out: %s\n", command->data().c_str());
-}
-
-void onPacketIn(api::SCHId schId, api::CommandPacket* command, bool &canceled)
-{
-	printf("Command in: %s\n", command->data().c_str());
 }
 
 bool sendBadgeCommand()
@@ -116,9 +110,8 @@ bool sendBadgeCommand()
 	string cmd = "clientupdate\\sclient_badges=overwolf=" + overwolfStr +
 				 ":badges=" + config->buildBadges();
 
-	bool success = false;
-	hook_functions.raw_sendCommand(1, cmd.c_str(), success);
-	return success;
+	hook_functions.sendCommand(1, cmd);
+	return true;
 }
 
 int hook_initialized(const wolverindev::ts::ApiFunctions fn) {
@@ -128,7 +121,6 @@ int hook_initialized(const wolverindev::ts::ApiFunctions fn) {
 	badge_hook.reset(new api::Hook());
 	badge_hook->activated = [](){ return true; };
 	badge_hook->on_packet_out = &onPacketOut;
-	badge_hook->on_packet_in = &onPacketIn;
 	
 	hook_functions.registerHook(badge_hook.get());
 	return 0;

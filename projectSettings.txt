@@ -1,0 +1,4 @@
+$(SolutionDir)$(ProjectName)\$(Platform)\$(Configuration)\
+$(SolutionDir)$(ProjectName)\$(Platform)\$(Configuration)\Temp\
+
+Qt4VSv1.0

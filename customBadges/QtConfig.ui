@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>TS3Hook</string>
+   <string>CustomBadges</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QWidget" name="widget" native="true">
@@ -382,6 +382,150 @@
     <hint type="destinationlabel">
      <x>276</x>
      <y>230</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>badge1Label</sender>
+   <signal>clicked()</signal>
+   <receiver>QtConfig</receiver>
+   <slot>deleteBadge1()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>121</x>
+     <y>73</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>276</x>
+     <y>214</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>badge2Label</sender>
+   <signal>clicked()</signal>
+   <receiver>QtConfig</receiver>
+   <slot>deleteBadge2()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>231</x>
+     <y>73</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>276</x>
+     <y>214</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>badge3Label</sender>
+   <signal>clicked()</signal>
+   <receiver>QtConfig</receiver>
+   <slot>deleteBadge3()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>341</x>
+     <y>73</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>276</x>
+     <y>214</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>manualBadgeOverride</sender>
+   <signal>clicked()</signal>
+   <receiver>QtConfig</receiver>
+   <slot>openManualBadges()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>460</x>
+     <y>100</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>276</x>
+     <y>214</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>badgeList</sender>
+   <signal>itemDoubleClicked(QTreeWidgetItem*,int)</signal>
+   <receiver>QtConfig</receiver>
+   <slot>addBadge(QTreeWidgetItem*)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>275</x>
+     <y>250</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>276</x>
+     <y>214</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>badgeList</sender>
+   <signal>itemDoubleClicked(QTreeWidgetItem*,int)</signal>
+   <receiver>QtConfig</receiver>
+   <slot>updateBoxes()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>275</x>
+     <y>250</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>276</x>
+     <y>214</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>badge1Label</sender>
+   <signal>clicked()</signal>
+   <receiver>QtConfig</receiver>
+   <slot>updateBoxes()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>121</x>
+     <y>73</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>276</x>
+     <y>214</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>badge2Label</sender>
+   <signal>clicked()</signal>
+   <receiver>QtConfig</receiver>
+   <slot>updateBoxes()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>231</x>
+     <y>73</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>276</x>
+     <y>214</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>badge3Label</sender>
+   <signal>clicked()</signal>
+   <receiver>QtConfig</receiver>
+   <slot>updateBoxes()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>341</x>
+     <y>73</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>276</x>
+     <y>214</y>
     </hint>
    </hints>
   </connection>

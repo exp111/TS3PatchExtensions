@@ -11,7 +11,7 @@ QtManualBadges::QtManualBadges(QWidget *parent)
 {
 	ui.setupUi(this);
 
-	int toMove = (((QtConfig*)parent)->tempBadges.size() - 2);
+	size_t toMove = (((QtConfig*)parent)->tempBadges.size() - 2);
 	if (toMove > 0)
 	{
 		this->resize(size().width(), size().height() + 20 * toMove);

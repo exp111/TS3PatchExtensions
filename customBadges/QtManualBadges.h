@@ -1,5 +1,5 @@
 #pragma once
-#include "ui_QtManualBadges.h"
+#include "GeneratedFiles/ui_QtManualBadges.h"
 
 #include <string>
 #include <vector>
