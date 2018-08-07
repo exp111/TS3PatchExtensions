@@ -96,6 +96,8 @@ void onPacketOut(api::SCHId schId, api::CommandPacket* command, bool &canceled)
 	if (findPos != string::npos)
 	{
 		size_t clientBadgesPos = buffer.find("client_badges="); //14 long
+		if (clientBadgesPos == string::npos)
+			return;
 		size_t clientBadgesEndPos = buffer.find(' ', clientBadgesPos);
 		if (clientBadgesEndPos == string::npos)
 			clientBadgesEndPos = buffer.length();
@@ -115,7 +117,7 @@ bool sendBadgeCommand()
 	string cmd = "clientupdate\\sclient_badges=overwolf=" + overwolfStr +
 				 ":badges=" + config->buildBadges();
 
-	hook_functions.sendCommand(1, cmd);
+	//hook_functions.sendCommand(1, cmd); //TODO: Crashes
 	return true;
 }
 

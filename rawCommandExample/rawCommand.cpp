@@ -120,8 +120,7 @@ void ts3plugin_onMenuItemEvent(uint64 serverConnectionHandlerID, enum PluginMenu
 		case MENU_ID_GLOBAL_1:
 		{
 			uint64 schid = functions.getCurrentServerConnectionHandlerID();
-			size_t success = 0;
-			hook_functions.raw_sendCommand(schid, "sendtextmessage\\stargetmode=2\\smsg=asdasd", success);
+			int success = hook_functions.sendCommand(schid, "sendtextmessage\\stargetmode=2\\smsg=asdasd");
 			functions.printMessageToCurrentTab(string("SendMSG: " + success).c_str());
 			break;
 		}
