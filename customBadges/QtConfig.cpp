@@ -23,7 +23,7 @@ void QtConfig::updateBoxes()
 {
 	for (int i = 0; i < tempBadges.size(); i++)
 	{
-		std::string s = "config\\plugins\\TS3Hook\\icons\\" + config->badgesIcons[tempBadgeIDs[i]] + ".png";
+		std::string s = "config\\plugins\\customBadges\\icons\\" + config->badgesIcons[tempBadgeIDs[i]] + ".png";
 		QString filename(s.c_str());
 		QImage image(filename);
 		switch (i)
