@@ -7,6 +7,9 @@ QtConfig::QtConfig(QWidget *parent)
 {
 	ui.setupUi(this);
 
+	ui.blockSetConnectionInfoBox->setChecked(config->blockSetConnectionInfo);
+	ui.blockConnectionInfoAutoUpdateBox->setChecked(config->blockConnectionInfoAutoUpdate);
+
 	size_t setConnectionInfoSize = config->setConnectionInfo.size();
 	for (int i = 0; i < setConnectionInfoSize; i++)
 	{
