@@ -33,18 +33,6 @@ QtManualBadges::~QtManualBadges()
 {
 }
 
-int findID(std::string string)
-{
-	for (unsigned i = 0; i < config->badgesGUID->size(); i++)
-	{
-		if (config->badgesGUID[i] == string)
-			return i;
-		else 
-			continue;
-	}
-	return -1;
-}
-
 void QtManualBadges::saveToConfig()
 {
 	for (int i = 0; i < inputLines.size(); i++)
@@ -58,7 +46,7 @@ void QtManualBadges::saveToConfig()
 			((QtConfig*)this->parentWidget())->tempBadgeIDs.push_back(0);
 		}
 		((QtConfig*)this->parentWidget())->tempBadges[i] = inputLines[i]->text().toStdString();
-		((QtConfig*)this->parentWidget())->tempBadgeIDs[i] = findID(inputLines[i]->text().toStdString());
+		((QtConfig*)this->parentWidget())->tempBadgeIDs[i] = config->findBadgeID(inputLines[i]->text().toStdString());
 	}
 
 	((QtConfig*)this->parentWidget())->updateBoxes();

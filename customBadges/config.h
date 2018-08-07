@@ -1,5 +1,8 @@
 #pragma once
 #include <vector>
+#include <fstream>
+#include <string>
+#include <sstream>
 using namespace std;
 
 class Config
@@ -11,6 +14,8 @@ public:
 	bool overwolfBadge = false;
 	vector<string> badges = { "94ec66de-5940-4e38-b002-970df0cf6c94" };
 	vector<int> badgeIDs = { 3 };
+	string directory = "";
+	string configName = "config.ini";
 
 	const string badgesGUID[16] = {
 		"1cb07348-34a4-4741-b50f-c41e584370f7", //Creator
@@ -48,18 +53,11 @@ public:
 		"ts_2018_64",
 		"e3_2018_64" };
 
-	string buildBadges()
-	{
-		string badgesString = "";
-		for (int i = 0; i < this->badges.size(); i++)
-		{
-			badgesString += this->badges[i] + ',';
-		}
-		if (badgesString.size() > 0)
-			badgesString.pop_back(); //delete last comma
-
-		return badgesString;
-	}
+	void readLine(vector<string> results);
+	bool readConfig(string dir);
+	bool writeConfig();
+	string buildBadges();
+	int findBadgeID(string GUID);
 };
 
 extern Config* config;

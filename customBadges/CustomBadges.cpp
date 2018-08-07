@@ -61,6 +61,11 @@ int ts3plugin_init() {
 	//If we get initialized after the hook we dont recive the hook_initialized event so we have to notify the hook that we're alive!
 	//Defined within the API
 	trigger_plugin_loaded(); 
+
+	char configPath[512];
+	functions.getConfigPath(configPath, 512);
+
+	config->readConfig(string(configPath) + "plugins/customBadges/");
 	return 0;
 }
 

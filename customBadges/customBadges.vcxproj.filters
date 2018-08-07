@@ -72,9 +72,11 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="icons.qrc" />
     <None Include="QtConfig.ui" />
     <None Include="QtManualBadges.ui" />
+    <None Include="icons.qrc">
+      <Filter>Ressourcendateien</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="QtManualBadges.h">
