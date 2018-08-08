@@ -17,6 +17,7 @@ public:
 	string directory = "";
 	string configName = "config.ini";
 
+	const unsigned badgeCount = 16;
 	const string badgesGUID[16] = {
 		"1cb07348-34a4-4741-b50f-c41e584370f7", //Creator
 		"450f81c1-ab41-4211-a338-222fa94ed157", //Creator Bronze
@@ -36,22 +37,40 @@ public:
 		"935e5a2a-954a-44ca-aa7a-55c79285b601" }; //E3 2018
 
 	const string badgesIcons[16] = {
-		"addon_author_64",
-		"addon_author_bronze_64",
-		"addon_author_silver_64",
-		"addon_author_gold_64",
-		"gamescom_2014_64",
-		"gamescom_2016_64",
-		"gamescom_2017_64",
-		"hero_2017_64",
-		"paris_gamesweek_2014_64",
-		"paris_gamesweek_2016_64",
-		"mifcom_64",
-		"4netplayers_64",
-		"rbtv_64",
-		"ts_early_2018_64",
-		"ts_2018_64",
-		"e3_2018_64" };
+		"addon_author",
+		"addon_author_bronze",
+		"addon_author_silver",
+		"addon_author_gold",
+		"gamescom_2014",
+		"gamescom_2016",
+		"gamescom_2017",
+		"hero_2017",
+		"paris_gamesweek_2014",
+		"paris_gamesweek_2016",
+		"mifcom",
+		"4netplayers",
+		"rbtv",
+		"ts_early_2018",
+		"ts_2018",
+		"e3_2018" };
+
+	const string badgeNames[16] = {
+		"Addon Creator",
+		"Addon Creator Bronze",
+		"Addon Creator Silver",
+		"Addon Creator Gold",
+		"Gamescom 2014",
+		"Gamescom 2016",
+		"Gamescom 2017",
+		"Gamescom Hero 2017",
+		"Paris Games Week 2014",
+		"Paris Games Week 2016",
+		"MIFCOM",
+		"4NetPlayers",
+		"Rocket Beans TV",
+		"TeamSpeak Jedi",
+		"Official TeamSpeak Gamer",
+		"E3 2018" };
 
 	void readLine(vector<string> results);
 	bool readConfig(string dir);

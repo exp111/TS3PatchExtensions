@@ -13,6 +13,20 @@ QtConfig::QtConfig(QWidget *parent, int currentTab)
 	tempBadges = config->badges;
 	tempBadgeIDs = config->badgeIDs;
 	updateBoxes();
+
+	for (int i = 0; i < config->badgeCount; i++)
+	{
+		QTreeWidgetItem* item = new QTreeWidgetItem();
+		item->setText(0, QString(config->badgeNames[i].c_str()));
+		string fileName = config->directory + "icons/" + config->badgesIcons[i] + ".png";
+		QIcon icon;
+		icon.addFile(QString(fileName.c_str()));
+		item->setIcon(0, icon);
+		string fileName64 = config->directory + "icons/" + config->badgesIcons[i] + "_64.png";
+		string tooltip = config->badgeNames[i] + "<br/><center><img width=\"64\" height=\"64\" src=\"" + fileName64 + "\"";
+		item->setToolTip(0, QString(tooltip.c_str()));
+		ui.badgeList->insertTopLevelItem(i, item);
+	}
 }
 
 QtConfig::~QtConfig()
@@ -23,7 +37,7 @@ void QtConfig::updateBoxes()
 {
 	for (int i = 0; i < tempBadges.size(); i++)
 	{
-		std::string s = config->directory + "icons/" + config->badgesIcons[tempBadgeIDs[i]] + ".png";
+		std::string s = config->directory + "icons/" + config->badgesIcons[tempBadgeIDs[i]] + "_64.png";
 		QString filename(s.c_str());
 		QImage image(filename);
 		switch (i)

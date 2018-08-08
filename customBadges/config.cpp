@@ -63,6 +63,7 @@ bool Config::readConfig(string dir)
 	this->badges.clear();
 	readLine(getNextLineAndSplitIntoTokens(file));
 
+	this->badgeIDs.clear();
 	for (string badge : this->badges) //add ids from badgeGUIDs
 		this->badgeIDs.push_back(findBadgeID(badge));
 
