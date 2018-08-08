@@ -7,19 +7,19 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>326</height>
+    <height>360</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>400</width>
-    <height>326</height>
+    <height>360</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>400</width>
-    <height>326</height>
+    <height>360</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -29,7 +29,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>290</y>
+     <y>330</y>
      <width>110</width>
      <height>23</height>
     </rect>
@@ -45,7 +45,7 @@
    <property name="geometry">
     <rect>
      <x>280</x>
-     <y>290</y>
+     <y>330</y>
      <width>110</width>
      <height>23</height>
     </rect>
@@ -84,9 +84,9 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>41</y>
+     <y>70</y>
      <width>380</width>
-     <height>241</height>
+     <height>250</height>
     </rect>
    </property>
    <property name="verticalScrollBarPolicy">
@@ -149,6 +149,58 @@
      <string>useOriginal</string>
     </property>
    </column>
+  </widget>
+  <widget class="QCheckBox" name="blockClientChatComposingBox">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>30</y>
+     <width>171</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Block clientChatComposing</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="blockClientChatClosedBox">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>30</y>
+     <width>181</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Block clientChatClosed</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="blockClientMuteBox">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>50</y>
+     <width>181</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Block clientMute</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="blockClientUnmuteBox">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>50</y>
+     <width>181</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Block clientUnmute</string>
+   </property>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

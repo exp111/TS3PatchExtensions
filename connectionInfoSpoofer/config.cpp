@@ -45,6 +45,14 @@ bool Config::readConfig(string dir)
 	this->blockSetConnectionInfo = stoi(getShitAfterDelim(line, '='));
 	getline(file, line);
 	this->blockConnectionInfoAutoUpdate = stoi(getShitAfterDelim(line, '='));
+	getline(file, line);
+	this->blockClientChatComposing = stoi(getShitAfterDelim(line, '='));
+	getline(file, line);
+	this->blockClientChatClosed = stoi(getShitAfterDelim(line, '='));
+	getline(file, line);
+	this->blockClientMute = stoi(getShitAfterDelim(line, '='));
+	getline(file, line);
+	this->blockClientUnmute = stoi(getShitAfterDelim(line, '='));
 
 	for (int i = 0; i < this->setConnectionInfo.size(); i++)
 	{
@@ -72,6 +80,10 @@ bool Config::writeConfig()
 
 	file << "blockSetConnectionInfo=" << int(this->blockSetConnectionInfo) << endl;
 	file << "blockConnectionInfoAutoUpdate=" << int(this->blockConnectionInfoAutoUpdate) << endl;
+	file << "blockClientChatComposing=" << int(this->blockClientChatComposing) << endl;
+	file << "blockClientChatClosed=" << int(this->blockClientChatClosed) << endl;
+	file << "blockClientMute=" << int(this->blockClientMute) << endl;
+	file << "blockClientUnmute=" << int(this->blockClientUnmute) << endl;
 
 	for (tuple<string, string, bool> tuple : this->setConnectionInfo)
 		file << get<0>(tuple) << '=' << get<1>(tuple) << ',' << get<2>(tuple) << endl;

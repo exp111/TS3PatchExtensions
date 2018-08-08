@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'QtConfigHp4304.ui'
+** Form generated from reading UI file 'QtConfigp10448.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.9.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef QTCONFIGHP4304_H
-#define QTCONFIGHP4304_H
+#ifndef QTCONFIGP10448_H
+#define QTCONFIGP10448_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -29,21 +29,25 @@ public:
     QCheckBox *blockSetConnectionInfoBox;
     QCheckBox *blockConnectionInfoAutoUpdateBox;
     QTableWidget *tableWidget;
+    QCheckBox *blockClientChatComposingBox;
+    QCheckBox *blockClientChatClosedBox;
+    QCheckBox *blockClientMuteBox;
+    QCheckBox *blockClientUnmuteBox;
 
     void setupUi(QWidget *QtConfig)
     {
         if (QtConfig->objectName().isEmpty())
             QtConfig->setObjectName(QStringLiteral("QtConfig"));
-        QtConfig->resize(400, 326);
-        QtConfig->setMinimumSize(QSize(400, 326));
-        QtConfig->setMaximumSize(QSize(400, 326));
+        QtConfig->resize(400, 360);
+        QtConfig->setMinimumSize(QSize(400, 360));
+        QtConfig->setMaximumSize(QSize(400, 360));
         acceptButton = new QPushButton(QtConfig);
         acceptButton->setObjectName(QStringLiteral("acceptButton"));
-        acceptButton->setGeometry(QRect(10, 290, 110, 23));
+        acceptButton->setGeometry(QRect(10, 330, 110, 23));
         acceptButton->setCheckable(false);
         cancelButton = new QPushButton(QtConfig);
         cancelButton->setObjectName(QStringLiteral("cancelButton"));
-        cancelButton->setGeometry(QRect(280, 290, 110, 23));
+        cancelButton->setGeometry(QRect(280, 330, 110, 23));
         blockSetConnectionInfoBox = new QCheckBox(QtConfig);
         blockSetConnectionInfoBox->setObjectName(QStringLiteral("blockSetConnectionInfoBox"));
         blockSetConnectionInfoBox->setGeometry(QRect(10, 10, 151, 21));
@@ -60,7 +64,7 @@ public:
         QTableWidgetItem *__qtablewidgetitem2 = new QTableWidgetItem();
         tableWidget->setHorizontalHeaderItem(2, __qtablewidgetitem2);
         tableWidget->setObjectName(QStringLiteral("tableWidget"));
-        tableWidget->setGeometry(QRect(10, 41, 380, 241));
+        tableWidget->setGeometry(QRect(10, 70, 380, 250));
         tableWidget->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         tableWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         tableWidget->setSizeAdjustPolicy(QAbstractScrollArea::AdjustIgnored);
@@ -69,13 +73,25 @@ public:
         tableWidget->setCornerButtonEnabled(true);
         tableWidget->horizontalHeader()->setVisible(false);
         tableWidget->horizontalHeader()->setCascadingSectionResizes(false);
-        tableWidget->horizontalHeader()->setDefaultSectionSize(50);
+        tableWidget->horizontalHeader()->setDefaultSectionSize(280);
         tableWidget->horizontalHeader()->setHighlightSections(true);
         tableWidget->horizontalHeader()->setMinimumSectionSize(50);
         tableWidget->horizontalHeader()->setStretchLastSection(true);
         tableWidget->verticalHeader()->setVisible(false);
         tableWidget->verticalHeader()->setCascadingSectionResizes(false);
         tableWidget->verticalHeader()->setStretchLastSection(false);
+        blockClientChatComposingBox = new QCheckBox(QtConfig);
+        blockClientChatComposingBox->setObjectName(QStringLiteral("blockClientChatComposingBox"));
+        blockClientChatComposingBox->setGeometry(QRect(10, 30, 171, 17));
+        blockClientChatClosedBox = new QCheckBox(QtConfig);
+        blockClientChatClosedBox->setObjectName(QStringLiteral("blockClientChatClosedBox"));
+        blockClientChatClosedBox->setGeometry(QRect(200, 30, 181, 17));
+        blockClientMuteBox = new QCheckBox(QtConfig);
+        blockClientMuteBox->setObjectName(QStringLiteral("blockClientMuteBox"));
+        blockClientMuteBox->setGeometry(QRect(10, 50, 181, 17));
+        blockClientUnmuteBox = new QCheckBox(QtConfig);
+        blockClientUnmuteBox->setObjectName(QStringLiteral("blockClientUnmuteBox"));
+        blockClientUnmuteBox->setGeometry(QRect(200, 50, 181, 17));
 
         retranslateUi(QtConfig);
         QObject::connect(acceptButton, SIGNAL(clicked()), QtConfig, SLOT(saveToConfig()));
@@ -98,6 +114,10 @@ public:
         ___qtablewidgetitem1->setText(QApplication::translate("QtConfig", "value", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem2 = tableWidget->horizontalHeaderItem(2);
         ___qtablewidgetitem2->setText(QApplication::translate("QtConfig", "useOriginal", Q_NULLPTR));
+        blockClientChatComposingBox->setText(QApplication::translate("QtConfig", "Block clientChatComposing", Q_NULLPTR));
+        blockClientChatClosedBox->setText(QApplication::translate("QtConfig", "Block clientChatClosed", Q_NULLPTR));
+        blockClientMuteBox->setText(QApplication::translate("QtConfig", "Block clientMute", Q_NULLPTR));
+        blockClientUnmuteBox->setText(QApplication::translate("QtConfig", "Block clientUnmute", Q_NULLPTR));
     } // retranslateUi
 
 };
@@ -108,4 +128,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // QTCONFIGHP4304_H
+#endif // QTCONFIGP10448_H

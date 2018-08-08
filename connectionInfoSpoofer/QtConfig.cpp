@@ -9,6 +9,10 @@ QtConfig::QtConfig(QWidget *parent)
 
 	ui.blockSetConnectionInfoBox->setChecked(config->blockSetConnectionInfo);
 	ui.blockConnectionInfoAutoUpdateBox->setChecked(config->blockConnectionInfoAutoUpdate);
+	ui.blockClientChatComposingBox->setChecked(config->blockClientChatComposing);
+	ui.blockClientChatClosedBox->setChecked(config->blockClientChatClosed);
+	ui.blockClientMuteBox->setChecked(config->blockClientMute);
+	ui.blockClientUnmuteBox->setChecked(config->blockClientUnmute);
 
 	size_t setConnectionInfoSize = config->setConnectionInfo.size();
 	for (int i = 0; i < setConnectionInfoSize; i++)
@@ -26,7 +30,7 @@ QtConfig::QtConfig(QWidget *parent)
 	size_t connectionInfoAutoUpdateSize = config->connectionInfoAutoUpdate.size();
 	for (int i = 0; i < connectionInfoAutoUpdateSize; i++)
 	{
-		int j = setConnectionInfoSize + i;
+		int j = (int)setConnectionInfoSize + i;
 		ui.tableWidget->insertRow(j);
 		QTableWidgetItem* item = new QTableWidgetItem(QString(get<0>(config->connectionInfoAutoUpdate[i]).c_str()));
 		ui.tableWidget->setItem(j, 0, item);
@@ -50,7 +54,10 @@ void QtConfig::saveToConfig()
 {
 	config->blockSetConnectionInfo = ui.blockSetConnectionInfoBox->isChecked();
 	config->blockConnectionInfoAutoUpdate = ui.blockConnectionInfoAutoUpdateBox->isChecked();
-
+	config->blockClientChatComposing = ui.blockClientChatComposingBox->isChecked();
+	config->blockClientChatClosed = ui.blockClientChatClosedBox->isChecked();
+	config->blockClientMute = ui.blockClientMuteBox->isChecked();
+	config->blockClientUnmute = ui.blockClientUnmuteBox->isChecked();
 
 	size_t setConnectionInfoSize = config->setConnectionInfo.size();
 	for (int i = 0; i < setConnectionInfoSize; i++)
@@ -62,7 +69,7 @@ void QtConfig::saveToConfig()
 	size_t connectionInfoAutoUpdateSize = config->connectionInfoAutoUpdate.size();
 	for (int i = 0; i < connectionInfoAutoUpdateSize; i++)
 	{
-		int j = setConnectionInfoSize + i;
+		int j = (int)setConnectionInfoSize + i;
 		get<1>(config->connectionInfoAutoUpdate[i]) = ui.tableWidget->item(j, 1)->text().toStdString();
 		get<2>(config->connectionInfoAutoUpdate[i]) = ui.tableWidget->item(j, 2)->checkState() == Qt::Checked ? true : false;
 	}

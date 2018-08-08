@@ -179,11 +179,70 @@ bool connectionInfoAutoUpdate(string &data, bool &canceled)
 	data = buf.str();
 	return true;
 }
+
+//------------------Block Stuff----------------------------
+bool clientChatComposing(string data, bool &canceled)
+{
+	if (!config->blockClientChatComposing)
+		return false;
+
+	size_t findPos = data.find("clientchatcomposing");
+	if (findPos == string::npos)
+		return false;
+
+	return canceled = true;
+}
+
+bool clientChatClosed(string data, bool &canceled)
+{
+	if (!config->blockClientChatClosed)
+		return false;
+
+	size_t findPos = data.find("clientchatclosed");
+	if (findPos == string::npos)
+		return false;
+
+	return canceled = true;
+}
+
+bool clientMute(string data, bool &canceled)
+{
+	if (!config->blockClientMute)
+		return false;
+
+	size_t findPos = data.find("clientmute");
+	if (findPos == string::npos)
+		return false;
+
+	return canceled = true;
+}
+
+bool clientUnmute(string data, bool &canceled)
+{
+	if (!config->blockClientUnmute)
+		return false;
+
+	size_t findPos = data.find("clientchatclosed");
+	if (findPos == string::npos)
+		return false;
+
+	return canceled = true;
+}
+//----------------------------------------------------------
+
 void onPacketOut(api::SCHId schId, api::CommandPacket* command, bool &canceled)
 {
 	string buffer = command->data();
 
 	bool changed = setConnectionInfo(buffer, canceled) || connectionInfoAutoUpdate(buffer, canceled);
+	
+	if (!changed)
+	{
+		bool cancel = clientChatComposing(buffer, canceled) ||
+			clientChatClosed(buffer, canceled) ||
+			clientMute(buffer, canceled) ||
+			clientUnmute(buffer, canceled);
+	}
 	
 	if (changed)
 		command->data(buffer);
