@@ -3,6 +3,7 @@
 #include <vector>
 #include <fstream>
 #include <sstream>
+#include <tuple>
 using namespace std;
 
 class Config
@@ -17,44 +18,45 @@ public:
 	bool blockSetConnectionInfo = false;
 	bool blockConnectionInfoAutoUpdate = false;
 	
-	vector<pair<string, string>> setConnectionInfo =
+	vector<tuple<string, string, bool>> setConnectionInfo =
 	{
-		{"connection_ping","0.0000"},
-		{"connection_ping_deviation","0"},
-		{"connection_packets_sent_speech","0"},
-		{"connection_packets_sent_keepalive","0"},
-		{"connection_packets_sent_control","0"},
-		{"connection_bytes_sent_speech","0"},
-		{"connection_bytes_sent_keepalive","0"},
-		{"connection_bytes_sent_control","0"},
-		{"connection_packets_received_speech","0"},
-		{"connection_packets_received_keepalive","0"},
-		{"connection_packets_received_control","0"},
-		{"connection_bytes_received_speech","0"},
-		{"connection_bytes_received_keepalive","0"},
-		{"connection_bytes_received_control","0"},
-		{"connection_server2client_packetloss_speech","0"},
-		{"connection_server2client_packetloss_keepalive","0"},
-		{"connection_server2client_packetloss_control","0"},
-		{"connection_server2client_packetloss_total","0"},
-		{"connection_bandwidth_sent_last_second_speech","0"},
-		{"connection_bandwidth_sent_last_second_keepalive","0"},
-		{"connection_bandwidth_sent_last_second_control","0"},
-		{"connection_bandwidth_sent_last_minute_speech","0"},
-		{"connection_bandwidth_sent_last_minute_keepalive","0"},
-		{"connection_bandwidth_sent_last_minute_control","0"},
-		{"connection_bandwidth_received_last_second_speech","0"},
-		{"connection_bandwidth_received_last_second_keepalive","0"},
-		{"connection_bandwidth_received_last_second_control","0"},
-		{"connection_bandwidth_received_last_minute_speech","0"},
-		{"connection_bandwidth_received_last_minute_keepalive","0"},
-		{"connection_bandwidth_received_last_minute_control","0"}
+		{"connection_ping","0.0000", true},
+		{"connection_ping_deviation","0", true},
+		{"connection_packets_sent_speech","0", true},
+		{"connection_packets_sent_keepalive","0", true},
+		{"connection_packets_sent_control","0", true},
+		{"connection_bytes_sent_speech","0", true},
+		{"connection_bytes_sent_keepalive","0", true},
+		{"connection_bytes_sent_control","0", true},
+		{"connection_packets_received_speech","0", true},
+		{"connection_packets_received_keepalive","0", true},
+		{"connection_packets_received_control","0", true},
+		{"connection_bytes_received_speech","0", true},
+		{"connection_bytes_received_keepalive","0", true},
+		{"connection_bytes_received_control","0", true},
+		{"connection_server2client_packetloss_speech","0", true},
+		{"connection_server2client_packetloss_keepalive","0", true},
+		{"connection_server2client_packetloss_control","0", true},
+		{"connection_server2client_packetloss_total","0", true},
+		{"connection_bandwidth_sent_last_second_speech","0", true},
+		{"connection_bandwidth_sent_last_second_keepalive","0", true},
+		{"connection_bandwidth_sent_last_second_control","0", true},
+		{"connection_bandwidth_sent_last_minute_speech","0", true},
+		{"connection_bandwidth_sent_last_minute_keepalive","0", true},
+		{"connection_bandwidth_sent_last_minute_control","0", true},
+		{"connection_bandwidth_received_last_second_speech","0", true},
+		{"connection_bandwidth_received_last_second_keepalive","0", true},
+		{"connection_bandwidth_received_last_second_control","0", true},
+		{"connection_bandwidth_received_last_minute_speech","0", true},
+		{"connection_bandwidth_received_last_minute_keepalive","0", true},
+		{"connection_bandwidth_received_last_minute_control","0", true}
 	};
-	vector<pair<string, string>> connectionInfoAutoUpdate = 
-	{	{"connection_server2client_packetloss_speech",	"0.0000"},
-		{"connection_server2client_packetloss_keepalive","0.0000"},
-		{"connection_server2client_packetloss_control",	"0.0000"},
-		{"connection_server2client_packetloss_total",	"0.0000" }};
+	vector<tuple<string, string, bool>> connectionInfoAutoUpdate = 
+	{	{"connection_server2client_packetloss_speech",	"0.0000", true},
+		{"connection_server2client_packetloss_keepalive","0.0000", true},
+		{"connection_server2client_packetloss_control",	"0.0000", true},
+		{"connection_server2client_packetloss_total",	"0.0000", true}
+	};
 
 	bool readConfig(string directory);
 	bool writeConfig();

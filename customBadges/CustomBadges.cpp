@@ -104,9 +104,9 @@ void onPacketOut(api::SCHId schId, api::CommandPacket* command, bool &canceled)
 
 		string overwolfStr = (config->overwolfBadge ? "1" : "0");
 
-		buffer = buffer.substr(0, clientBadgesPos + 14) + 
-				 "overwolf=" + overwolfStr + ":badges=" + config->buildBadges() + 
-				 buffer.substr(clientBadgesEndPos, buffer.length());
+		buffer = buffer.substr(0, clientBadgesPos + 14) +
+			"overwolf=" + overwolfStr + ":badges=" + config->buildBadges(); //+ 
+				 //buffer.substr(clientBadgesEndPos, buffer.length());
 		command->data(buffer);
 	}
 }

@@ -90,6 +90,18 @@ void ts3plugin_configure(void* handle, void* qParentWidget)
 
 #define HOSTNAME_BUFFER_LENGTH 20
 
+string getOriginalValue(string buffer, string prefix)
+{
+	size_t findPos = buffer.find(prefix);
+	if (findPos == string::npos)
+		return "";
+
+	size_t findEndPos = buffer.find(' ', findPos);
+	size_t start = findPos + prefix.size() + 1; //+1 cuz we have the =
+	size_t count = findEndPos != string::npos ? findEndPos - start : buffer.size() - start;
+	return buffer.substr(start, count);
+}
+
 bool setConnectionInfo(string &data, bool &canceled)
 {
 	//setconnectioninfo connection_ping=13.0000 connection_ping_deviation=2.4515 connection_packets_sent_speech=0 
@@ -115,8 +127,19 @@ bool setConnectionInfo(string &data, bool &canceled)
 
 	stringstream buf;
 	buf << "setconnectioninfo";
-	for (pair<string, string> pair : config->setConnectionInfo)
-		buf << " " << pair.first << "=" << pair.second;
+	for (tuple<string, string, bool> tuple : config->setConnectionInfo)
+	{
+		if (get<2>(tuple)) //do we want the original value?
+		{
+			string origValue = getOriginalValue(data, get<0>(tuple));
+			if (origValue.size() == 0)
+				continue;
+			buf << " " << get<0>(tuple).c_str() << "=" << origValue.c_str();
+		}
+		else
+			buf << " " << get<0>(tuple).c_str() << "=" << get<1>(tuple).c_str();
+	}
+	printf("%s\n%s\n", data.c_str(), buf.str().c_str());
 
 	data = buf.str();
 
@@ -139,8 +162,19 @@ bool connectionInfoAutoUpdate(string &data, bool &canceled)
 
 	stringstream buf; 
 	buf << "connectioninfoautoupdate";
-	for (pair<string, string> pair : config->connectionInfoAutoUpdate)
-		buf << " " << pair.first << "=" << pair.second;
+	for (tuple<string, string, bool> tuple : config->connectionInfoAutoUpdate)
+	{
+		if (get<2>(tuple)) //do we want the original value?
+		{
+			string origValue = getOriginalValue(data, get<0>(tuple));
+			if (origValue.size() == 0)
+				continue;
+			buf << " " << get<0>(tuple).c_str() << "=" << origValue.c_str();
+		}
+		else
+			buf << " " << get<0>(tuple).c_str() << "=" << get<1>(tuple).c_str();
+	}
+		
 
 	data = buf.str();
 	return true;

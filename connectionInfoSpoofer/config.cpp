@@ -4,11 +4,24 @@ Config* config = new Config;
 
 string getShitAfterDelim(string line, char delim)
 {
-	auto findPos = line.find(delim);
+	size_t findPos = line.find(delim);
 	if (findPos == string::npos)
 		return line;
 	
 	return line.substr(findPos + 1);
+}
+
+string getShitAfterDelim(string line, char delim, char delim2)
+{
+	size_t findPos = line.find(delim);
+	if (findPos == string::npos)
+		return line;
+
+	size_t findPos2 = line.find(delim2, findPos);
+	if (findPos2 == string::npos)
+		findPos2 = line.size();
+
+	return line.substr(findPos + 1, findPos2 - findPos - 1);
 }
 
 bool Config::readConfig(string dir)
@@ -36,13 +49,15 @@ bool Config::readConfig(string dir)
 	for (int i = 0; i < this->setConnectionInfo.size(); i++)
 	{
 		getline(file, line);
-		this->setConnectionInfo[i].second = getShitAfterDelim(line, '=');
+		get<1>(this->setConnectionInfo[i]) = getShitAfterDelim(line, '=', ',');
+		get<2>(this->setConnectionInfo[i]) = stoi(getShitAfterDelim(line, ','));
 	}
 	
 	for (int i = 0; i < this->connectionInfoAutoUpdate.size(); i++)
 	{
 		getline(file, line);
-		this->connectionInfoAutoUpdate[i].second = getShitAfterDelim(line, '=');
+		get<1>(this->connectionInfoAutoUpdate[i]) = getShitAfterDelim(line, '=', ',');
+		get<2>(this->connectionInfoAutoUpdate[i]) = stoi(getShitAfterDelim(line, ','));
 	}
 
 	return true;
@@ -58,11 +73,11 @@ bool Config::writeConfig()
 	file << "blockSetConnectionInfo=" << int(this->blockSetConnectionInfo) << endl;
 	file << "blockConnectionInfoAutoUpdate=" << int(this->blockConnectionInfoAutoUpdate) << endl;
 
-	for (pair<string, string> pair : this->setConnectionInfo)
-		file << pair.first << "=" << pair.second << endl;
+	for (tuple<string, string, bool> tuple : this->setConnectionInfo)
+		file << get<0>(tuple) << '=' << get<1>(tuple) << ',' << get<2>(tuple) << endl;
 	
-	for (pair<string, string> pair : this->connectionInfoAutoUpdate)
-		file << pair.first << "=" << pair.second << endl;
+	for (tuple<string, string, bool> tuple : this->connectionInfoAutoUpdate)
+		file << get<0>(tuple) << '=' << get<1>(tuple) << ',' << get<2>(tuple) << endl;
 
 	file.close();
 

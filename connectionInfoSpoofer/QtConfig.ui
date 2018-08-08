@@ -6,19 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>348</width>
+    <width>400</width>
     <height>326</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>348</width>
+    <width>400</width>
     <height>326</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>348</width>
+    <width>400</width>
     <height>326</height>
    </size>
   </property>
@@ -30,7 +30,7 @@
     <rect>
      <x>10</x>
      <y>290</y>
-     <width>111</width>
+     <width>110</width>
      <height>23</height>
     </rect>
    </property>
@@ -44,9 +44,9 @@
   <widget class="QPushButton" name="cancelButton">
    <property name="geometry">
     <rect>
-     <x>230</x>
+     <x>280</x>
      <y>290</y>
-     <width>111</width>
+     <width>110</width>
      <height>23</height>
     </rect>
    </property>
@@ -70,9 +70,9 @@
   <widget class="QCheckBox" name="blockConnectionInfoAutoUpdateBox">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>200</x>
      <y>10</y>
-     <width>181</width>
+     <width>190</width>
      <height>20</height>
     </rect>
    </property>
@@ -85,7 +85,7 @@
     <rect>
      <x>10</x>
      <y>41</y>
-     <width>331</width>
+     <width>380</width>
      <height>241</height>
     </rect>
    </property>
@@ -142,6 +142,11 @@
    <column>
     <property name="text">
      <string>value</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>useOriginal</string>
     </property>
    </column>
   </widget>

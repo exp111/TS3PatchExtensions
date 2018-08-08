@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'QtConfigHp4456.ui'
+** Form generated from reading UI file 'QtConfigHp4304.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.9.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef QTCONFIGHP4456_H
-#define QTCONFIGHP4456_H
+#ifndef QTCONFIGHP4304_H
+#define QTCONFIGHP4304_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -34,31 +34,33 @@ public:
     {
         if (QtConfig->objectName().isEmpty())
             QtConfig->setObjectName(QStringLiteral("QtConfig"));
-        QtConfig->resize(348, 326);
-        QtConfig->setMinimumSize(QSize(348, 326));
-        QtConfig->setMaximumSize(QSize(348, 326));
+        QtConfig->resize(400, 326);
+        QtConfig->setMinimumSize(QSize(400, 326));
+        QtConfig->setMaximumSize(QSize(400, 326));
         acceptButton = new QPushButton(QtConfig);
         acceptButton->setObjectName(QStringLiteral("acceptButton"));
-        acceptButton->setGeometry(QRect(10, 290, 111, 23));
+        acceptButton->setGeometry(QRect(10, 290, 110, 23));
         acceptButton->setCheckable(false);
         cancelButton = new QPushButton(QtConfig);
         cancelButton->setObjectName(QStringLiteral("cancelButton"));
-        cancelButton->setGeometry(QRect(230, 290, 111, 23));
+        cancelButton->setGeometry(QRect(280, 290, 110, 23));
         blockSetConnectionInfoBox = new QCheckBox(QtConfig);
         blockSetConnectionInfoBox->setObjectName(QStringLiteral("blockSetConnectionInfoBox"));
         blockSetConnectionInfoBox->setGeometry(QRect(10, 10, 151, 21));
         blockConnectionInfoAutoUpdateBox = new QCheckBox(QtConfig);
         blockConnectionInfoAutoUpdateBox->setObjectName(QStringLiteral("blockConnectionInfoAutoUpdateBox"));
-        blockConnectionInfoAutoUpdateBox->setGeometry(QRect(160, 10, 181, 20));
+        blockConnectionInfoAutoUpdateBox->setGeometry(QRect(200, 10, 190, 20));
         tableWidget = new QTableWidget(QtConfig);
-        if (tableWidget->columnCount() < 2)
-            tableWidget->setColumnCount(2);
+        if (tableWidget->columnCount() < 3)
+            tableWidget->setColumnCount(3);
         QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
         tableWidget->setHorizontalHeaderItem(0, __qtablewidgetitem);
         QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
         tableWidget->setHorizontalHeaderItem(1, __qtablewidgetitem1);
+        QTableWidgetItem *__qtablewidgetitem2 = new QTableWidgetItem();
+        tableWidget->setHorizontalHeaderItem(2, __qtablewidgetitem2);
         tableWidget->setObjectName(QStringLiteral("tableWidget"));
-        tableWidget->setGeometry(QRect(10, 41, 331, 241));
+        tableWidget->setGeometry(QRect(10, 41, 380, 241));
         tableWidget->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         tableWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         tableWidget->setSizeAdjustPolicy(QAbstractScrollArea::AdjustIgnored);
@@ -67,7 +69,7 @@ public:
         tableWidget->setCornerButtonEnabled(true);
         tableWidget->horizontalHeader()->setVisible(false);
         tableWidget->horizontalHeader()->setCascadingSectionResizes(false);
-        tableWidget->horizontalHeader()->setDefaultSectionSize(280);
+        tableWidget->horizontalHeader()->setDefaultSectionSize(50);
         tableWidget->horizontalHeader()->setHighlightSections(true);
         tableWidget->horizontalHeader()->setMinimumSectionSize(50);
         tableWidget->horizontalHeader()->setStretchLastSection(true);
@@ -94,6 +96,8 @@ public:
         ___qtablewidgetitem->setText(QApplication::translate("QtConfig", "name", Q_NULLPTR));
         QTableWidgetItem *___qtablewidgetitem1 = tableWidget->horizontalHeaderItem(1);
         ___qtablewidgetitem1->setText(QApplication::translate("QtConfig", "value", Q_NULLPTR));
+        QTableWidgetItem *___qtablewidgetitem2 = tableWidget->horizontalHeaderItem(2);
+        ___qtablewidgetitem2->setText(QApplication::translate("QtConfig", "useOriginal", Q_NULLPTR));
     } // retranslateUi
 
 };
@@ -104,4 +108,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // QTCONFIGHP4456_H
+#endif // QTCONFIGHP4304_H

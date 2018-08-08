@@ -6,6 +6,7 @@
 
 #include <cstddef>
 #include <string>
+#include <tuple>
 
 #ifdef WIN32
 #define PLUGINS_EXPORTDLL __declspec(dllexport)
