@@ -11,7 +11,7 @@ class QtConfig : public QMainWindow
 	Q_OBJECT
 	friend QtManualBadges;
 public:
-	QtConfig(QWidget *parent = Q_NULLPTR, int currentTab = 0);
+	QtConfig(QWidget *parent = Q_NULLPTR);
 	~QtConfig();
 
 public slots:

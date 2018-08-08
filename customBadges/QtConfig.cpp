@@ -3,7 +3,7 @@
 #include "config.h"
 #include "customBadges.h"
 
-QtConfig::QtConfig(QWidget *parent, int currentTab)
+QtConfig::QtConfig(QWidget *parent)
 	: QMainWindow(parent)
 {
 	ui.setupUi(this);
@@ -13,6 +13,9 @@ QtConfig::QtConfig(QWidget *parent, int currentTab)
 	tempBadges = config->badges;
 	tempBadgeIDs = config->badgeIDs;
 	updateBoxes();
+	QIcon windowIcon;
+	windowIcon.addFile(QString((config->directory + "icons/addon_author.png").c_str()));
+	this->setWindowIcon(windowIcon);
 
 	for (int i = 0; i < config->badgeCount; i++)
 	{
