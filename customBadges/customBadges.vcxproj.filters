@@ -52,10 +52,10 @@
     <ClCompile Include="config.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_QtManualBadges.cpp">
+    <ClCompile Include="GeneratedFiles\Debug\moc_ClickableLabel.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_QtManualBadges.cpp">
+    <ClCompile Include="GeneratedFiles\Release\moc_ClickableLabel.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_QtConfig.cpp">
@@ -64,10 +64,16 @@
     <ClCompile Include="GeneratedFiles\Release\moc_QtConfig.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_ClickableLabel.cpp">
+    <ClCompile Include="GeneratedFiles\ReleaseAll\moc_QtConfig.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_ClickableLabel.cpp">
+    <ClCompile Include="GeneratedFiles\Debug\moc_QtManualBadges.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_QtManualBadges.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\ReleaseAll\moc_QtManualBadges.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -38,6 +38,9 @@
     <ClCompile Include="GeneratedFiles\Release\moc_QtConfig.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
+    <ClCompile Include="GeneratedFiles\ReleaseAll\moc_QtConfig.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="connectionInfoSpoofer.h">

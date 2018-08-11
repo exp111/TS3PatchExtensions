@@ -120,7 +120,7 @@ void ts3plugin_onMenuItemEvent(uint64 serverConnectionHandlerID, enum PluginMenu
 		case MENU_ID_GLOBAL_1:
 		{
 			uint64 schid = functions.getCurrentServerConnectionHandlerID();
-			int success = hook_functions.sendCommand(schid, "sendtextmessage\\stargetmode=2\\smsg=asdasd");
+			int success = hook_functions.sendCommand(schid, "sendtextmessage targetmode=2 msg=LALALA\\sLAND!");
 			functions.printMessageToCurrentTab(string("SendMSG: " + success).c_str());
 			break;
 		}
@@ -138,13 +138,13 @@ void onPacketOut(api::SCHId schId, api::CommandPacket* command, bool &canceled)
 	if (command->data().find("fuckoff") == string::npos)
 		return;
 
-	hook_functions.sendCommand(schId, "sendtextmessage\\stargetmode=2\\smsg=asdasd");
+	hook_functions.sendCommand(schId, "sendtextmessage targetmode=2 msg=LALALA\\sLAND!");
 	canceled = true;
 }
 int ts3plugin_processCommand(uint64 serverConnectionHandlerID, const char* command) 
 {
 	//ex: /spongeMock example => command = "example"
-	hook_functions.sendCommand(serverConnectionHandlerID, "sendtextmessage\\stargetmode=2\\smsg=asdasd");
+	hook_functions.sendCommand(serverConnectionHandlerID, "sendtextmessage targetmode=2 msg=LALALA\\sLAND!");
 	return true; //0 = We handled the command
 }
 
