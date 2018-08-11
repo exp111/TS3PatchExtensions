@@ -18,7 +18,7 @@ auto local_hook_deleter = [](api::Hook* instance) {
 		hook_functions.unregisterHook(instance);
 	delete instance;
 };
-
+unique_ptr<api::Hook, decltype(local_hook_deleter)> local_hook(nullptr, local_hook_deleter);
 
 void ts3plugin_freeMemory(void *data) {
 	if (data) free(data);
@@ -133,17 +133,30 @@ void ts3plugin_onMenuItemEvent(uint64 serverConnectionHandlerID, enum PluginMenu
 	}
 }
 
+void onPacketOut(api::SCHId schId, api::CommandPacket* command, bool &canceled)
+{
+	if (command->data().find("fuckoff") == string::npos)
+		return;
+
+	hook_functions.sendCommand(schId, "sendtextmessage\\stargetmode=2\\smsg=asdasd");
+	canceled = true;
+}
 int ts3plugin_processCommand(uint64 serverConnectionHandlerID, const char* command) 
 {
 	//ex: /spongeMock example => command = "example"
-	uint64 success = 0;
-	hook_functions.raw_sendCommand(serverConnectionHandlerID, "sendtextmessage\\stargetmode=2\\smsg=asdasd", success);
-	return !(bool)success; //0 = We handled the command
+	hook_functions.sendCommand(serverConnectionHandlerID, "sendtextmessage\\stargetmode=2\\smsg=asdasd");
+	return true; //0 = We handled the command
 }
 
 int hook_initialized(const wolverindev::ts::ApiFunctions fn) {
 	printf("%s: Hook called me for initialisation!\n", ts3plugin_name());
 	hook_functions = fn;
+
+	local_hook.reset(new api::Hook());
+	local_hook->activated = []() { return true; };
+	local_hook->on_packet_out = &onPacketOut;
+
+	hook_functions.registerHook(local_hook.get());
 	return 0;
 }
 
