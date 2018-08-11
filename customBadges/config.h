@@ -3,6 +3,7 @@
 #include <fstream>
 #include <string>
 #include <sstream>
+#include <tuple>
 using namespace std;
 
 class Config
@@ -16,9 +17,13 @@ public:
 	vector<int> badgeIDs = { 3 };
 	string directory = "";
 	string configName = "config.ini";
+	string csvName = "badges.csv";
 
-	const unsigned badgeCount = 16;
-	const string badgesGUID[16] = {
+	unsigned badgeCount = 0;
+	//uid,name,description,filename
+	vector<tuple<string, string, string, string>> allBadges;
+
+	/*const string badgesGUID[16] = {
 		"1cb07348-34a4-4741-b50f-c41e584370f7", //Creator
 		"450f81c1-ab41-4211-a338-222fa94ed157", //Creator Bronze
 		"c9e97536-5a2d-4c8e-a135-af404587a472", //Creator Silver
@@ -70,9 +75,11 @@ public:
 		"Rocket Beans TV",
 		"TeamSpeak Jedi",
 		"Official TeamSpeak Gamer",
-		"E3 2018" };
+		"E3 2018" };*/
 
-	void readLine(vector<string> results);
+	void readCSVLine(vector<string> results);
+	bool readCSV(string directory);
+	void readConfigLine(vector<string> results);
 	bool readConfig(string dir);
 	bool writeConfig();
 	string buildBadges();

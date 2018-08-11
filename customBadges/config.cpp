@@ -33,7 +33,35 @@ vector<string> getNextLineAndSplitIntoTokens(istream& str)
 	return result;
 }
 
-void Config::readLine(vector<string> results)
+void Config::readCSVLine(vector<string> results)
+{
+	//uid,name,description,filename
+	bool fileFound = ifstream(this->directory + "icons/" + results[3] + ".png").good();
+	string fileName = fileFound ? results[3] : "placeholder";
+	this->allBadges.push_back(make_tuple(results[0], results[1], results[2], fileName));
+	this->badgeCount++;
+}
+
+bool Config::readCSV(string dir)
+{
+	string configFile = dir + csvName;
+
+	ifstream file(configFile);
+
+	if (!file.good())
+		return false;
+
+	string line;
+	getline(file, line); //skip the first line
+	while (!file.eof())
+		readCSVLine(getNextLineAndSplitIntoTokens(file));
+
+	file.close();
+
+	return true;
+}
+
+void Config::readConfigLine(vector<string> results)
 {
 	for (string result : results)
 	{
@@ -49,6 +77,7 @@ bool Config::readConfig(string dir)
 	this->directory = dir;
 
 	string configFile = this->directory + this->configName;
+	readCSV(dir);
 
 	ifstream file(configFile);
 
@@ -61,7 +90,7 @@ bool Config::readConfig(string dir)
 	this->overwolfBadge = stoi(getShitAfterDelim(line, '='));
 
 	this->badges.clear();
-	readLine(getNextLineAndSplitIntoTokens(file));
+	readConfigLine(getNextLineAndSplitIntoTokens(file));
 
 	this->badgeIDs.clear();
 	for (string badge : this->badges) //add ids from badgeGUIDs
@@ -102,9 +131,9 @@ string Config::buildBadges()
 
 int Config::findBadgeID(string GUID)
 {
-	for (unsigned i = 0; i < config->badgesGUID->size(); i++)
+	for (unsigned i = 0; i < badgeCount; i++)
 	{
-		if (config->badgesGUID[i] == GUID)
+		if (get<0>(this->allBadges[i]) == GUID)
 			return i;
 		else
 			continue;
