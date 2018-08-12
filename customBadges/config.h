@@ -18,15 +18,18 @@ public:
 	string directory = "";
 	string configName = "config.ini";
 	string csvName = "badges.csv";
+	const char* csvUrl = "https://raw.githubusercontent.com/exp111/TS3PatchExtensions/master/customBadges/badges.csv";
+	bool foundCSV = false;
 
 	unsigned badgeCount = 0;
 	//uid,name,description,filename
 	vector<tuple<string, string, string, string>> allBadges;
 
+	void setDirectory(string directory) { this->directory = directory; };
 	void readCSVLine(vector<string> results);
-	bool readCSV(string directory);
+	bool readCSV();
 	void readConfigLine(vector<string> results);
-	bool readConfig(string dir);
+	bool readConfig();
 	bool writeConfig();
 	string buildBadges();
 	int findBadgeID(string GUID);

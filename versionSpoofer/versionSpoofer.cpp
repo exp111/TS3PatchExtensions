@@ -65,7 +65,12 @@ int ts3plugin_init() {
 	char configPath[512];
 	functions.getConfigPath(configPath, 512);
 
-	config->readConfig(string(configPath) + "plugins/versionSpoofer/");
+	config->setDirectory(string(configPath) + "plugins/versionSpoofer/");
+	if (!config->readCSV())
+	{
+		functions.printMessageToCurrentTab(("It seems like you don't have a " + config->csvName + " file. Download it from [URL=" + config->csvUrl + "]here[/URL]").c_str());
+	}
+	config->readConfig();
 
 	/*config->OSList = { "Windows", "Linux" };
 	config->versionList["Windows"] = { {"3.0.11 [Build: 1374563791]", "hQCwiLP5f4GIcDG5KQ1T+CNFGqRxyw5MXCHE8KjWRIgkjCuGSryK4vpPy70EURH3blQ8TKrax8BEorHlpnpdAQ=="},{ "3.0.11 [Build: 1374830986]", "PJvjEuApy2McckLGGnAgw8kB2FE+yb4J/TuUdaLj+x5JVghSBR5tKJDQklLurJrshKynWzYYtokrtgBxTAz5CA==" } };

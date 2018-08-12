@@ -42,11 +42,11 @@ void Config::readCSVLine(vector<string> results)
 	this->badgeCount++;
 }
 
-bool Config::readCSV(string dir)
+bool Config::readCSV()
 {
-	string configFile = dir + csvName;
+	string csvFilePath = this->directory + csvName;
 
-	ifstream file(configFile);
+	ifstream file(csvFilePath);
 
 	if (!file.good())
 		return false;
@@ -58,7 +58,7 @@ bool Config::readCSV(string dir)
 
 	file.close();
 
-	return true;
+	return this->foundCSV = true;
 }
 
 void Config::readConfigLine(vector<string> results)
@@ -72,12 +72,9 @@ void Config::readConfigLine(vector<string> results)
 	}
 }
 
-bool Config::readConfig(string dir)
+bool Config::readConfig()
 {
-	this->directory = dir;
-
 	string configFile = this->directory + this->configName;
-	readCSV(dir);
 
 	ifstream file(configFile);
 

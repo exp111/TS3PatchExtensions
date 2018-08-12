@@ -17,18 +17,28 @@ QtConfig::QtConfig(QWidget *parent)
 	windowIcon.addFile(QString((config->directory + "icons/addon_author.png").c_str()));
 	this->setWindowIcon(windowIcon);
 
-	for (int i = 0; i < config->badgeCount; i++)
+	if (config->foundCSV)
 	{
-		QTreeWidgetItem* item = new QTreeWidgetItem();
-		item->setText(0, QString(get<1>(config->allBadges[i]).c_str()));
-		string fileName = config->directory + "icons/" + get<3>(config->allBadges[i]) + ".png";
-		QIcon icon;
-		icon.addFile(QString(fileName.c_str()));
-		item->setIcon(0, icon);
-		string fileName64 = config->directory + "icons/" + get<3>(config->allBadges[i]) + "_64.png";
-		string tooltip = "<center>" + get<1>(config->allBadges[i]) + "<br/>" + get<2>(config->allBadges[i])  + "<center><img width=\"64\" height=\"64\" src=\"" + fileName64 + "\"";
-		item->setToolTip(0, QString(tooltip.c_str()));
-		ui.badgeList->insertTopLevelItem(i, item);
+		for (int i = 0; i < config->badgeCount; i++)
+		{
+			QTreeWidgetItem* item = new QTreeWidgetItem();
+			item->setText(0, QString(get<1>(config->allBadges[i]).c_str()));
+			string fileName = config->directory + "icons/" + get<3>(config->allBadges[i]) + ".png";
+			QIcon icon;
+			icon.addFile(QString(fileName.c_str()));
+			item->setIcon(0, icon);
+			string fileName64 = config->directory + "icons/" + get<3>(config->allBadges[i]) + "_64.png";
+			string tooltip = "<center>" + get<1>(config->allBadges[i]) + "<br/>" + get<2>(config->allBadges[i]) + "<center><img width=\"64\" height=\"64\" src=\"" + fileName64 + "\"";
+			item->setToolTip(0, QString(tooltip.c_str()));
+			ui.badgeList->insertTopLevelItem(i, item);
+		}
+	}
+	else
+	{
+		QMessageBox* notifyUserDialog = new QMessageBox(QMessageBox::Icon::Warning, "Missing CSV File", ("It seems like you don't have a " + config->csvName + " file. Download it from <a href='" + config->csvUrl + "'>here</a>.").c_str(), QMessageBox::NoButton, parent);
+		notifyUserDialog->setWindowIcon(QIcon());
+		notifyUserDialog->setAttribute(Qt::WA_DeleteOnClose);
+		notifyUserDialog->show();
 	}
 }
 
@@ -40,6 +50,9 @@ void QtConfig::updateBoxes()
 {
 	for (int i = 0; i < tempBadges.size(); i++)
 	{
+		if (config->badgeCount < tempBadgeIDs[i])
+			continue;
+
 		std::string s = config->directory + "icons/" + get<3>(config->allBadges[tempBadgeIDs[i]]) + "_64.png";
 		QString filename(s.c_str());
 		QImage image(filename);

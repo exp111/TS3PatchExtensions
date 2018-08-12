@@ -33,17 +33,15 @@ string getShitAfterDelim(string line, char delim)
 	return line.substr(findPos + 1);
 }
 
-bool Config::readConfig(string dir)
+bool Config::readConfig()
 {
-	directory = dir;
 	/*
 	OS=iOS
 	Version=3.0.11 [Build: 1374563791]
 	VersionHash=hQCwiLP5f4GIcDG5KQ1T+CNFGqRxyw5MXCHE8KjWRIgkjCuGSryK4vpPy70EURH3blQ8TKrax8BEorHlpnpdAQ==
 	*/
 
-	string configFile = dir + configName;
-	readCSV(dir);
+	string configFile = this->directory + configName;
 
 	ifstream file(configFile);
 
@@ -61,11 +59,11 @@ bool Config::readConfig(string dir)
 	return true;
 }
 
-bool Config::readCSV(string dir)
+bool Config::readCSV()
 {
-	string configFile = dir + csvName;
+	string csvFilePath = this->directory + csvName;
 	
-	ifstream file(configFile);
+	ifstream file(csvFilePath);
 
 	if (!file.good())
 		return false;
@@ -77,7 +75,7 @@ bool Config::readCSV(string dir)
 
 	file.close();
 
-	return true;
+	return this->foundCSV = true;
 }
 
 void Config::readLine(vector<string> results)

@@ -1,4 +1,5 @@
 #pragma once
+#include <QMessageBox>
 #include <string>
 #include <vector>
 #include <map>
@@ -15,6 +16,8 @@ public:
 	string directory;
 	string configName = "config.ini";
 	string csvName = "versions.csv";
+	const char* csvUrl = "https://raw.githubusercontent.com/exp111/TS3PatchExtensions/master/versionSpoofer/versions.csv";
+	bool foundCSV = false;
 
 	string OS = "iOS";
 	string version = "3.?.? [Build: 5680278000]";
@@ -24,8 +27,9 @@ public:
 	map<string, vector<pair<string, string>>> versionList;
 	//versionList["Windows"] = { {"3.0.11 [Build: 1374563791]", "hQCwiLP5f4GIcDG5KQ1T+CNFGqRxyw5MXCHE8KjWRIgkjCuGSryK4vpPy70EURH3blQ8TKrax8BEorHlpnpdAQ=="}, {"3.0.11 [Build: 1374830986]", "PJvjEuApy2McckLGGnAgw8kB2FE+yb4J/TuUdaLj+x5JVghSBR5tKJDQklLurJrshKynWzYYtokrtgBxTAz5CA=="}, ... }
 
-	bool readConfig(string directory);
-	bool readCSV(string directory);
+	void setDirectory(string directory) { this->directory = directory; };
+	bool readConfig();
+	bool readCSV();
 	void readLine(vector<string> results);
 	bool writeConfig();
 };

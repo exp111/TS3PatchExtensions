@@ -25,6 +25,14 @@ QtConfig::QtConfig(QWidget *parent)
 
 	ui.OSComboBox->setCurrentIndex(std::find(config->OSList.begin(), config->OSList.end(), config->OS) - config->OSList.begin());
 	ui.versionComboBox->setCurrentIndex(getIndex(config->versionList[config->OS], config->version));
+
+	if (!config->foundCSV)
+	{
+		QMessageBox* notifyUserDialog = new QMessageBox(QMessageBox::Icon::Warning, "Missing CSV File", ("It seems like you don't have a " + config->csvName + " file. Download it from <a href='" + config->csvUrl + "'>here</a>.").c_str(), QMessageBox::NoButton, parent);
+		notifyUserDialog->setWindowIcon(QIcon());
+		notifyUserDialog->setAttribute(Qt::WA_DeleteOnClose);
+		notifyUserDialog->show();
+	}
 }
 
 QtConfig::~QtConfig()

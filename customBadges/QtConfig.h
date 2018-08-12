@@ -1,6 +1,7 @@
 #pragma once
 #include "GeneratedFiles\ui_QtConfig.h"
 
+#include <QMessageBox>
 #include <string>
 #include <vector>
 
