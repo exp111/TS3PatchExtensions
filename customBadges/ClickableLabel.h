@@ -1,6 +1,8 @@
 #pragma once
 
 #include <QLabel>
+#include <QDropEvent>
+#include <QTreeWidget>
 
 class ClickableLabel : public QLabel
 {
@@ -11,8 +13,14 @@ public:
 	~ClickableLabel();
 
 signals:
+	void dropFromTreeWidgetOnEmpty(QTreeWidgetItem*);
+	void dropFromTreeWidgetOnNotEmpty(QString, QTreeWidgetItem*);
 	void clicked();
 
 protected:
+	void dragEnterEvent(QDragEnterEvent *event);
+	void dragMoveEvent(QDragMoveEvent *event);
+	void dragLeaveEvent(QDragLeaveEvent *event);
+	void dropEvent(QDropEvent *event);
 	void mousePressEvent(QMouseEvent* event);
 };

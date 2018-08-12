@@ -14,14 +14,15 @@ class QtConfig : public QMainWindow
 public:
 	QtConfig(QWidget *parent = Q_NULLPTR);
 	~QtConfig();
+	void updateBoxes();
 
 public slots:
-	void updateBoxes();
 	void saveToConfig();
-	void addBadge(QTreeWidgetItem* item);
+	void addBadge(QTreeWidgetItem*);
 	void deleteBadge1();
 	void deleteBadge2();
 	void deleteBadge3();
+	void swapBadge(QString label, QTreeWidgetItem*);
 
 	void openManualBadges();
 

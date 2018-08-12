@@ -107,14 +107,16 @@ void QtConfig::saveToConfig()
 	config->writeConfig();
 }
 
-void QtConfig::addBadge(QTreeWidgetItem* item)
+void QtConfig::addBadge(QTreeWidgetItem*)
 {
 	if (tempBadges.size() > MAX_BADGES)
 		return;
-	
+
 	int index = ui.badgeList->currentIndex().row();
 	tempBadges.push_back(get<0>(config->allBadges[index]));
 	tempBadgeIDs.push_back(index);
+
+	updateBoxes();
 }
 
 void QtConfig::deleteBadge1()
@@ -129,6 +131,8 @@ void QtConfig::deleteBadge1()
 		tempBadges.pop_back();
 		tempBadgeIDs.pop_back();
 	}
+
+	updateBoxes();
 }
 
 void QtConfig::deleteBadge2()
@@ -143,6 +147,8 @@ void QtConfig::deleteBadge2()
 		tempBadges.pop_back();
 		tempBadgeIDs.pop_back();
 	}
+
+	updateBoxes();
 }
 
 void QtConfig::deleteBadge3()
@@ -157,6 +163,37 @@ void QtConfig::deleteBadge3()
 		tempBadges.pop_back();
 		tempBadgeIDs.pop_back();
 	}
+
+	updateBoxes();
+}
+
+void QtConfig::swapBadge(QString label, QTreeWidgetItem*)
+{
+	int i = -1;
+	if (label.compare("badge1Label", Qt::CaseInsensitive) == 0)
+	{
+		i = 0;
+	}
+	else if (label.compare("badge2Label", Qt::CaseInsensitive) == 0)
+	{
+		i = 1;
+	}
+	else if (label.compare("badge3Label", Qt::CaseInsensitive) == 0)
+	{
+		i = 2;
+	}
+
+	if (i == -1)
+		return;
+
+	if (tempBadges.size() < i)
+		return;
+
+	int index = ui.badgeList->currentIndex().row();
+	tempBadges[i] = get<0>(config->allBadges[index]);
+	tempBadgeIDs[i] = index;
+
+	updateBoxes();
 }
 
 void QtConfig::openManualBadges()

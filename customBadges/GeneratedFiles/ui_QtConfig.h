@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'QtConfigqHp936.ui'
+** Form generated from reading UI file 'QtConfigHp9920.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.9.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef QTCONFIGQHP936_H
-#define QTCONFIGQHP936_H
+#ifndef QTCONFIGHP9920_H
+#define QTCONFIGHP9920_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -47,13 +47,6 @@ public:
         if (QtConfig->objectName().isEmpty())
             QtConfig->setObjectName(QStringLiteral("QtConfig"));
         QtConfig->resize(554, 429);
-        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(QtConfig->sizePolicy().hasHeightForWidth());
-        QtConfig->setSizePolicy(sizePolicy);
-        QtConfig->setMinimumSize(QSize(554, 429));
-        QtConfig->setMaximumSize(QSize(554, 429));
         centralWidget = new QWidget(QtConfig);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         widget = new QWidget(centralWidget);
@@ -111,10 +104,12 @@ public:
         QObject::connect(badge3Label, SIGNAL(clicked()), QtConfig, SLOT(deleteBadge3()));
         QObject::connect(manualBadgeOverride, SIGNAL(clicked()), QtConfig, SLOT(openManualBadges()));
         QObject::connect(badgeList, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)), QtConfig, SLOT(addBadge(QTreeWidgetItem*)));
-        QObject::connect(badgeList, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)), QtConfig, SLOT(updateBoxes()));
-        QObject::connect(badge1Label, SIGNAL(clicked()), QtConfig, SLOT(updateBoxes()));
-        QObject::connect(badge2Label, SIGNAL(clicked()), QtConfig, SLOT(updateBoxes()));
-        QObject::connect(badge3Label, SIGNAL(clicked()), QtConfig, SLOT(updateBoxes()));
+        QObject::connect(badge1Label, SIGNAL(dropFromTreeWidgetOnEmpty(QTreeWidgetItem*)), QtConfig, SLOT(addBadge(QTreeWidgetItem*)));
+        QObject::connect(badge2Label, SIGNAL(dropFromTreeWidgetOnEmpty(QTreeWidgetItem*)), QtConfig, SLOT(addBadge(QTreeWidgetItem*)));
+        QObject::connect(badge3Label, SIGNAL(dropFromTreeWidgetOnEmpty(QTreeWidgetItem*)), QtConfig, SLOT(addBadge(QTreeWidgetItem*)));
+        QObject::connect(badge1Label, SIGNAL(dropFromTreeWidgetOnNotEmpty(QString,QTreeWidgetItem*)), QtConfig, SLOT(swapBadge(QString,QTreeWidgetItem*)));
+        QObject::connect(badge2Label, SIGNAL(dropFromTreeWidgetOnNotEmpty(QString,QTreeWidgetItem*)), QtConfig, SLOT(swapBadge(QString,QTreeWidgetItem*)));
+        QObject::connect(badge3Label, SIGNAL(dropFromTreeWidgetOnNotEmpty(QString,QTreeWidgetItem*)), QtConfig, SLOT(swapBadge(QString,QTreeWidgetItem*)));
 
         QMetaObject::connectSlotsByName(QtConfig);
     } // setupUi
@@ -144,4 +139,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // QTCONFIGQHP936_H
+#endif // QTCONFIGHP9920_H

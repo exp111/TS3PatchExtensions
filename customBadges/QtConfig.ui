@@ -198,6 +198,8 @@
    <header>ClickableLabel.h</header>
    <slots>
     <signal>clicked()</signal>
+    <signal>dropFromTreeWidgetOnEmpty(QTreeWidgetItem*)</signal>
+    <signal>dropFromTreeWidgetOnNotEmpty(QString,QTreeWidgetItem*)</signal>
    </slots>
   </customwidget>
  </customwidgets>
@@ -334,26 +336,10 @@
    </hints>
   </connection>
   <connection>
-   <sender>badgeList</sender>
-   <signal>itemDoubleClicked(QTreeWidgetItem*,int)</signal>
-   <receiver>QtConfig</receiver>
-   <slot>updateBoxes()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>275</x>
-     <y>250</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>276</x>
-     <y>214</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>badge1Label</sender>
-   <signal>clicked()</signal>
+   <signal>dropFromTreeWidgetOnEmpty(QTreeWidgetItem*)</signal>
    <receiver>QtConfig</receiver>
-   <slot>updateBoxes()</slot>
+   <slot>addBadge(QTreeWidgetItem*)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>121</x>
@@ -367,9 +353,9 @@
   </connection>
   <connection>
    <sender>badge2Label</sender>
-   <signal>clicked()</signal>
+   <signal>dropFromTreeWidgetOnEmpty(QTreeWidgetItem*)</signal>
    <receiver>QtConfig</receiver>
-   <slot>updateBoxes()</slot>
+   <slot>addBadge(QTreeWidgetItem*)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>231</x>
@@ -383,9 +369,57 @@
   </connection>
   <connection>
    <sender>badge3Label</sender>
-   <signal>clicked()</signal>
+   <signal>dropFromTreeWidgetOnEmpty(QTreeWidgetItem*)</signal>
    <receiver>QtConfig</receiver>
-   <slot>updateBoxes()</slot>
+   <slot>addBadge(QTreeWidgetItem*)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>341</x>
+     <y>73</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>276</x>
+     <y>214</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>badge1Label</sender>
+   <signal>dropFromTreeWidgetOnNotEmpty(QString,QTreeWidgetItem*)</signal>
+   <receiver>QtConfig</receiver>
+   <slot>swapBadge(QString,QTreeWidgetItem*)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>121</x>
+     <y>73</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>276</x>
+     <y>214</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>badge2Label</sender>
+   <signal>dropFromTreeWidgetOnNotEmpty(QString,QTreeWidgetItem*)</signal>
+   <receiver>QtConfig</receiver>
+   <slot>swapBadge(QString,QTreeWidgetItem*)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>231</x>
+     <y>73</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>276</x>
+     <y>214</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>badge3Label</sender>
+   <signal>dropFromTreeWidgetOnNotEmpty(QString,QTreeWidgetItem*)</signal>
+   <receiver>QtConfig</receiver>
+   <slot>swapBadge(QString,QTreeWidgetItem*)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>341</x>
@@ -404,7 +438,7 @@
   <slot>deleteBadge1()</slot>
   <slot>deleteBadge2()</slot>
   <slot>deleteBadge3()</slot>
-  <slot>updateBoxes()</slot>
   <slot>openManualBadges()</slot>
+  <slot>swapBadge(QString,QTreeWidgetItem*)</slot>
  </slots>
 </ui>
