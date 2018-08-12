@@ -18,6 +18,11 @@ QtConfig::QtConfig(QWidget *parent)
 {
 	ui.setupUi(this);
 
+	Qt::WindowFlags flags = this->windowFlags();
+	this->setWindowFlags(flags &~ Qt::WindowMinMaxButtonsHint);
+	this->setMinimumSize(this->size());
+	this->setMaximumSize(this->size());
+
 	for (auto os : config->OSList)
 		ui.OSComboBox->addItem(QString(os.c_str()));
 

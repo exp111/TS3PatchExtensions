@@ -8,6 +8,11 @@ QtConfig::QtConfig(QWidget *parent)
 {
 	ui.setupUi(this);
 
+	Qt::WindowFlags flags = this->windowFlags();
+	this->setWindowFlags(flags &~Qt::WindowMinMaxButtonsHint);
+	this->setMinimumSize(this->size());
+	this->setMaximumSize(this->size());
+
 	//Badge Stuff
 	ui.overwolfCheckBox->setChecked(config->overwolfBadge);
 	tempBadges = config->badges;

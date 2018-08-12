@@ -7,6 +7,11 @@ QtConfig::QtConfig(QWidget *parent)
 {
 	ui.setupUi(this);
 
+	Qt::WindowFlags flags = this->windowFlags();
+	this->setWindowFlags(flags &~Qt::WindowMinMaxButtonsHint);
+	this->setMinimumSize(this->size());
+	this->setMaximumSize(this->size());
+
 	ui.blockSetConnectionInfoBox->setChecked(config->blockSetConnectionInfo);
 	ui.blockConnectionInfoAutoUpdateBox->setChecked(config->blockConnectionInfoAutoUpdate);
 	ui.blockClientChatComposingBox->setChecked(config->blockClientChatComposing);

@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'QtConfigp10448.ui'
+** Form generated from reading UI file 'QtConfigHp6880.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.9.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef QTCONFIGP10448_H
-#define QTCONFIGP10448_H
+#ifndef QTCONFIGHP6880_H
+#define QTCONFIGHP6880_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -39,8 +39,6 @@ public:
         if (QtConfig->objectName().isEmpty())
             QtConfig->setObjectName(QStringLiteral("QtConfig"));
         QtConfig->resize(400, 360);
-        QtConfig->setMinimumSize(QSize(400, 360));
-        QtConfig->setMaximumSize(QSize(400, 360));
         acceptButton = new QPushButton(QtConfig);
         acceptButton->setObjectName(QStringLiteral("acceptButton"));
         acceptButton->setGeometry(QRect(10, 330, 110, 23));
@@ -128,4 +126,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // QTCONFIGP10448_H
+#endif // QTCONFIGHP6880_H

@@ -10,18 +10,6 @@
     <height>360</height>
    </rect>
   </property>
-  <property name="minimumSize">
-   <size>
-    <width>400</width>
-    <height>360</height>
-   </size>
-  </property>
-  <property name="maximumSize">
-   <size>
-    <width>400</width>
-    <height>360</height>
-   </size>
-  </property>
   <property name="windowTitle">
    <string>Connection Info Spoofer</string>
   </property>

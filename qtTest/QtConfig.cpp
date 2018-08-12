@@ -7,6 +7,11 @@ QtConfig::QtConfig(QWidget *parent)
 {
 	ui.setupUi(this);
 	ui.checkBox->setChecked(config->testBool);
+
+	Qt::WindowFlags flags = this->windowFlags();
+	this->setWindowFlags(flags &~Qt::WindowMinMaxButtonsHint);
+	this->setMinimumSize(this->size());
+	this->setMaximumSize(this->size());
 }
 
 QtConfig::~QtConfig()

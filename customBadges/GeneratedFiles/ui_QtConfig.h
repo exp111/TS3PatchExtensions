@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'QtConfigHp1776.ui'
+** Form generated from reading UI file 'QtConfigqHp936.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.9.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef QTCONFIGHP1776_H
-#define QTCONFIGHP1776_H
+#ifndef QTCONFIGQHP936_H
+#define QTCONFIGQHP936_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -47,6 +47,13 @@ public:
         if (QtConfig->objectName().isEmpty())
             QtConfig->setObjectName(QStringLiteral("QtConfig"));
         QtConfig->resize(554, 429);
+        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(QtConfig->sizePolicy().hasHeightForWidth());
+        QtConfig->setSizePolicy(sizePolicy);
+        QtConfig->setMinimumSize(QSize(554, 429));
+        QtConfig->setMaximumSize(QSize(554, 429));
         centralWidget = new QWidget(QtConfig);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         widget = new QWidget(centralWidget);
@@ -61,6 +68,9 @@ public:
         badgeList = new QTreeWidget(widget);
         badgeList->setObjectName(QStringLiteral("badgeList"));
         badgeList->setGeometry(QRect(50, 120, 431, 241));
+        badgeList->setDragDropOverwriteMode(false);
+        badgeList->setDragDropMode(QAbstractItemView::DragOnly);
+        badgeList->setDefaultDropAction(Qt::IgnoreAction);
         badgeList->setIndentation(0);
         badge1Box = new QGroupBox(widget);
         badge1Box->setObjectName(QStringLiteral("badge1Box"));
@@ -134,4 +144,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // QTCONFIGHP1776_H
+#endif // QTCONFIGQHP936_H
