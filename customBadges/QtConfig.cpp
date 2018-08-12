@@ -40,7 +40,7 @@ QtConfig::QtConfig(QWidget *parent)
 	}
 	else
 	{
-		QMessageBox* notifyUserDialog = new QMessageBox(QMessageBox::Icon::Warning, "Missing CSV File", ("It seems like you don't have a " + config->csvName + " file. Download it from <a href='" + config->csvUrl + "'>here</a>.").c_str(), QMessageBox::NoButton, parent);
+		QMessageBox* notifyUserDialog = new QMessageBox(QMessageBox::Icon::Warning, "Missing CSV File", ("Missing File: " + config->directory + config->csvName + ". Download it from <a href='" + config->csvUrl + "'>here</a>.").c_str(), QMessageBox::NoButton, parent);
 		notifyUserDialog->setWindowIcon(QIcon());
 		notifyUserDialog->setAttribute(Qt::WA_DeleteOnClose);
 		notifyUserDialog->show();

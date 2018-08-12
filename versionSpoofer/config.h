@@ -16,7 +16,7 @@ public:
 	string directory;
 	string configName = "config.ini";
 	string csvName = "versions.csv";
-	const char* csvUrl = "https://raw.githubusercontent.com/exp111/TS3PatchExtensions/master/versionSpoofer/versions.csv";
+	const char* csvUrl = "https://raw.githubusercontent.com/ReSpeak/tsdeclarations/master/Versions.csv";
 	bool foundCSV = false;
 
 	string OS = "iOS";
