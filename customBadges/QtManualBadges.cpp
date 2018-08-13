@@ -10,6 +10,8 @@ QtManualBadges::QtManualBadges(QWidget *parent)
 	: QMainWindow(parent)
 {
 	ui.setupUi(this);
+	Qt::WindowFlags flags = this->windowFlags();
+	this->setWindowFlags(flags &~Qt::WindowMinMaxButtonsHint);
 
 	size_t toMove = (((QtConfig*)parent)->tempBadges.size() - 2);
 	if (toMove > 0)
@@ -18,6 +20,10 @@ QtManualBadges::QtManualBadges(QWidget *parent)
 		ui.closeButton->move(ui.closeButton->pos().x(), ui.closeButton->pos().y() + 20 * toMove);
 		ui.addButton->move(ui.addButton->pos().x(), ui.addButton->pos().y() + 20 * toMove);
 	}
+
+	this->setMinimumSize(this->size());
+	this->setMaximumSize(this->size());
+
 	//unsafe but as we always call this as the child of the config it's okay
 	for (int i = 0; i < ((QtConfig*)parent)->tempBadges.size(); i++)
 	{
@@ -56,11 +62,14 @@ void QtManualBadges::addBadge()
 {
 	if (inputLines.size() >= 3) //if we add a new one over the badge limit resize the window
 	{
-		int toMove = (inputLines.size() - 2);
+		this->setMaximumHeight(size().height() + 30);
+
+		//int toMove = (inputLines.size() - 2);
 		this->resize(size().width(), size().height() + 30);
 		ui.closeButton->move(ui.closeButton->pos().x(), ui.closeButton->pos().y() + 30);
 		ui.addButton->move(ui.addButton->pos().x(), ui.addButton->pos().y() + 30);
 	}
+
 	QLineEdit* neu = new QLineEdit(this);
 	neu->resize(211, 20);
 	neu->move(20, 20 + 30 * inputLines.size());

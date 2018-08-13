@@ -33,6 +33,7 @@ public:
 	bool writeConfig();
 	string buildBadges();
 	int findBadgeID(string GUID);
+	string getIconPath(string iconName, bool largeIcon);
 };
 
 extern Config* config;

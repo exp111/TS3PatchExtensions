@@ -137,3 +137,18 @@ int Config::findBadgeID(string GUID)
 	}
 	return -1;
 }
+
+string Config::getIconPath(string iconName, bool largeIcon)
+{
+	//First try to get from cache
+	/*string filePath = config->directory + "../../cache/badges/" + iconName;
+	filePath += largeIcon ? "_details.svg" : ".svg";
+	if (fstream(filePath.c_str()).good())
+	{
+		return filePath;
+	}*/
+	//Get Backup
+	string filePath = config->directory + "icons/" + iconName;
+	filePath += largeIcon ? "_64.png" : ".png";
+	return filePath;
+}

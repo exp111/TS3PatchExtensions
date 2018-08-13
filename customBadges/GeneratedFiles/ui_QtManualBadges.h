@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'QtManualBadges.ui'
+** Form generated from reading UI file 'QtManualBadgesmU6568.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.9.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef UI_QTMANUALBADGES_H
-#define UI_QTMANUALBADGES_H
+#ifndef QTMANUALBADGESMU6568_H
+#define QTMANUALBADGESMU6568_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -31,15 +31,15 @@ public:
     {
         if (BadgesWindow->objectName().isEmpty())
             BadgesWindow->setObjectName(QStringLiteral("BadgesWindow"));
-        BadgesWindow->resize(251, 147);
+        BadgesWindow->resize(251, 157);
         centralwidget = new QWidget(BadgesWindow);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         closeButton = new QPushButton(centralwidget);
         closeButton->setObjectName(QStringLiteral("closeButton"));
-        closeButton->setGeometry(QRect(90, 120, 75, 23));
+        closeButton->setGeometry(QRect(90, 130, 75, 23));
         addButton = new QPushButton(centralwidget);
         addButton->setObjectName(QStringLiteral("addButton"));
-        addButton->setGeometry(QRect(214, 120, 31, 23));
+        addButton->setGeometry(QRect(214, 130, 31, 23));
         BadgesWindow->setCentralWidget(centralwidget);
 
         retranslateUi(BadgesWindow);
@@ -65,4 +65,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // UI_QTMANUALBADGES_H
+#endif // QTMANUALBADGESMU6568_H

@@ -19,7 +19,7 @@ QtConfig::QtConfig(QWidget *parent)
 	tempBadgeIDs = config->badgeIDs;
 	updateBoxes();
 	QIcon windowIcon;
-	windowIcon.addFile(QString((config->directory + "icons/addon_author.png").c_str()));
+	windowIcon.addFile(QString(config->getIconPath("addon_author", false).c_str()));
 	this->setWindowIcon(windowIcon);
 
 	if (config->foundCSV)
@@ -28,12 +28,12 @@ QtConfig::QtConfig(QWidget *parent)
 		{
 			QTreeWidgetItem* item = new QTreeWidgetItem();
 			item->setText(0, QString(get<1>(config->allBadges[i]).c_str()));
-			string fileName = config->directory + "icons/" + get<3>(config->allBadges[i]) + ".png";
+			string fileName = config->getIconPath(get<3>(config->allBadges[i]), false);
 			QIcon icon;
 			icon.addFile(QString(fileName.c_str()));
 			item->setIcon(0, icon);
-			string fileName64 = config->directory + "icons/" + get<3>(config->allBadges[i]) + "_64.png";
-			string tooltip = "<center>" + get<1>(config->allBadges[i]) + "<br/>" + get<2>(config->allBadges[i]) + "<center><img width=\"64\" height=\"64\" src=\"" + fileName64 + "\"";
+			string fileName64 = config->getIconPath(get<3>(config->allBadges[i]), true);
+			string tooltip = "<center><b>" + get<1>(config->allBadges[i]) + "</b><br/>" + get<2>(config->allBadges[i]) + "<br/><img width=\"64\" height=\"64\" src=\"" + fileName64 + "\"</center>";
 			item->setToolTip(0, QString(tooltip.c_str()));
 			ui.badgeList->insertTopLevelItem(i, item);
 		}
@@ -58,9 +58,9 @@ void QtConfig::updateBoxes()
 		if (config->badgeCount < tempBadgeIDs[i])
 			continue;
 
-		std::string s = config->directory + "icons/" + get<3>(config->allBadges[tempBadgeIDs[i]]) + "_64.png";
-		QString filename(s.c_str());
-		QImage image(filename);
+		string filePath = config->getIconPath(get<3>(config->allBadges[tempBadgeIDs[i]]), true);
+		QString fileName(filePath.c_str());
+		QImage image(fileName);
 		switch (i)
 		{
 		case 0:
