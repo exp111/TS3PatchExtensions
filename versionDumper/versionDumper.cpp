@@ -131,7 +131,7 @@ void onPacketOut(api::SCHId schId, api::CommandPacket* command, bool &canceled)
 		if (foundHashEndPos == string::npos)
 			foundHashEndPos = buffer.size();
 		string clientHash = buffer.substr(foundHashPos, foundHashEndPos - foundHashPos);
-		string message = "Hash: " + clientHash;
+		string message = "Hash: " + unescapeString(clientHash);
 
 		functions.printMessageToCurrentTab(message.c_str());
 	}
