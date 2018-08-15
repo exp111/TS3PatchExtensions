@@ -74,3 +74,32 @@ string setField(string command, string field, string value)
 
 	return command.substr(0, findPos + field.size() + 1) + value + command.substr(findEndPos, command.size() - findEndPos);
 }
+
+string setFields(string command, vector<string> fields, vector<string> values)
+{
+	string buffer = command;
+	for (int i = 0; i < fields.size(); i++)
+	{
+		size_t findPos = command.find(fields[i]);
+		if (findPos == string::npos)
+			continue;
+
+		size_t findEndPos = command.find(' ', findPos);
+		if (findEndPos == string::npos)
+			findEndPos = command.size();
+
+		size_t start = findPos + fields[i].size() + 1;
+		size_t origSize = findEndPos - start;
+		int sizeDiff = origSize - values[i].size();
+		if (sizeDiff > 0) //delete some unneeded space
+		{
+			buffer.erase(start, sizeDiff);
+		}
+		else if (sizeDiff < 0) //insert some needed space
+		{
+			buffer.insert(start, -sizeDiff, ' ');
+		}
+		buffer.replace(start, values[i].size(), values[i]);
+	}
+	return buffer;
+}
