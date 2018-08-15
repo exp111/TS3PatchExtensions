@@ -19,6 +19,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rawCommandExample", "rawCom
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "versionDumper", "versionDumper\versionDumper.vcxproj", "{A2727138-D371-436F-B592-366B48CCE8A9}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hwidSpoofer", "hwidSpoofer\hwidSpoofer.vcxproj", "{DA296F82-96D2-483E-9F4A-54C060320584}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -121,16 +123,28 @@ Global
 		{A2727138-D371-436F-B592-366B48CCE8A9}.Release|x64.Build.0 = Release|x64
 		{A2727138-D371-436F-B592-366B48CCE8A9}.Release|x86.ActiveCfg = Release|Win32
 		{A2727138-D371-436F-B592-366B48CCE8A9}.Release|x86.Build.0 = Release|Win32
-		{A2727138-D371-436F-B592-366B48CCE8A9}.ReleaseAll|x64.ActiveCfg = Release|x64
-		{A2727138-D371-436F-B592-366B48CCE8A9}.ReleaseAll|x64.Build.0 = Release|x64
+		{A2727138-D371-436F-B592-366B48CCE8A9}.ReleaseAll|x64.ActiveCfg = ReleaseAll|x64
+		{A2727138-D371-436F-B592-366B48CCE8A9}.ReleaseAll|x64.Build.0 = ReleaseAll|x64
 		{A2727138-D371-436F-B592-366B48CCE8A9}.ReleaseAll|x86.ActiveCfg = Release|Win32
 		{A2727138-D371-436F-B592-366B48CCE8A9}.ReleaseAll|x86.Build.0 = Release|Win32
+		{DA296F82-96D2-483E-9F4A-54C060320584}.Debug|x64.ActiveCfg = Debug|x64
+		{DA296F82-96D2-483E-9F4A-54C060320584}.Debug|x64.Build.0 = Debug|x64
+		{DA296F82-96D2-483E-9F4A-54C060320584}.Debug|x86.ActiveCfg = Debug|Win32
+		{DA296F82-96D2-483E-9F4A-54C060320584}.Debug|x86.Build.0 = Debug|Win32
+		{DA296F82-96D2-483E-9F4A-54C060320584}.Release|x64.ActiveCfg = Release|x64
+		{DA296F82-96D2-483E-9F4A-54C060320584}.Release|x64.Build.0 = Release|x64
+		{DA296F82-96D2-483E-9F4A-54C060320584}.Release|x86.ActiveCfg = Release|Win32
+		{DA296F82-96D2-483E-9F4A-54C060320584}.Release|x86.Build.0 = Release|Win32
+		{DA296F82-96D2-483E-9F4A-54C060320584}.ReleaseAll|x64.ActiveCfg = ReleaseAll|x64
+		{DA296F82-96D2-483E-9F4A-54C060320584}.ReleaseAll|x64.Build.0 = ReleaseAll|x64
+		{DA296F82-96D2-483E-9F4A-54C060320584}.ReleaseAll|x86.ActiveCfg = Release|Win32
+		{DA296F82-96D2-483E-9F4A-54C060320584}.ReleaseAll|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {86DF49CF-0F04-485A-844A-471F9E1CB4B1}
 		Qt5Version = 5.9.3
+		SolutionGuid = {86DF49CF-0F04-485A-844A-471F9E1CB4B1}
 	EndGlobalSection
 EndGlobal
