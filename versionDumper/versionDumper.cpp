@@ -3,6 +3,7 @@
 #include <memory>
 #include <iostream>
 #include <api/api.h>
+#include <helpers.h>
 #include "versionDumper.h"
 
 using namespace std;
@@ -107,32 +108,20 @@ void onPacketOut(api::SCHId schId, api::CommandPacket* command, bool &canceled)
 {
 	//clientinit client_nickname=Exp\s[Testing] client_version=3.1.8\s[Build:\s1516614607] client_platform=Windows client_input_hardware=1 client_output_hardware=1 client_default_channel client_default_channel_password client_server_password client_meta_data client_version_sign=gDEgQf\/BiOQZdAheKccM1XWcMUj2OUQqt75oFuvF2c0MQMXyv88cZQdUuckKbcBRp7RpmLInto4PIgd7mPO7BQ== client_key_offset=12942926 client_nickname_phonetic client_default_token client_badges=Overwolf=0 hwid=hwidhere
 	string buffer = command->data();
-	if (buffer.find("clientinit") == string::npos)
+	if (buffer.find("clientinit ") == string::npos)
 		return;
 
-	size_t foundVersionPos = buffer.find("client_version=");
-	if (foundVersionPos != string::npos)
+	string version = parseField(buffer, "client_version");
+	if (!version.empty())
 	{
-		foundVersionPos += 15; //add size up
-
-		size_t foundVersionEndPos = buffer.find(' ', foundVersionPos);
-		if (foundVersionEndPos == string::npos)
-			foundVersionEndPos = buffer.size();
-		string clientVersion = buffer.substr(foundVersionPos, foundVersionEndPos - foundVersionPos);
-		string message = "Version: " + unescapeString(clientVersion);
+		string message = "Version: " + unescapeString(version);
 		functions.printMessageToCurrentTab(message.c_str());
 	}
-	size_t foundHashPos = buffer.find("client_version_sign=");
-	if (foundHashPos != string::npos)
+	
+	string clientHash = parseField(buffer, "client_version_sign");
+	if (!version.empty())
 	{
-		foundHashPos += 20; //add size up
-
-		size_t foundHashEndPos = buffer.find(' ', foundHashPos);
-		if (foundHashEndPos == string::npos)
-			foundHashEndPos = buffer.size();
-		string clientHash = buffer.substr(foundHashPos, foundHashEndPos - foundHashPos);
 		string message = "Hash: " + unescapeString(clientHash);
-
 		functions.printMessageToCurrentTab(message.c_str());
 	}
 }

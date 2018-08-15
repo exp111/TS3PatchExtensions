@@ -3,9 +3,9 @@
 #include <memory>
 #include <iostream>
 #include <api/api.h>
-#include <algorithm>
+#include <vector>
 #include <helpers.h>
-#include "hwidSpoofer.h"
+#include "devStuff.h"
 
 using namespace std;
 using namespace std::chrono;
@@ -21,7 +21,7 @@ auto badge_hook_deleter = [](api::Hook* instance) {
 		hook_functions.unregisterHook(instance);
 	delete instance;
 };
-unique_ptr<api::Hook, decltype(badge_hook_deleter)> hwidSpooferHook(nullptr, badge_hook_deleter);
+unique_ptr<api::Hook, decltype(badge_hook_deleter)> testHook(nullptr, badge_hook_deleter);
 
 
 void ts3plugin_freeMemory(void *data) {
@@ -37,7 +37,7 @@ void ts3plugin_registerPluginID(const char *id) {
 }
 
 const char *ts3plugin_name() {
-	return "Hook [hwidSpoofer]";
+	return "Hook [devStuff]";
 }
 
 const char *ts3plugin_version() {
@@ -53,7 +53,7 @@ const char *ts3plugin_author() {
 }
 
 const char *ts3plugin_description() {
-	return "Spoof your Hardware ID";
+	return "Testing some Stuff";
 }
 
 int ts3plugin_init() { 
@@ -68,7 +68,7 @@ int ts3plugin_init() {
 void ts3plugin_shutdown() {
 	printf("%s: Library hook deinitialized\n", ts3plugin_name());
 
-	if(hwidSpooferHook) hook_functions.unregisterHook(hwidSpooferHook.get());
+	if(testHook) hook_functions.unregisterHook(testHook.get());
 	hook_functions = {};
 }
 
@@ -76,57 +76,34 @@ int ts3plugin_offersConfigure() {
 	return PLUGIN_OFFERS_NO_CONFIGURE;
 }
 
-string randomString(size_t length) //https://stackoverflow.com/a/12468109
-{
-	auto randchar = []() -> char
-	{
-		const char charset[] =
-			"0123456789"
-			"abcdefghijklmnopqrstuvwxyz";
-		const size_t max_index = (sizeof(charset) - 1);
-		return charset[rand() % max_index];
-	};
-	string str(length, 0);
-	generate_n(str.begin(), length, randchar);
-	return str;
-}
-
-string getRandomHWID()
-{
-	return randomString(32) + "," + randomString(32);
-}
-
 void onPacketOut(api::SCHId schId, api::CommandPacket* command, bool &canceled)
 {
 	//clientinit ... hwid=fuck
 	string buffer = command->data();
-	if (buffer.find("clientinit ") != 0)
+	if (buffer.find("clientinit") == string::npos)
 		return;
 
-	string origHWID = parseField(buffer, "hwid");
-	if (originalHWID.empty())
-		originalHWID = origHWID;
-	else if (originalHWID != origHWID) //we need to check if we've already changed it cuz we else it will crash
-		return;
-	
-	buffer = setField(buffer, "hwid", getRandomHWID());
-	command->data(buffer);
+	buffer = setField(buffer, "ot", "0");
+	auto results = parse(buffer);
+
+	for (auto result : results)
+		functions.printMessageToCurrentTab((result.first + "=" + result.second).c_str());
 }
 
 int hook_initialized(const wolverindev::ts::ApiFunctions fn) {
 	printf("%s: Hook called me for initialisation!\n", ts3plugin_name());
 	hook_functions = fn;
 
-	hwidSpooferHook.reset(new api::Hook());
-	hwidSpooferHook->activated = [](){ return true; };
-	hwidSpooferHook->on_packet_out = &onPacketOut;
+	testHook.reset(new api::Hook());
+	testHook->activated = [](){ return true; };
+	testHook->on_packet_out = &onPacketOut;
 	
-	hook_functions.registerHook(hwidSpooferHook.get());
+	hook_functions.registerHook(testHook.get());
 	return 0;
 }
 
 void hook_finalized() {
 	printf("%s: Hook called me for finalisation!\n", ts3plugin_name());
-	if(hwidSpooferHook) hook_functions.unregisterHook(hwidSpooferHook.get());
+	if(testHook) hook_functions.unregisterHook(testHook.get());
 	hook_functions = {};
 }

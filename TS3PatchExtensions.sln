@@ -21,6 +21,13 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "versionDumper", "versionDum
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hwidSpoofer", "hwidSpoofer\hwidSpoofer.vcxproj", "{DA296F82-96D2-483E-9F4A-54C060320584}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "devStuff", "devStuff\devStuff.vcxproj", "{549B5E99-A862-45D3-9366-0E858C134EDF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "include", "include", "{EFA9D7DA-56D6-4D96-A301-49FB1D71A810}"
+	ProjectSection(SolutionItems) = preProject
+		include\helpers.h = include\helpers.h
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -139,6 +146,18 @@ Global
 		{DA296F82-96D2-483E-9F4A-54C060320584}.ReleaseAll|x64.Build.0 = ReleaseAll|x64
 		{DA296F82-96D2-483E-9F4A-54C060320584}.ReleaseAll|x86.ActiveCfg = Release|Win32
 		{DA296F82-96D2-483E-9F4A-54C060320584}.ReleaseAll|x86.Build.0 = Release|Win32
+		{549B5E99-A862-45D3-9366-0E858C134EDF}.Debug|x64.ActiveCfg = Debug|x64
+		{549B5E99-A862-45D3-9366-0E858C134EDF}.Debug|x64.Build.0 = Debug|x64
+		{549B5E99-A862-45D3-9366-0E858C134EDF}.Debug|x86.ActiveCfg = Debug|Win32
+		{549B5E99-A862-45D3-9366-0E858C134EDF}.Debug|x86.Build.0 = Debug|Win32
+		{549B5E99-A862-45D3-9366-0E858C134EDF}.Release|x64.ActiveCfg = Release|x64
+		{549B5E99-A862-45D3-9366-0E858C134EDF}.Release|x64.Build.0 = Release|x64
+		{549B5E99-A862-45D3-9366-0E858C134EDF}.Release|x86.ActiveCfg = Release|Win32
+		{549B5E99-A862-45D3-9366-0E858C134EDF}.Release|x86.Build.0 = Release|Win32
+		{549B5E99-A862-45D3-9366-0E858C134EDF}.ReleaseAll|x64.ActiveCfg = Release|x64
+		{549B5E99-A862-45D3-9366-0E858C134EDF}.ReleaseAll|x64.Build.0 = Release|x64
+		{549B5E99-A862-45D3-9366-0E858C134EDF}.ReleaseAll|x86.ActiveCfg = Release|Win32
+		{549B5E99-A862-45D3-9366-0E858C134EDF}.ReleaseAll|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
