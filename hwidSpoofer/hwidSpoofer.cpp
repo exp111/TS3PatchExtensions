@@ -97,7 +97,7 @@ string getRandomHWID()
 
 void onPacketOut(api::SCHId schId, api::CommandPacket* command, bool &canceled)
 {
-	//clientinit ... hwid=1118d84a5e73eefc2e71ea514594fae0,37f385fa48167cb27f2efa7bdf6234a2
+	//clientinit ... hwid=fuck
 	string buffer = command->data();
 	if (buffer.find("clientinit") == string::npos)
 		return;
