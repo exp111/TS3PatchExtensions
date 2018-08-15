@@ -17,6 +17,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "versionSpoofer", "versionSp
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rawCommandExample", "rawCommandExample\rawCommandExample.vcxproj", "{5E0F329A-77EC-4001-A5B1-970F837F6415}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "versionDumper", "versionDumper\versionDumper.vcxproj", "{A2727138-D371-436F-B592-366B48CCE8A9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -111,12 +113,24 @@ Global
 		{5E0F329A-77EC-4001-A5B1-970F837F6415}.ReleaseAll|x64.Build.0 = ReleaseAll|x64
 		{5E0F329A-77EC-4001-A5B1-970F837F6415}.ReleaseAll|x86.ActiveCfg = ReleaseAll|Win32
 		{5E0F329A-77EC-4001-A5B1-970F837F6415}.ReleaseAll|x86.Build.0 = ReleaseAll|Win32
+		{A2727138-D371-436F-B592-366B48CCE8A9}.Debug|x64.ActiveCfg = Debug|x64
+		{A2727138-D371-436F-B592-366B48CCE8A9}.Debug|x64.Build.0 = Debug|x64
+		{A2727138-D371-436F-B592-366B48CCE8A9}.Debug|x86.ActiveCfg = Debug|Win32
+		{A2727138-D371-436F-B592-366B48CCE8A9}.Debug|x86.Build.0 = Debug|Win32
+		{A2727138-D371-436F-B592-366B48CCE8A9}.Release|x64.ActiveCfg = Release|x64
+		{A2727138-D371-436F-B592-366B48CCE8A9}.Release|x64.Build.0 = Release|x64
+		{A2727138-D371-436F-B592-366B48CCE8A9}.Release|x86.ActiveCfg = Release|Win32
+		{A2727138-D371-436F-B592-366B48CCE8A9}.Release|x86.Build.0 = Release|Win32
+		{A2727138-D371-436F-B592-366B48CCE8A9}.ReleaseAll|x64.ActiveCfg = Release|x64
+		{A2727138-D371-436F-B592-366B48CCE8A9}.ReleaseAll|x64.Build.0 = Release|x64
+		{A2727138-D371-436F-B592-366B48CCE8A9}.ReleaseAll|x86.ActiveCfg = Release|Win32
+		{A2727138-D371-436F-B592-366B48CCE8A9}.ReleaseAll|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		Qt5Version = 5.9.3
 		SolutionGuid = {86DF49CF-0F04-485A-844A-471F9E1CB4B1}
+		Qt5Version = 5.9.3
 	EndGlobalSection
 EndGlobal

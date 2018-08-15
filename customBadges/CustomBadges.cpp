@@ -36,7 +36,7 @@ void ts3plugin_registerPluginID(const char *id) {
 }
 
 const char *ts3plugin_name() {
-	return "Hook [CustomBadges]";
+	return "Hook [customBadges]";
 }
 
 const char *ts3plugin_version() {

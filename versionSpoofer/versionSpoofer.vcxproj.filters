@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="QtConfig.ui" />
+    <None Include="versions.csv" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="QtConfig.h">
