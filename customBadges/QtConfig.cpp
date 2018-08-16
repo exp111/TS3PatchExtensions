@@ -27,13 +27,13 @@ QtConfig::QtConfig(QWidget *parent)
 		for (int i = 0; i < config->badgeCount; i++)
 		{
 			QTreeWidgetItem* item = new QTreeWidgetItem();
-			item->setText(0, QString(get<1>(config->allBadges[i]).c_str()));
-			string fileName = config->getIconPath(get<3>(config->allBadges[i]), false);
+			item->setText(0, QString(config->allBadges[i].name.c_str()));
+			string fileName = config->getIconPath(config->allBadges[i].fileName, false);
 			QIcon icon;
 			icon.addFile(QString(fileName.c_str()));
 			item->setIcon(0, icon);
-			string fileName64 = config->getIconPath(get<3>(config->allBadges[i]), true);
-			string tooltip = "<center><b>" + get<1>(config->allBadges[i]) + "</b><br/>" + get<2>(config->allBadges[i]) + "<br/><img width=\"64\" height=\"64\" src=\"" + fileName64 + "\"</center>";
+			string fileName64 = config->getIconPath(config->allBadges[i].fileName, true);
+			string tooltip = "<center><b>" + config->allBadges[i].name + "</b><br/>" + config->allBadges[i].description + "<br/><img width=\"64\" height=\"64\" src=\"" + fileName64 + "\"</center>";
 			item->setToolTip(0, QString(tooltip.c_str()));
 			ui.badgeList->insertTopLevelItem(i, item);
 		}
@@ -58,7 +58,7 @@ void QtConfig::updateBoxes()
 		if (config->badgeCount < tempBadgeIDs[i])
 			continue;
 
-		string filePath = config->getIconPath(get<3>(config->allBadges[tempBadgeIDs[i]]), true);
+		string filePath = config->getIconPath(config->allBadges[tempBadgeIDs[i]].fileName, true);
 		QString fileName(filePath.c_str());
 		QImage image(fileName);
 		switch (i)
@@ -113,7 +113,7 @@ void QtConfig::addBadge(QTreeWidgetItem*)
 		return;
 
 	int index = ui.badgeList->currentIndex().row();
-	tempBadges.push_back(get<0>(config->allBadges[index]));
+	tempBadges.push_back(config->allBadges[index].uid);
 	tempBadgeIDs.push_back(index);
 
 	updateBoxes();
@@ -190,7 +190,7 @@ void QtConfig::swapBadge(QString label, QTreeWidgetItem*)
 		return;
 
 	int index = ui.badgeList->currentIndex().row();
-	tempBadges[i] = get<0>(config->allBadges[index]);
+	tempBadges[i] = config->allBadges[index].uid;
 	tempBadgeIDs[i] = index;
 
 	updateBoxes();

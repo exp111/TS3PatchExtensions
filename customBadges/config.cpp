@@ -38,7 +38,7 @@ void Config::readCSVLine(vector<string> results)
 	//uid,name,description,filename
 	bool fileFound = ifstream(this->directory + "icons/" + results[3] + ".png").good();
 	string fileName = fileFound ? results[3] : "placeholder";
-	this->allBadges.push_back(make_tuple(results[0], results[1], results[2], fileName));
+	this->allBadges.push_back(Badge(results[0], results[1], results[2], fileName));
 	this->badgeCount++;
 }
 
@@ -130,7 +130,7 @@ int Config::findBadgeID(string GUID)
 {
 	for (unsigned i = 0; i < badgeCount; i++)
 	{
-		if (get<0>(this->allBadges[i]) == GUID)
+		if (this->allBadges[i].uid == GUID)
 			return i;
 		else
 			continue;

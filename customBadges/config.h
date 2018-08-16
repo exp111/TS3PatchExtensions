@@ -3,8 +3,22 @@
 #include <fstream>
 #include <string>
 #include <sstream>
-#include <tuple>
 using namespace std;
+
+struct Badge
+{
+	Badge(string uid, string name, string desc, string fileName)
+	{
+		this->uid = uid;
+		this->name = name;
+		this->description = desc;
+		this->fileName = fileName;
+	}
+	string uid;
+	string name;
+	string description;
+	string fileName;
+};
 
 class Config
 {
@@ -23,7 +37,7 @@ public:
 
 	unsigned badgeCount = 0;
 	//uid,name,description,filename
-	vector<tuple<string, string, string, string>> allBadges;
+	vector<Badge> allBadges;
 
 	void setDirectory(string directory) { this->directory = directory; };
 	void readCSVLine(vector<string> results);
