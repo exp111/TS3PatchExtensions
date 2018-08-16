@@ -28,6 +28,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "include", "include", "{EFA9
 		include\helpers.h = include\helpers.h
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "packetList", "packetList\packetList.vcxproj", "{025EE755-8CA2-440E-9C70-8ABFA3F508D5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -158,12 +160,24 @@ Global
 		{549B5E99-A862-45D3-9366-0E858C134EDF}.ReleaseAll|x64.Build.0 = Release|x64
 		{549B5E99-A862-45D3-9366-0E858C134EDF}.ReleaseAll|x86.ActiveCfg = Release|Win32
 		{549B5E99-A862-45D3-9366-0E858C134EDF}.ReleaseAll|x86.Build.0 = Release|Win32
+		{025EE755-8CA2-440E-9C70-8ABFA3F508D5}.Debug|x64.ActiveCfg = Debug|x64
+		{025EE755-8CA2-440E-9C70-8ABFA3F508D5}.Debug|x64.Build.0 = Debug|x64
+		{025EE755-8CA2-440E-9C70-8ABFA3F508D5}.Debug|x86.ActiveCfg = Debug|Win32
+		{025EE755-8CA2-440E-9C70-8ABFA3F508D5}.Debug|x86.Build.0 = Debug|Win32
+		{025EE755-8CA2-440E-9C70-8ABFA3F508D5}.Release|x64.ActiveCfg = Release|x64
+		{025EE755-8CA2-440E-9C70-8ABFA3F508D5}.Release|x64.Build.0 = Release|x64
+		{025EE755-8CA2-440E-9C70-8ABFA3F508D5}.Release|x86.ActiveCfg = Release|Win32
+		{025EE755-8CA2-440E-9C70-8ABFA3F508D5}.Release|x86.Build.0 = Release|Win32
+		{025EE755-8CA2-440E-9C70-8ABFA3F508D5}.ReleaseAll|x64.ActiveCfg = ReleaseAll|x64
+		{025EE755-8CA2-440E-9C70-8ABFA3F508D5}.ReleaseAll|x64.Build.0 = ReleaseAll|x64
+		{025EE755-8CA2-440E-9C70-8ABFA3F508D5}.ReleaseAll|x86.ActiveCfg = Release|Win32
+		{025EE755-8CA2-440E-9C70-8ABFA3F508D5}.ReleaseAll|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		Qt5Version = 5.9.3
 		SolutionGuid = {86DF49CF-0F04-485A-844A-471F9E1CB4B1}
+		Qt5Version = 5.9.3
 	EndGlobalSection
 EndGlobal
