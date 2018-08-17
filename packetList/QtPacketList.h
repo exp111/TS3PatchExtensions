@@ -1,9 +1,11 @@
 #pragma once
 
+#include "GeneratedFiles/ui_QtPacketList.h"
+
 #include <QWidget>
 #include <QMainWindow>
 #include <QClipboard>
-#include "GeneratedFiles/ui_QtPacketList.h"
+
 #include "config.h"
 
 class QtPacketList : public QMainWindow
@@ -13,9 +15,11 @@ class QtPacketList : public QMainWindow
 public:
 	QtPacketList(QWidget* parent = Q_NULLPTR);
 	~QtPacketList();
+
 public slots:
 	void updateLists();
-	void copyTextToClipboard(QTreeWidgetItem* item, int);
+	void copyTextToClipboard(QTreeWidgetItem*);
+
 private:
 	Ui::QtPacketList ui;
 };

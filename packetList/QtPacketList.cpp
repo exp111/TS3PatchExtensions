@@ -1,7 +1,6 @@
 #include "QtPacketList.h"
 
-QtPacketList::QtPacketList(QWidget *parent)
-	: QMainWindow(parent)
+QtPacketList::QtPacketList(QWidget *parent) : QMainWindow(parent)
 {
 	ui.setupUi(this);
 
@@ -17,9 +16,8 @@ QtPacketList::~QtPacketList()
 {
 }
 
-void QtPacketList::copyTextToClipboard(QTreeWidgetItem* item, int column)
+void QtPacketList::copyTextToClipboard(QTreeWidgetItem* item)
 {
-	printf("%d", column);
 	QClipboard* clipboard = QApplication::clipboard();
 	clipboard->setText(item->text(0));
 }

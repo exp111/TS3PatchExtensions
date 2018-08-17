@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'QtPacketListp14540.ui'
+** Form generated from reading UI file 'QtPacketListp15300.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.9.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef QTPACKETLISTP14540_H
-#define QTPACKETLISTP14540_H
+#ifndef QTPACKETLISTP15300_H
+#define QTPACKETLISTP15300_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -46,6 +46,7 @@ public:
         packetInList->setObjectName(QStringLiteral("packetInList"));
         packetInList->setGeometry(QRect(10, 20, 571, 291));
         packetInList->setIndentation(0);
+        packetInList->setExpandsOnDoubleClick(false);
         packetInList->header()->setVisible(false);
         packetOutGroup = new QGroupBox(centralWidget);
         packetOutGroup->setObjectName(QStringLiteral("packetOutGroup"));
@@ -62,8 +63,8 @@ public:
 
         retranslateUi(QtPacketList);
         QObject::connect(updateButton, SIGNAL(clicked()), QtPacketList, SLOT(updateLists()));
-        QObject::connect(packetInList, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)), QtPacketList, SLOT(copyTextToClipboard(QTreeWidgetItem*,int)));
-        QObject::connect(packetOutList, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)), QtPacketList, SLOT(copyTextToClipboard(QTreeWidgetItem*,int)));
+        QObject::connect(packetInList, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)), QtPacketList, SLOT(copyTextToClipboard(QTreeWidgetItem*)));
+        QObject::connect(packetOutList, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)), QtPacketList, SLOT(copyTextToClipboard(QTreeWidgetItem*)));
 
         QMetaObject::connectSlotsByName(QtPacketList);
     } // setupUi
@@ -88,4 +89,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // QTPACKETLISTP14540_H
+#endif // QTPACKETLISTP15300_H
