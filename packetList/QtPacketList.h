@@ -19,6 +19,8 @@ public:
 public slots:
 	void updateLists();
 	void copyTextToClipboard(QTreeWidgetItem*);
+	void sendCommand();
+	void checkSendButton();
 
 private:
 	Ui::QtPacketList ui;

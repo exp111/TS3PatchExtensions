@@ -6,97 +6,169 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>613</width>
-    <height>693</height>
+    <width>641</width>
+    <height>738</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Packet List</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QGroupBox" name="packetInGroup">
+   <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>591</width>
-      <height>321</height>
+      <width>621</width>
+      <height>717</height>
      </rect>
     </property>
-    <property name="title">
-     <string>Packet In</string>
+    <property name="currentIndex">
+     <number>1</number>
     </property>
-    <widget class="QTreeWidget" name="packetInList">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>20</y>
-       <width>571</width>
-       <height>291</height>
-      </rect>
-     </property>
-     <property name="indentation">
-      <number>0</number>
-     </property>
-     <property name="expandsOnDoubleClick">
-      <bool>false</bool>
-     </property>
-     <attribute name="headerVisible">
-      <bool>false</bool>
+    <widget class="QWidget" name="packetListTab">
+     <attribute name="title">
+      <string>Packet List</string>
      </attribute>
-     <column>
-      <property name="text">
-       <string>1</string>
+     <widget class="QGroupBox" name="packetInGroup">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>591</width>
+        <height>321</height>
+       </rect>
       </property>
-     </column>
+      <property name="title">
+       <string>Packet In</string>
+      </property>
+      <widget class="QTreeWidget" name="packetInList">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>571</width>
+         <height>291</height>
+        </rect>
+       </property>
+       <property name="indentation">
+        <number>0</number>
+       </property>
+       <property name="expandsOnDoubleClick">
+        <bool>false</bool>
+       </property>
+       <attribute name="headerVisible">
+        <bool>false</bool>
+       </attribute>
+       <column>
+        <property name="text">
+         <string>1</string>
+        </property>
+       </column>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="packetOutGroup">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>340</y>
+        <width>591</width>
+        <height>321</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Packet Out</string>
+      </property>
+      <widget class="QTreeWidget" name="packetOutList">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>571</width>
+         <height>291</height>
+        </rect>
+       </property>
+       <property name="indentation">
+        <number>0</number>
+       </property>
+       <attribute name="headerVisible">
+        <bool>false</bool>
+       </attribute>
+       <column>
+        <property name="text">
+         <string>1</string>
+        </property>
+       </column>
+      </widget>
+     </widget>
+     <widget class="QPushButton" name="updateButton">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>665</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Update</string>
+      </property>
+     </widget>
     </widget>
-   </widget>
-   <widget class="QGroupBox" name="packetOutGroup">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>340</y>
-      <width>591</width>
-      <height>321</height>
-     </rect>
-    </property>
-    <property name="title">
-     <string>Packet Out</string>
-    </property>
-    <widget class="QTreeWidget" name="packetOutList">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>20</y>
-       <width>571</width>
-       <height>291</height>
-      </rect>
-     </property>
-     <property name="indentation">
-      <number>0</number>
-     </property>
-     <attribute name="headerVisible">
-      <bool>false</bool>
+    <widget class="QWidget" name="sendCommandTab">
+     <attribute name="title">
+      <string>Send Packet</string>
      </attribute>
-     <column>
-      <property name="text">
-       <string>1</string>
+     <widget class="QLineEdit" name="sendCommandLine">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>591</width>
+        <height>20</height>
+       </rect>
       </property>
-     </column>
+     </widget>
+     <widget class="QPushButton" name="sendButton">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>40</y>
+        <width>75</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Send</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="sendSchidSpin">
+      <property name="geometry">
+       <rect>
+        <x>560</x>
+        <y>40</y>
+        <width>42</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="minimum">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="sendSchidLabel">
+      <property name="geometry">
+       <rect>
+        <x>400</x>
+        <y>40</y>
+        <width>151</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>ServerConnectionHandlerID:</string>
+      </property>
+     </widget>
     </widget>
-   </widget>
-   <widget class="QPushButton" name="updateButton">
-    <property name="geometry">
-     <rect>
-      <x>525</x>
-      <y>665</y>
-      <width>75</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Update</string>
-    </property>
    </widget>
   </widget>
  </widget>
@@ -151,9 +223,43 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>sendButton</sender>
+   <signal>clicked()</signal>
+   <receiver>QtPacketList</receiver>
+   <slot>sendCommand()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>59</x>
+     <y>83</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>320</x>
+     <y>368</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sendCommandLine</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>QtPacketList</receiver>
+   <slot>checkSendButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>317</x>
+     <y>51</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>320</x>
+     <y>368</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>updateLists()</slot>
   <slot>copyTextToClipboard(QTreeWidgetItem*)</slot>
+  <slot>sendCommand()</slot>
+  <slot>checkSendButton()</slot>
  </slots>
 </ui>

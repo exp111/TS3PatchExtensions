@@ -31,3 +31,5 @@ PLUGINS_EXPORTDLL void ts3plugin_configure(void* handle, void* qParentWidget);
 #ifdef __cplusplus
 }
 #endif
+
+extern struct wolverindev::ts::ApiFunctions hook_functions;

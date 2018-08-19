@@ -14,7 +14,7 @@ namespace api = wolverindev::ts;
 string pluginId;
 string originalHWID;
 struct TS3Functions functions{};
-struct wolverindev::ts::ApiFunctions hook_functions{};
+struct api::ApiFunctions hook_functions{};
 
 auto badge_hook_deleter = [](api::Hook* instance) {
 	if(instance && hook_functions.unregisterHook)
