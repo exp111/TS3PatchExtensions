@@ -14,10 +14,6 @@ QtConfig::QtConfig(QWidget *parent)
 
 	ui.blockSetConnectionInfoBox->setChecked(config->blockSetConnectionInfo);
 	ui.blockConnectionInfoAutoUpdateBox->setChecked(config->blockConnectionInfoAutoUpdate);
-	ui.blockClientChatComposingBox->setChecked(config->blockClientChatComposing);
-	ui.blockClientChatClosedBox->setChecked(config->blockClientChatClosed);
-	ui.blockClientMuteBox->setChecked(config->blockClientMute);
-	ui.blockClientUnmuteBox->setChecked(config->blockClientUnmute);
 
 	size_t setConnectionInfoSize = config->setConnectionInfo.size();
 	for (int i = 0; i < setConnectionInfoSize; i++)
@@ -59,10 +55,6 @@ void QtConfig::saveToConfig()
 {
 	config->blockSetConnectionInfo = ui.blockSetConnectionInfoBox->isChecked();
 	config->blockConnectionInfoAutoUpdate = ui.blockConnectionInfoAutoUpdateBox->isChecked();
-	config->blockClientChatComposing = ui.blockClientChatComposingBox->isChecked();
-	config->blockClientChatClosed = ui.blockClientChatClosedBox->isChecked();
-	config->blockClientMute = ui.blockClientMuteBox->isChecked();
-	config->blockClientUnmute = ui.blockClientUnmuteBox->isChecked();
 
 	size_t setConnectionInfoSize = config->setConnectionInfo.size();
 	for (int i = 0; i < setConnectionInfoSize; i++)

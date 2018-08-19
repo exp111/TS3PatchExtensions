@@ -17,10 +17,6 @@ public:
 	
 	bool blockSetConnectionInfo = false;
 	bool blockConnectionInfoAutoUpdate = false;
-	bool blockClientChatComposing = false;
-	bool blockClientChatClosed = false;
-	bool blockClientMute = false;
-	bool blockClientUnmute = false;
 	
 	vector<tuple<string, string, bool>> setConnectionInfo =
 	{

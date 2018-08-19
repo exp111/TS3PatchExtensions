@@ -69,8 +69,6 @@ void ts3plugin_shutdown() {
 	hook_functions = {};
 }
 
-
-#define HOSTNAME_BUFFER_LENGTH 20
 int hook_initialized(const wolverindev::ts::ApiFunctions fn) {
 	printf("%s: Hook called me for initialisation!\n", ts3plugin_name());
 	hook_functions = fn;

@@ -56,6 +56,8 @@ bool Config::readConfig()
 	getline(file, line);
 	versionHash = getShitAfterDelim(line, '='); //versionHash
 
+	file.close();
+
 	return true;
 }
 

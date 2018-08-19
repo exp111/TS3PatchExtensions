@@ -3,8 +3,7 @@
 #include <memory>
 #include <iostream>
 #include <api/api.h>
-#include "qtTest.h"
-#include "QtConfig.h"
+#include "blockCommands.h"
 #include "config.h"
 
 using namespace std;
@@ -20,7 +19,7 @@ auto badge_hook_deleter = [](api::Hook* instance) {
 		hook_functions.unregisterHook(instance);
 	delete instance;
 };
-unique_ptr<api::Hook, decltype(badge_hook_deleter)> badge_hook(nullptr, badge_hook_deleter);
+unique_ptr<api::Hook, decltype(badge_hook_deleter)> blockCommandsHook(nullptr, badge_hook_deleter);
 
 
 void ts3plugin_freeMemory(void *data) {
@@ -36,7 +35,7 @@ void ts3plugin_registerPluginID(const char *id) {
 }
 
 const char *ts3plugin_name() {
-	return "Hook [qtTest]";
+	return "Hook [blockCommands]";
 }
 
 const char *ts3plugin_version() {
@@ -52,7 +51,7 @@ const char *ts3plugin_author() {
 }
 
 const char *ts3plugin_description() {
-	return "Qt GUI Test";
+	return "Block in- and outgoing commands";
 }
 
 int ts3plugin_init() { 
@@ -60,55 +59,71 @@ int ts3plugin_init() {
 
 	//If we get initialized after the hook we dont recive the hook_initialized event so we have to notify the hook that we're alive!
 	//Defined within the API
-	trigger_plugin_loaded(); 
+	trigger_plugin_loaded();
+
+	char configPath[512];
+	functions.getConfigPath(configPath, 512);
+
+	config->readConfig(string(configPath) + "plugins/blockCommands/");
 	return 0;
 }
 
 void ts3plugin_shutdown() {
 	printf("%s: Library hook deinitialized\n", ts3plugin_name());
 
-	if(badge_hook) hook_functions.unregisterHook(badge_hook.get());
+	if(blockCommandsHook) hook_functions.unregisterHook(blockCommandsHook.get());
 	hook_functions = {};
 }
 
 int ts3plugin_offersConfigure() {
-	return PLUGIN_OFFERS_CONFIGURE_QT_THREAD;
+	return PLUGIN_OFFERS_NO_CONFIGURE;
 }
 
-void ts3plugin_configure(void* handle, void* qParentWidget)
+string getOriginalValue(string buffer, string prefix)
 {
-	Q_UNUSED(handle);
-	QtConfig* cfg = new QtConfig((QWidget*)qParentWidget);
-	cfg->setAttribute(Qt::WA_DeleteOnClose);
-	cfg->show();
+	size_t findPos = buffer.find(prefix);
+	if (findPos == string::npos)
+		return "";
+
+	size_t findEndPos = buffer.find(' ', findPos);
+	size_t start = findPos + prefix.size() + 1; //+1 cuz we have the =
+	size_t count = findEndPos != string::npos ? findEndPos - start : buffer.size() - start;
+	return buffer.substr(start, count);
 }
 
 void onPacketOut(api::SCHId schId, api::CommandPacket* command, bool &canceled)
 {
-	printf("Command out: %s\n", command->data().c_str());
+	string buffer = command->data();
+
+	for (string command : config->blockOutgoing)
+		if (buffer.substr(0, command.size()) == command)
+			canceled = true;
 }
 
 void onPacketIn(api::SCHId schId, api::CommandPacket* command, bool &canceled)
 {
-	printf("Command in: %s\n", command->data().c_str());
-}
+	string buffer = command->data();
 
+	for (string command : config->blockIncoming)
+		if (buffer.substr(0, command.size()) == command)
+			canceled = true;
+}
 
 int hook_initialized(const wolverindev::ts::ApiFunctions fn) {
 	printf("%s: Hook called me for initialisation!\n", ts3plugin_name());
 	hook_functions = fn;
 
-	badge_hook.reset(new api::Hook());
-	badge_hook->activated = [](){ return true; };
-	badge_hook->on_packet_out = &onPacketOut;
-	badge_hook->on_packet_in = &onPacketIn;
+	blockCommandsHook.reset(new api::Hook());
+	blockCommandsHook->activated = [](){ return true; };
+	blockCommandsHook->on_packet_out = &onPacketOut;
+	blockCommandsHook->on_packet_in = &onPacketIn;
 	
-	hook_functions.registerHook(badge_hook.get());
+	hook_functions.registerHook(blockCommandsHook.get());
 	return 0;
 }
 
 void hook_finalized() {
 	printf("%s: Hook called me for finalisation!\n", ts3plugin_name());
-	if(badge_hook) hook_functions.unregisterHook(badge_hook.get());
+	if(blockCommandsHook) hook_functions.unregisterHook(blockCommandsHook.get());
 	hook_functions = {};
 }

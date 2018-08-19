@@ -98,8 +98,6 @@ void ts3plugin_configure(void* handle, void* qParentWidget)
 	cfg->show();
 }
 
-#define HOSTNAME_BUFFER_LENGTH 20
-
 string escape(string toEscape)
 {
 	string buf = toEscape;

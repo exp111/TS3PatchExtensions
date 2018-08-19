@@ -72,9 +72,9 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>70</y>
+     <y>39</y>
      <width>380</width>
-     <height>250</height>
+     <height>281</height>
     </rect>
    </property>
    <property name="verticalScrollBarPolicy">
@@ -137,58 +137,6 @@
      <string>useOriginal</string>
     </property>
    </column>
-  </widget>
-  <widget class="QCheckBox" name="blockClientChatComposingBox">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>30</y>
-     <width>171</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Block clientChatComposing</string>
-   </property>
-  </widget>
-  <widget class="QCheckBox" name="blockClientChatClosedBox">
-   <property name="geometry">
-    <rect>
-     <x>200</x>
-     <y>30</y>
-     <width>181</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Block clientChatClosed</string>
-   </property>
-  </widget>
-  <widget class="QCheckBox" name="blockClientMuteBox">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>50</y>
-     <width>181</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Block clientMute</string>
-   </property>
-  </widget>
-  <widget class="QCheckBox" name="blockClientUnmuteBox">
-   <property name="geometry">
-    <rect>
-     <x>200</x>
-     <y>50</y>
-     <width>181</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Block clientUnmute</string>
-   </property>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

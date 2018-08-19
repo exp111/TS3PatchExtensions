@@ -20,7 +20,7 @@ auto badge_hook_deleter = [](api::Hook* instance) {
 		hook_functions.unregisterHook(instance);
 	delete instance;
 };
-unique_ptr<api::Hook, decltype(badge_hook_deleter)> spoofer_hook(nullptr, badge_hook_deleter);
+unique_ptr<api::Hook, decltype(badge_hook_deleter)> connectionInfoSpooferHook(nullptr, badge_hook_deleter);
 
 
 void ts3plugin_freeMemory(void *data) {
@@ -72,7 +72,7 @@ int ts3plugin_init() {
 void ts3plugin_shutdown() {
 	printf("%s: Library hook deinitialized\n", ts3plugin_name());
 
-	if(spoofer_hook) hook_functions.unregisterHook(spoofer_hook.get());
+	if(connectionInfoSpooferHook) hook_functions.unregisterHook(connectionInfoSpooferHook.get());
 	hook_functions = {};
 }
 
@@ -87,8 +87,6 @@ void ts3plugin_configure(void* handle, void* qParentWidget)
 	cfg->setAttribute(Qt::WA_DeleteOnClose);
 	cfg->show();
 }
-
-#define HOSTNAME_BUFFER_LENGTH 20
 
 string getOriginalValue(string buffer, string prefix)
 {
@@ -180,69 +178,11 @@ bool connectionInfoAutoUpdate(string &data, bool &canceled)
 	return true;
 }
 
-//------------------Block Stuff----------------------------
-bool clientChatComposing(string data, bool &canceled)
-{
-	if (!config->blockClientChatComposing)
-		return false;
-
-	size_t findPos = data.find("clientchatcomposing");
-	if (findPos == string::npos)
-		return false;
-
-	return canceled = true;
-}
-
-bool clientChatClosed(string data, bool &canceled)
-{
-	if (!config->blockClientChatClosed)
-		return false;
-
-	size_t findPos = data.find("clientchatclosed");
-	if (findPos == string::npos)
-		return false;
-
-	return canceled = true;
-}
-
-bool clientMute(string data, bool &canceled)
-{
-	if (!config->blockClientMute)
-		return false;
-
-	size_t findPos = data.find("clientmute");
-	if (findPos == string::npos)
-		return false;
-
-	return canceled = true;
-}
-
-bool clientUnmute(string data, bool &canceled)
-{
-	if (!config->blockClientUnmute)
-		return false;
-
-	size_t findPos = data.find("clientchatclosed");
-	if (findPos == string::npos)
-		return false;
-
-	return canceled = true;
-}
-//----------------------------------------------------------
-
 void onPacketOut(api::SCHId schId, api::CommandPacket* command, bool &canceled)
 {
 	string buffer = command->data();
 
 	bool changed = setConnectionInfo(buffer, canceled) || connectionInfoAutoUpdate(buffer, canceled);
-	
-	if (!changed)
-	{
-		bool cancel = clientChatComposing(buffer, canceled) ||
-			clientChatClosed(buffer, canceled) ||
-			clientMute(buffer, canceled) ||
-			clientUnmute(buffer, canceled);
-	}
 	
 	if (changed)
 		command->data(buffer);
@@ -252,16 +192,16 @@ int hook_initialized(const wolverindev::ts::ApiFunctions fn) {
 	printf("%s: Hook called me for initialisation!\n", ts3plugin_name());
 	hook_functions = fn;
 
-	spoofer_hook.reset(new api::Hook());
-	spoofer_hook->activated = [](){ return true; };
-	spoofer_hook->on_packet_out = &onPacketOut;
+	connectionInfoSpooferHook.reset(new api::Hook());
+	connectionInfoSpooferHook->activated = [](){ return true; };
+	connectionInfoSpooferHook->on_packet_out = &onPacketOut;
 	
-	hook_functions.registerHook(spoofer_hook.get());
+	hook_functions.registerHook(connectionInfoSpooferHook.get());
 	return 0;
 }
 
 void hook_finalized() {
 	printf("%s: Hook called me for finalisation!\n", ts3plugin_name());
-	if(spoofer_hook) hook_functions.unregisterHook(spoofer_hook.get());
+	if(connectionInfoSpooferHook) hook_functions.unregisterHook(connectionInfoSpooferHook.get());
 	hook_functions = {};
 }

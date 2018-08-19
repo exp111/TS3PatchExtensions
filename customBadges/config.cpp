@@ -93,6 +93,8 @@ bool Config::readConfig()
 	for (string badge : this->badges) //add ids from badgeGUIDs
 		this->badgeIDs.push_back(findBadgeID(badge));
 
+	file.close();
+
 	return true;
 }
 
