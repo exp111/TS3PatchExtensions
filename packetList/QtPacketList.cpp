@@ -45,21 +45,29 @@ void QtPacketList::checkSendButton()
 
 void QtPacketList::updateLists()
 {
+	QString filter = ui.searchLine->text();
+	Qt::CaseSensitivity caseSensitive = ui.searchCaseBox->isChecked() ? Qt::CaseSensitive : Qt::CaseInsensitive;
 	ui.packetInList->clear();
-	for (int i = 0; i < config->packetsIn.size(); i++)
+	for (int i = 0, j = 0; i < config->packetsIn.size(); i++)
 	{
+		if (!filter.isEmpty() && !config->packetsIn[i].contains(filter, caseSensitive))
+			continue;
 		QTreeWidgetItem* item = new QTreeWidgetItem;
 		item->setText(0, config->packetsIn[i]);
 		item->setToolTip(0, config->packetsIn[i]);
-		ui.packetInList->insertTopLevelItem(i, item);
+		ui.packetInList->insertTopLevelItem(j, item);
+		j++;
 	}
 
 	ui.packetOutList->clear();
-	for (int i = 0; i < config->packetsOut.size(); i++)
+	for (int i = 0, j = 0; i < config->packetsOut.size(); i++)
 	{
+		if (!filter.isEmpty() && !config->packetsOut[i].contains(filter, caseSensitive))
+			continue;
 		QTreeWidgetItem* item = new QTreeWidgetItem;
 		item->setText(0, config->packetsOut[i]);
 		item->setToolTip(0, config->packetsOut[i]);
-		ui.packetOutList->insertTopLevelItem(i, item);
+		ui.packetOutList->insertTopLevelItem(j, item);
+		j++;
 	}
 }

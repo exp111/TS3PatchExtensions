@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="packetListTab">
      <attribute name="title">
@@ -112,6 +112,42 @@
       </property>
       <property name="text">
        <string>Update</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="searchLine">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>665</y>
+        <width>311</width>
+        <height>23</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="searchLabel">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>665</y>
+        <width>61</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Search:</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="searchCaseBox">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>665</y>
+        <width>141</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Case Sensitive</string>
       </property>
      </widget>
     </widget>
@@ -248,6 +284,38 @@
     <hint type="sourcelabel">
      <x>317</x>
      <y>51</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>320</x>
+     <y>368</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>searchLine</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>QtPacketList</receiver>
+   <slot>updateLists()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>457</x>
+     <y>708</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>320</x>
+     <y>368</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>searchCaseBox</sender>
+   <signal>stateChanged(int)</signal>
+   <receiver>QtPacketList</receiver>
+   <slot>updateLists()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>212</x>
+     <y>708</y>
     </hint>
     <hint type="destinationlabel">
      <x>320</x>

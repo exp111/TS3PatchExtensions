@@ -1,18 +1,19 @@
 /********************************************************************************
-** Form generated from reading UI file 'QtPacketListp14044.ui'
+** Form generated from reading UI file 'QtPacketListmU7328.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.9.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef QTPACKETLISTP14044_H
-#define QTPACKETLISTP14044_H
+#ifndef QTPACKETLISTMU7328_H
+#define QTPACKETLISTMU7328_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
@@ -37,6 +38,9 @@ public:
     QGroupBox *packetOutGroup;
     QTreeWidget *packetOutList;
     QPushButton *updateButton;
+    QLineEdit *searchLine;
+    QLabel *searchLabel;
+    QCheckBox *searchCaseBox;
     QWidget *sendCommandTab;
     QLineEdit *sendCommandLine;
     QPushButton *sendButton;
@@ -75,6 +79,15 @@ public:
         updateButton = new QPushButton(packetListTab);
         updateButton->setObjectName(QStringLiteral("updateButton"));
         updateButton->setGeometry(QRect(10, 665, 75, 23));
+        searchLine = new QLineEdit(packetListTab);
+        searchLine->setObjectName(QStringLiteral("searchLine"));
+        searchLine->setGeometry(QRect(290, 665, 311, 23));
+        searchLabel = new QLabel(packetListTab);
+        searchLabel->setObjectName(QStringLiteral("searchLabel"));
+        searchLabel->setGeometry(QRect(240, 665, 61, 23));
+        searchCaseBox = new QCheckBox(packetListTab);
+        searchCaseBox->setObjectName(QStringLiteral("searchCaseBox"));
+        searchCaseBox->setGeometry(QRect(130, 665, 141, 23));
         tabWidget->addTab(packetListTab, QString());
         sendCommandTab = new QWidget();
         sendCommandTab->setObjectName(QStringLiteral("sendCommandTab"));
@@ -100,8 +113,10 @@ public:
         QObject::connect(packetOutList, SIGNAL(itemDoubleClicked(QTreeWidgetItem*,int)), QtPacketList, SLOT(copyTextToClipboard(QTreeWidgetItem*)));
         QObject::connect(sendButton, SIGNAL(clicked()), QtPacketList, SLOT(sendCommand()));
         QObject::connect(sendCommandLine, SIGNAL(textChanged(QString)), QtPacketList, SLOT(checkSendButton()));
+        QObject::connect(searchLine, SIGNAL(textChanged(QString)), QtPacketList, SLOT(updateLists()));
+        QObject::connect(searchCaseBox, SIGNAL(stateChanged(int)), QtPacketList, SLOT(updateLists()));
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(QtPacketList);
@@ -117,6 +132,8 @@ public:
         QTreeWidgetItem *___qtreewidgetitem1 = packetOutList->headerItem();
         ___qtreewidgetitem1->setText(0, QApplication::translate("QtPacketList", "1", Q_NULLPTR));
         updateButton->setText(QApplication::translate("QtPacketList", "Update", Q_NULLPTR));
+        searchLabel->setText(QApplication::translate("QtPacketList", "Search:", Q_NULLPTR));
+        searchCaseBox->setText(QApplication::translate("QtPacketList", "Case Sensitive", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(packetListTab), QApplication::translate("QtPacketList", "Packet List", Q_NULLPTR));
         sendButton->setText(QApplication::translate("QtPacketList", "Send", Q_NULLPTR));
         sendSchidLabel->setText(QApplication::translate("QtPacketList", "ServerConnectionHandlerID:", Q_NULLPTR));
@@ -131,4 +148,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // QTPACKETLISTP14044_H
+#endif // QTPACKETLISTMU7328_H
