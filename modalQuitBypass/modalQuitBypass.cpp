@@ -82,7 +82,9 @@ void onPacketIn(api::SCHId schId, api::CommandPacket* command, bool &canceled)
 	if (buffer.find("virtualserver_hostmessage_mode=3") == string::npos)
 		return;
 
+	buffer = setField(buffer, "virtualserver_hostmessage", "");
 	buffer = setField(buffer, "virtualserver_hostmessage_mode", "2");
+
 	command->data(buffer);
 }
 

@@ -62,7 +62,7 @@ string parseField(string command, string field)
 	return command.substr(start, findEndPos - start);
 }
 
-string setField(string command, string field, string value)
+/*string setField(string command, string field, string value)
 {
 	size_t findPos = command.find(field);
 	if (findPos == string::npos)
@@ -73,6 +73,33 @@ string setField(string command, string field, string value)
 		findEndPos = command.size();
 
 	return command.substr(0, findPos + field.size() + 1) + value + command.substr(findEndPos, command.size() - findEndPos);
+}*/
+
+string setField(string command, string field, string value)
+{
+	string buffer = command;
+	size_t findPos = command.find(field);
+	if (findPos == string::npos)
+		return command;
+
+	size_t findEndPos = command.find(' ', findPos);
+	if (findEndPos == string::npos)
+		findEndPos = command.size();
+
+	size_t start = findPos + field.size() + 1;
+	size_t origSize = findEndPos - start;
+	int sizeDiff = origSize - value.size();
+	if (sizeDiff > 0) //delete some unneeded space
+	{
+		buffer.erase(start, sizeDiff);
+	}
+	else if (sizeDiff < 0) //insert some needed space
+	{
+		buffer.insert(start, -sizeDiff, ' ');
+	}
+	buffer.replace(start, value.size(), value);
+
+	return buffer;
 }
 
 string setFields(string command, vector<string> fields, vector<string> values)
