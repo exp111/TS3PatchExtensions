@@ -11,16 +11,15 @@ using namespace std::chrono;
 namespace api = wolverindev::ts;
 
 string pluginId;
-string originalHWID;
 struct TS3Functions functions{};
 struct wolverindev::ts::ApiFunctions hook_functions{};
 
-auto badge_hook_deleter = [](api::Hook* instance) {
+auto modelQuitBypassHookDeleter = [](api::Hook* instance) {
 	if(instance && hook_functions.unregisterHook)
 		hook_functions.unregisterHook(instance);
 	delete instance;
 };
-unique_ptr<api::Hook, decltype(badge_hook_deleter)> modelQuitBypassHook(nullptr, badge_hook_deleter);
+unique_ptr<api::Hook, decltype(modelQuitBypassHookDeleter)> modalQuitBypassHook(nullptr, modelQuitBypassHookDeleter);
 
 
 void ts3plugin_freeMemory(void *data) {
@@ -36,7 +35,7 @@ void ts3plugin_registerPluginID(const char *id) {
 }
 
 const char *ts3plugin_name() {
-	return "Hook [modelQuitBypass]";
+	return "Hook [modalQuitBypass]";
 }
 
 const char *ts3plugin_version() {
@@ -67,7 +66,7 @@ int ts3plugin_init() {
 void ts3plugin_shutdown() {
 	printf("%s: Library hook deinitialized\n", ts3plugin_name());
 
-	if(modelQuitBypassHook) hook_functions.unregisterHook(modelQuitBypassHook.get());
+	if(modalQuitBypassHook) hook_functions.unregisterHook(modalQuitBypassHook.get());
 	hook_functions = {};
 }
 
@@ -91,17 +90,17 @@ int hook_initialized(const wolverindev::ts::ApiFunctions fn) {
 	printf("%s: Hook called me for initialisation!\n", ts3plugin_name());
 	hook_functions = fn;
 
-	modelQuitBypassHook.reset(new api::Hook());
-	modelQuitBypassHook->activated = [](){ return true; };
-	modelQuitBypassHook->on_packet_in = &onPacketIn;
-	modelQuitBypassHook->weight = []() { return 1; };
+	modalQuitBypassHook.reset(new api::Hook());
+	modalQuitBypassHook->activated = [](){ return true; };
+	modalQuitBypassHook->on_packet_in = &onPacketIn;
+	modalQuitBypassHook->weight = []() { return 1; };
 	
-	hook_functions.registerHook(modelQuitBypassHook.get());
+	hook_functions.registerHook(modalQuitBypassHook.get());
 	return 0;
 }
 
 void hook_finalized() {
 	printf("%s: Hook called me for finalisation!\n", ts3plugin_name());
-	if(modelQuitBypassHook) hook_functions.unregisterHook(modelQuitBypassHook.get());
+	if(modalQuitBypassHook) hook_functions.unregisterHook(modalQuitBypassHook.get());
 	hook_functions = {};
 }

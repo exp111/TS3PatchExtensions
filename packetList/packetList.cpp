@@ -12,16 +12,15 @@ using namespace std::chrono;
 namespace api = wolverindev::ts;
 
 string pluginId;
-string originalHWID;
 struct TS3Functions functions{};
 struct api::ApiFunctions hook_functions{};
 
-auto badge_hook_deleter = [](api::Hook* instance) {
+auto packetListHookDeleter = [](api::Hook* instance) {
 	if(instance && hook_functions.unregisterHook)
 		hook_functions.unregisterHook(instance);
 	delete instance;
 };
-unique_ptr<api::Hook, decltype(badge_hook_deleter)> packetListHook(nullptr, badge_hook_deleter);
+unique_ptr<api::Hook, decltype(packetListHookDeleter)> packetListHook(nullptr, packetListHookDeleter);
 
 
 void ts3plugin_freeMemory(void *data) {
