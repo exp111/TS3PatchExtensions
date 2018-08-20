@@ -34,6 +34,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "blockCommands", "blockComma
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "modalQuitBypass", "modalQuitBypass\modalQuitBypass.vcxproj", "{F6177A0B-7290-43FB-A731-35B34A1460C3}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "qtDownloadExample", "qtDownloadExample\qtDownloadExample.vcxproj", "{511E159D-E8C7-4939-8C34-87F261520387}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -200,6 +202,18 @@ Global
 		{F6177A0B-7290-43FB-A731-35B34A1460C3}.ReleaseAll|x64.Build.0 = ReleaseAll|x64
 		{F6177A0B-7290-43FB-A731-35B34A1460C3}.ReleaseAll|x86.ActiveCfg = ReleaseAll|Win32
 		{F6177A0B-7290-43FB-A731-35B34A1460C3}.ReleaseAll|x86.Build.0 = ReleaseAll|Win32
+		{511E159D-E8C7-4939-8C34-87F261520387}.Debug|x64.ActiveCfg = Debug|x64
+		{511E159D-E8C7-4939-8C34-87F261520387}.Debug|x64.Build.0 = Debug|x64
+		{511E159D-E8C7-4939-8C34-87F261520387}.Debug|x86.ActiveCfg = Debug|Win32
+		{511E159D-E8C7-4939-8C34-87F261520387}.Debug|x86.Build.0 = Debug|Win32
+		{511E159D-E8C7-4939-8C34-87F261520387}.Release|x64.ActiveCfg = Release|x64
+		{511E159D-E8C7-4939-8C34-87F261520387}.Release|x64.Build.0 = Release|x64
+		{511E159D-E8C7-4939-8C34-87F261520387}.Release|x86.ActiveCfg = Release|Win32
+		{511E159D-E8C7-4939-8C34-87F261520387}.Release|x86.Build.0 = Release|Win32
+		{511E159D-E8C7-4939-8C34-87F261520387}.ReleaseAll|x64.ActiveCfg = Release|x64
+		{511E159D-E8C7-4939-8C34-87F261520387}.ReleaseAll|x64.Build.0 = Release|x64
+		{511E159D-E8C7-4939-8C34-87F261520387}.ReleaseAll|x86.ActiveCfg = Release|Win32
+		{511E159D-E8C7-4939-8C34-87F261520387}.ReleaseAll|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
