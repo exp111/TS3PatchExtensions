@@ -52,15 +52,6 @@
     <ClCompile Include="config.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_QtConfig.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_QtConfig.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GeneratedFiles\ReleaseAll\moc_QtConfig.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_QtManualBadges.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
@@ -79,6 +70,24 @@
     <ClCompile Include="GeneratedFiles\ReleaseAll\moc_ClickableLabel.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_QtDownloader.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_QtDownloader.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\ReleaseAll\moc_QtDownloader.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_QtConfig.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_QtConfig.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\ReleaseAll\moc_QtConfig.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="QtConfig.ui" />
@@ -95,6 +104,9 @@
       <Filter>Headerdateien</Filter>
     </CustomBuild>
     <CustomBuild Include="ClickableLabel.h">
+      <Filter>Headerdateien</Filter>
+    </CustomBuild>
+    <CustomBuild Include="QtDownloader.h">
       <Filter>Headerdateien</Filter>
     </CustomBuild>
   </ItemGroup>

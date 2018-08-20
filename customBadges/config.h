@@ -3,6 +3,7 @@
 #include <fstream>
 #include <string>
 #include <sstream>
+#include "QtDownloader.h"
 using namespace std;
 
 struct Badge
@@ -48,6 +49,9 @@ public:
 	string buildBadges();
 	int findBadgeID(string GUID);
 	string getIconPath(string iconName, bool largeIcon);
+	void getCSV();
+private:
+	QtDownloader* downloader = nullptr;
 };
 
 extern Config* config;

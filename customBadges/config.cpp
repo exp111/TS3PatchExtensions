@@ -51,6 +51,9 @@ bool Config::readCSV()
 	if (!file.good())
 		return false;
 
+	this->badgeCount = 0;
+	this->allBadges.clear();
+
 	string line;
 	getline(file, line); //skip the first line
 	while (!file.eof())
@@ -142,15 +145,29 @@ int Config::findBadgeID(string GUID)
 
 string Config::getIconPath(string iconName, bool largeIcon)
 {
-	//First try to get from cache
-	/*string filePath = config->directory + "../../cache/badges/" + iconName;
-	filePath += largeIcon ? "_details.svg" : ".svg";
-	if (fstream(filePath.c_str()).good())
-	{
-		return filePath;
-	}*/
-	//Get Backup
 	string filePath = config->directory + "icons/" + iconName;
 	filePath += largeIcon ? "_64.png" : ".png";
+	if (fstream(filePath.c_str()).good())
+		return filePath;
+
+	//Try to get from cache else
+	filePath = config->directory + "../../cache/badges/" + iconName;
+	filePath += largeIcon ? "_details.svg" : ".svg";
 	return filePath;
+}
+
+void Config::getCSV()
+{
+	if (downloader == nullptr)
+		downloader = new QtDownloader;
+
+	//Check if directory exists
+	QString path = directory.c_str();
+	QDir dir = QDir(path);
+	if (!dir.exists())
+		dir.mkpath(path);
+
+	//Download
+	string filePath = this->directory + csvName;
+	downloader->doDownload(this->csvUrl, filePath.c_str());
 }

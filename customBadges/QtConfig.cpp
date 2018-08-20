@@ -24,23 +24,11 @@ QtConfig::QtConfig(QWidget *parent)
 
 	if (config->foundCSV)
 	{
-		for (int i = 0; i < config->badgeCount; i++)
-		{
-			QTreeWidgetItem* item = new QTreeWidgetItem();
-			item->setText(0, QString(config->allBadges[i].name.c_str()));
-			string fileName = config->getIconPath(config->allBadges[i].fileName, false);
-			QIcon icon;
-			icon.addFile(QString(fileName.c_str()));
-			item->setIcon(0, icon);
-			string fileName64 = config->getIconPath(config->allBadges[i].fileName, true);
-			string tooltip = "<center><b>" + config->allBadges[i].name + "</b><br/>" + config->allBadges[i].description + "<br/><img width=\"64\" height=\"64\" src=\"" + fileName64 + "\"</center>";
-			item->setToolTip(0, QString(tooltip.c_str()));
-			ui.badgeList->insertTopLevelItem(i, item);
-		}
+		updateBadgeList();
 	}
 	else
 	{
-		QMessageBox* notifyUserDialog = new QMessageBox(QMessageBox::Icon::Warning, "Missing CSV File", ("Missing File: " + config->directory + config->csvName + ". Download it from <a href='" + config->csvUrl + "'>here</a>.").c_str(), QMessageBox::NoButton, parent);
+		QMessageBox* notifyUserDialog = new QMessageBox(QMessageBox::Icon::Warning, "Missing CSV File", ("Missing File: " + config->directory + config->csvName + ". Download it from <a href='" + config->csvUrl + "'>here</a> or press the update button.").c_str(), QMessageBox::NoButton, parent);
 		notifyUserDialog->setWindowIcon(QIcon());
 		notifyUserDialog->setAttribute(Qt::WA_DeleteOnClose);
 		notifyUserDialog->show();
@@ -94,6 +82,23 @@ void QtConfig::updateBoxes()
 		default:
 			break;
 		}
+	}
+}
+
+void QtConfig::updateBadgeList()
+{
+	for (int i = 0; i < config->badgeCount; i++)
+	{
+		QTreeWidgetItem* item = new QTreeWidgetItem();
+		item->setText(0, QString(config->allBadges[i].name.c_str()));
+		string fileName = config->getIconPath(config->allBadges[i].fileName, false);
+		QIcon icon;
+		icon.addFile(QString(fileName.c_str()));
+		item->setIcon(0, icon);
+		string fileName64 = config->getIconPath(config->allBadges[i].fileName, true);
+		string tooltip = "<center><b>" + config->allBadges[i].name + "</b><br/>" + config->allBadges[i].description + "<br/><img width=\"64\" height=\"64\" src=\"" + fileName64 + "\"</center>";
+		item->setToolTip(0, QString(tooltip.c_str()));
+		ui.badgeList->insertTopLevelItem(i, item);
 	}
 }
 
@@ -194,6 +199,14 @@ void QtConfig::swapBadge(QString label, QTreeWidgetItem*)
 	tempBadgeIDs[i] = index;
 
 	updateBoxes();
+}
+
+void QtConfig::updateCSV()
+{
+	config->getCSV();
+	config->readCSV();
+	updateBoxes();
+	updateBadgeList();
 }
 
 void QtConfig::openManualBadges()

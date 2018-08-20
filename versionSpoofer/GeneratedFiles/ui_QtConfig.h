@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'QtConfigHp8196.ui'
+** Form generated from reading UI file 'QtConfigHp6456.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.9.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef QTCONFIGHP8196_H
-#define QTCONFIGHP8196_H
+#ifndef QTCONFIGHP6456_H
+#define QTCONFIGHP6456_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -30,6 +30,7 @@ public:
     QLabel *OSLabel;
     QLabel *versionLabel;
     QComboBox *versionComboBox;
+    QPushButton *updateButton;
 
     void setupUi(QWidget *QtConfig)
     {
@@ -57,12 +58,16 @@ public:
         versionComboBox = new QComboBox(QtConfig);
         versionComboBox->setObjectName(QStringLiteral("versionComboBox"));
         versionComboBox->setGeometry(QRect(160, 40, 171, 22));
+        updateButton = new QPushButton(QtConfig);
+        updateButton->setObjectName(QStringLiteral("updateButton"));
+        updateButton->setGeometry(QRect(270, 5, 61, 23));
 
         retranslateUi(QtConfig);
         QObject::connect(acceptButton, SIGNAL(clicked()), QtConfig, SLOT(saveToConfig()));
         QObject::connect(cancelButton, SIGNAL(clicked()), QtConfig, SLOT(close()));
         QObject::connect(acceptButton, SIGNAL(clicked()), QtConfig, SLOT(close()));
         QObject::connect(OSComboBox, SIGNAL(currentIndexChanged(QString)), QtConfig, SLOT(updateVersionCombo(QString)));
+        QObject::connect(updateButton, SIGNAL(clicked()), QtConfig, SLOT(updateCSV()));
 
         QMetaObject::connectSlotsByName(QtConfig);
     } // setupUi
@@ -74,6 +79,7 @@ public:
         cancelButton->setText(QApplication::translate("QtConfig", "Abbrechen", Q_NULLPTR));
         OSLabel->setText(QApplication::translate("QtConfig", "OS", Q_NULLPTR));
         versionLabel->setText(QApplication::translate("QtConfig", "Version", Q_NULLPTR));
+        updateButton->setText(QApplication::translate("QtConfig", "Update", Q_NULLPTR));
     } // retranslateUi
 
 };
@@ -84,4 +90,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // QTCONFIGHP8196_H
+#endif // QTCONFIGHP6456_H

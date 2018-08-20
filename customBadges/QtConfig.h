@@ -15,6 +15,7 @@ public:
 	QtConfig(QWidget *parent = Q_NULLPTR);
 	~QtConfig();
 	void updateBoxes();
+	void updateBadgeList();
 
 public slots:
 	void saveToConfig();
@@ -23,6 +24,7 @@ public slots:
 	void deleteBadge2();
 	void deleteBadge3();
 	void swapBadge(QString label, QTreeWidgetItem*);
+	void updateCSV();
 
 	void openManualBadges();
 

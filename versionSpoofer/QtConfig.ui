@@ -97,6 +97,19 @@
     </rect>
    </property>
   </widget>
+  <widget class="QPushButton" name="updateButton">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>5</y>
+     <width>61</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Update</string>
+   </property>
+  </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
@@ -165,9 +178,26 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>updateButton</sender>
+   <signal>clicked()</signal>
+   <receiver>QtConfig</receiver>
+   <slot>updateCSV()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>300</x>
+     <y>16</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>173</x>
+     <y>61</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>saveToConfig()</slot>
   <slot>updateVersionCombo(QString)</slot>
+  <slot>updateCSV()</slot>
  </slots>
 </ui>

@@ -70,6 +70,9 @@ bool Config::readCSV()
 	if (!file.good())
 		return false;
 
+	config->OSList.clear();
+	config->versionList.clear();
+
 	string line;
 	getline(file, line); //skip the first line
 	while (!file.eof())
@@ -83,6 +86,9 @@ bool Config::readCSV()
 void Config::readLine(vector<string> results)
 {
 	//channel,version,platform,hash
+	if (results.size() < 4)
+		return;
+
 	if (find(OSList.begin(), OSList.end(), results[2]) == OSList.end())
 		OSList.push_back(results[2]);
 
@@ -104,4 +110,20 @@ bool Config::writeConfig()
 	file.close();
 
 	return true;
+}
+
+void Config::getCSV()
+{
+	if (downloader == nullptr)
+		downloader = new QtDownloader;
+
+	//Check if directory exists
+	QString path = directory.c_str();
+	QDir dir = QDir(path);
+	if (!dir.exists())
+		dir.mkpath(path);
+
+	//Download
+	string filePath = this->directory + csvName;
+	downloader->doDownload(this->csvUrl, filePath.c_str());
 }

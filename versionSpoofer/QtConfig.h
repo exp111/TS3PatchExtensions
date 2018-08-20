@@ -2,6 +2,7 @@
 
 #include <qwidget.h>
 #include <qmainwindow.h>
+#include <QMessageBox>
 #include "GeneratedFiles\ui_QtConfig.h"
 #include <string>
 #include <vector>
@@ -15,9 +16,11 @@ class QtConfig : public QMainWindow
 public:
 	QtConfig(QWidget *parent = Q_NULLPTR);
 	~QtConfig();
+	void updateCombos();
 public slots:
 	void saveToConfig();
 	void updateVersionCombo(QString newCombo);
+	void updateCSV();
 private:
 	Ui::QtConfig ui;
 };

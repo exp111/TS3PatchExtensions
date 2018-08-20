@@ -1,14 +1,16 @@
 #pragma once
-#include <QMessageBox>
 #include <string>
 #include <vector>
 #include <map>
 #include <fstream>
 #include <sstream>
+#include "QtDownloader.h"
 using namespace std;
 
 class Config
 {
+private:
+	QtDownloader* downloader = nullptr;
 public:
 	Config() { };
 	~Config() { };
@@ -32,6 +34,7 @@ public:
 	bool readCSV();
 	void readLine(vector<string> results);
 	bool writeConfig();
+	void getCSV();
 };
 
 extern Config* config;

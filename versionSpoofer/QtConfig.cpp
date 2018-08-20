@@ -23,17 +23,11 @@ QtConfig::QtConfig(QWidget *parent)
 	this->setMinimumSize(this->size());
 	this->setMaximumSize(this->size());
 
-	for (auto os : config->OSList)
-		ui.OSComboBox->addItem(QString(os.c_str()));
-
-	//No need to add versions to other combo as the updateVersionCombo action gets triggered by the currentIndexChanged event here
-
-	ui.OSComboBox->setCurrentIndex(std::find(config->OSList.begin(), config->OSList.end(), config->OS) - config->OSList.begin());
-	ui.versionComboBox->setCurrentIndex(getIndex(config->versionList[config->OS], config->version));
+	updateCombos();
 
 	if (!config->foundCSV)
 	{
-		QMessageBox* notifyUserDialog = new QMessageBox(QMessageBox::Icon::Warning, "Missing CSV File", ("Missing File: " + config->directory + config->csvName + ". Download it from <a href='" + config->csvUrl + "'>here</a>.").c_str(), QMessageBox::NoButton, parent);
+		QMessageBox* notifyUserDialog = new QMessageBox(QMessageBox::Icon::Warning, "Missing CSV File", ("Missing File: " + config->directory + config->csvName + ". Download it from <a href='" + config->csvUrl + "'>here</a> or press the update button.").c_str(), QMessageBox::NoButton, parent);
 		notifyUserDialog->setWindowIcon(QIcon());
 		notifyUserDialog->setAttribute(Qt::WA_DeleteOnClose);
 		notifyUserDialog->show();
@@ -42,6 +36,17 @@ QtConfig::QtConfig(QWidget *parent)
 
 QtConfig::~QtConfig()
 {
+}
+
+void QtConfig::updateCombos()
+{
+	for (auto os : config->OSList)
+		ui.OSComboBox->addItem(QString(os.c_str()));
+
+	//No need to add versions to other combo as the updateVersionCombo action gets triggered by the currentIndexChanged event here
+
+	ui.OSComboBox->setCurrentIndex(std::find(config->OSList.begin(), config->OSList.end(), config->OS) - config->OSList.begin());
+	ui.versionComboBox->setCurrentIndex(getIndex(config->versionList[config->OS], config->version));
 }
 
 void QtConfig::updateVersionCombo(QString newOS)
@@ -62,4 +67,11 @@ void QtConfig::saveToConfig()
 	config->versionHash = versionPair.second;
 
 	config->writeConfig();
+}
+
+void QtConfig::updateCSV()
+{
+	config->getCSV();
+	config->readCSV();
+	updateCombos();
 }
