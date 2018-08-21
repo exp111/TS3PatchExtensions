@@ -13,7 +13,8 @@ QtManualBadges::QtManualBadges(QWidget *parent)
 	Qt::WindowFlags flags = this->windowFlags();
 	this->setWindowFlags(flags &~Qt::WindowMinMaxButtonsHint);
 
-	size_t toMove = (((QtConfig*)parent)->tempBadges.size() - 2);
+	//TODO: rather check if a lineedit pos + size > buttons pos
+	int toMove = ((QtConfig*)parent)->tempBadges.size() - 2;
 	if (toMove > 0)
 	{
 		this->resize(size().width(), size().height() + 20 * toMove);

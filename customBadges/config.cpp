@@ -36,32 +36,71 @@ vector<string> getNextLineAndSplitIntoTokens(istream& str)
 void Config::readCSVLine(vector<string> results)
 {
 	//uid,name,description,filename
-	bool fileFound = ifstream(this->directory + "icons/" + results[3] + ".png").good();
-	string fileName = fileFound ? results[3] : "placeholder";
-	this->allBadges.push_back(Badge(results[0], results[1], results[2], fileName));
+	if (results.size() < 4)
+		return;
+	this->allBadges.push_back(Badge(results[0], results[1], results[2], results[3]));
 	this->badgeCount++;
 }
 
-bool Config::readCSV()
+bool Config::readDatabase()
 {
-	string csvFilePath = this->directory + csvName;
+	//https://github.com/Bluscream/pyTSon_plugins/blob/c0c2baa38ba59bfbbb88496b20edcf3fc889e439/include/bluscream.py#L601
+	QString filePath = (this->configDirectory + "settings.db").c_str();
+	if (!QFile::exists(filePath))
+		return false;
+	
+	QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+	db.setDatabaseName(filePath);
 
-	ifstream file(csvFilePath);
-
-	if (!file.good())
+	if (!db.open())
 		return false;
 
 	this->badgeCount = 0;
 	this->allBadges.clear();
 
-	string line;
-	getline(file, line); //skip the first line
-	while (!file.eof())
-		readCSVLine(getNextLineAndSplitIntoTokens(file));
+	QSqlQuery query;
+	if (!query.exec("SELECT * FROM Badges WHERE key = 'BadgesListData'"))
+		return false;
+	
+	query.next(); //Get to the first record. Should only have one so no need for a loop here
+	auto value = query.value("value").toString();
+	int next = 12;
+	int guid_len = 0; string guid = "";
+	int	name_len = 0; string name = "";
+	int	url_len = 0; string fileName = "";
+	int	desc_len = 0; string desc = "";
+	for (int i = 0; i < value.size(); i++)
+	{
+		if (i == next) //uid
+		{
+			guid_len = value.at(i).unicode();
+			guid = value.mid(i + 1, guid_len).toStdString();
+		}
+		else if (i == (next + 1 + guid_len + 1)) //name
+		{
+			name_len = value.at(i).unicode();
+			name = value.mid(i + 1, name_len).toStdString();
+		}
+		else if (i == (next + 1 + guid_len + 1 + name_len + 2)) //url
+		{
+			url_len = value.at(i).unicode();
+			QString url = value.mid(i + 1, url_len);
+			fileName = url.mid(url.lastIndexOf('/') + 1).toStdString();
+		}
+		else if (i == (next + 1 + guid_len + 1 + name_len + 2 + url_len + 2)) //description
+		{
+			desc_len = value.at(i).unicode();
+			desc = value.mid(i + 1, desc_len).toStdString();
 
-	file.close();
+			this->allBadges.push_back(Badge(guid, name, desc, fileName));
+			this->badgeCount++;
 
-	return this->foundCSV = true;
+			//TODO: fix this mess (better not search for 0x24 manually cuz it could be somewhere else and we don't know if the uids are always 36 long)
+			next = value.indexOf('$', i);//(next + guid_len + 2 + name_len + 2 + url_len + 2 + desc_len + 12);
+		}
+	}
+
+	return true;
 }
 
 void Config::readConfigLine(vector<string> results)
@@ -145,29 +184,17 @@ int Config::findBadgeID(string GUID)
 
 string Config::getIconPath(string iconName, bool largeIcon)
 {
+	//First try to get from our icons folder
 	string filePath = config->directory + "icons/" + iconName;
 	filePath += largeIcon ? "_64.png" : ".png";
 	if (fstream(filePath.c_str()).good())
 		return filePath;
 
 	//Try to get from cache else
-	filePath = config->directory + "../../cache/badges/" + iconName;
+	filePath = config->configDirectory + "cache/badges/" + iconName;
 	filePath += largeIcon ? "_details.svg" : ".svg";
-	return filePath;
-}
+	if (fstream(filePath.c_str()).good())
+		return filePath;
 
-void Config::getCSV()
-{
-	if (downloader == nullptr)
-		downloader = new QtDownloader;
-
-	//Check if directory exists
-	QString path = directory.c_str();
-	QDir dir = QDir(path);
-	if (!dir.exists())
-		dir.mkpath(path);
-
-	//Download
-	string filePath = this->directory + csvName;
-	downloader->doDownload(this->csvUrl, filePath.c_str());
+	return config->directory + "icons/placeholder" + (largeIcon ? "_64.png" : ".png"); //if not found use placeholder
 }

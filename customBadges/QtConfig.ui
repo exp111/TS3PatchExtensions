@@ -161,19 +161,6 @@
       <string>...</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="updateCSVButton">
-     <property name="geometry">
-      <rect>
-       <x>430</x>
-       <y>0</y>
-       <width>101</width>
-       <height>23</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Update Badge List</string>
-     </property>
-    </widget>
    </widget>
    <widget class="QPushButton" name="acceptButton">
     <property name="geometry">
@@ -444,22 +431,6 @@
     </hint>
    </hints>
   </connection>
-  <connection>
-   <sender>updateCSVButton</sender>
-   <signal>clicked()</signal>
-   <receiver>QtConfig</receiver>
-   <slot>updateCSV()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>495</x>
-     <y>21</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>276</x>
-     <y>214</y>
-    </hint>
-   </hints>
-  </connection>
  </connections>
  <slots>
   <slot>saveToConfig()</slot>
@@ -469,6 +440,5 @@
   <slot>deleteBadge3()</slot>
   <slot>openManualBadges()</slot>
   <slot>swapBadge(QString,QTreeWidgetItem*)</slot>
-  <slot>updateCSV()</slot>
  </slots>
 </ui>

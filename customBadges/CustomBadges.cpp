@@ -65,8 +65,9 @@ int ts3plugin_init() {
 	char configPath[512];
 	functions.getConfigPath(configPath, 512);
 
+	config->setConfigDirectory(configPath);
 	config->setDirectory(string(configPath) + "plugins/customBadges/");
-	config->readCSV();
+	config->readDatabase();
 	config->readConfig();
 
 	return 0;

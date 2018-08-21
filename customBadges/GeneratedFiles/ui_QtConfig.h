@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'QtConfigp12692.ui'
+** Form generated from reading UI file 'QtConfigp15576.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.9.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef QTCONFIGP12692_H
-#define QTCONFIGP12692_H
+#ifndef QTCONFIGP15576_H
+#define QTCONFIGP15576_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -39,7 +39,6 @@ public:
     QGroupBox *badge2Box;
     ClickableLabel *badge2Label;
     QToolButton *manualBadgeOverride;
-    QPushButton *updateCSVButton;
     QPushButton *acceptButton;
     QPushButton *rejectButton;
 
@@ -88,9 +87,6 @@ public:
         manualBadgeOverride = new QToolButton(widget);
         manualBadgeOverride->setObjectName(QStringLiteral("manualBadgeOverride"));
         manualBadgeOverride->setGeometry(QRect(420, 80, 61, 21));
-        updateCSVButton = new QPushButton(widget);
-        updateCSVButton->setObjectName(QStringLiteral("updateCSVButton"));
-        updateCSVButton->setGeometry(QRect(430, 0, 101, 23));
         acceptButton = new QPushButton(centralWidget);
         acceptButton->setObjectName(QStringLiteral("acceptButton"));
         acceptButton->setGeometry(QRect(90, 390, 131, 23));
@@ -114,7 +110,6 @@ public:
         QObject::connect(badge1Label, SIGNAL(dropFromTreeWidgetOnNotEmpty(QString,QTreeWidgetItem*)), QtConfig, SLOT(swapBadge(QString,QTreeWidgetItem*)));
         QObject::connect(badge2Label, SIGNAL(dropFromTreeWidgetOnNotEmpty(QString,QTreeWidgetItem*)), QtConfig, SLOT(swapBadge(QString,QTreeWidgetItem*)));
         QObject::connect(badge3Label, SIGNAL(dropFromTreeWidgetOnNotEmpty(QString,QTreeWidgetItem*)), QtConfig, SLOT(swapBadge(QString,QTreeWidgetItem*)));
-        QObject::connect(updateCSVButton, SIGNAL(clicked()), QtConfig, SLOT(updateCSV()));
 
         QMetaObject::connectSlotsByName(QtConfig);
     } // setupUi
@@ -132,7 +127,6 @@ public:
         badge2Box->setTitle(QApplication::translate("QtConfig", "Badge 2", Q_NULLPTR));
         badge2Label->setText(QString());
         manualBadgeOverride->setText(QApplication::translate("QtConfig", "...", Q_NULLPTR));
-        updateCSVButton->setText(QApplication::translate("QtConfig", "Update Badge List", Q_NULLPTR));
         acceptButton->setText(QApplication::translate("QtConfig", "Annehmen", Q_NULLPTR));
         rejectButton->setText(QApplication::translate("QtConfig", "Abbrechen", Q_NULLPTR));
     } // retranslateUi
@@ -145,4 +139,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // QTCONFIGP12692_H
+#endif // QTCONFIGP15576_H

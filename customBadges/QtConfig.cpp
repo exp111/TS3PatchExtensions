@@ -22,17 +22,7 @@ QtConfig::QtConfig(QWidget *parent)
 	windowIcon.addFile(QString(config->getIconPath("addon_author", false).c_str()));
 	this->setWindowIcon(windowIcon);
 
-	if (config->foundCSV)
-	{
-		updateBadgeList();
-	}
-	else
-	{
-		QMessageBox* notifyUserDialog = new QMessageBox(QMessageBox::Icon::Warning, "Missing CSV File", ("Missing File: " + config->directory + config->csvName + ". Download it from <a href='" + config->csvUrl + "'>here</a> or press the update button.").c_str(), QMessageBox::NoButton, parent);
-		notifyUserDialog->setWindowIcon(QIcon());
-		notifyUserDialog->setAttribute(Qt::WA_DeleteOnClose);
-		notifyUserDialog->show();
-	}
+	updateBadgeList();
 }
 
 QtConfig::~QtConfig()
@@ -199,14 +189,6 @@ void QtConfig::swapBadge(QString label, QTreeWidgetItem*)
 	tempBadgeIDs[i] = index;
 
 	updateBoxes();
-}
-
-void QtConfig::updateCSV()
-{
-	config->getCSV();
-	config->readCSV();
-	updateBoxes();
-	updateBadgeList();
 }
 
 void QtConfig::openManualBadges()
