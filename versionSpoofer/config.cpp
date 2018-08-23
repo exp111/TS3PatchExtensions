@@ -24,6 +24,15 @@ vector<string> getNextLineAndSplitIntoTokens(istream& str)
 	return result;
 }
 
+string getShitBeforeDelim(string line, char delim)
+{
+	size_t findPos = line.find(delim);
+	if (findPos == string::npos)
+		return line;
+
+	return line.substr(0, findPos);
+}
+
 string getShitAfterDelim(string line, char delim)
 {
 	auto findPos = line.find(delim);
@@ -33,22 +42,12 @@ string getShitAfterDelim(string line, char delim)
 	return line.substr(findPos + 1);
 }
 
-void getNextOption(ifstream &file, string &s)
-{
-	if (file.eof())
-		return;
-
-	string line;
-	getline(file, line);
-	s = getShitAfterDelim(line, '=');
-}
-
 bool Config::readConfig()
 {
 	/*
 	OS=iOS
-	Version=3.0.11 [Build: 1374563791]
-	VersionHash=hQCwiLP5f4GIcDG5KQ1T+CNFGqRxyw5MXCHE8KjWRIgkjCuGSryK4vpPy70EURH3blQ8TKrax8BEorHlpnpdAQ==
+	version=3.0.11 [Build: 1374563791]
+	versionHash=hQCwiLP5f4GIcDG5KQ1T+CNFGqRxyw5MXCHE8KjWRIgkjCuGSryK4vpPy70EURH3blQ8TKrax8BEorHlpnpdAQ==
 	customOS=frick
 	customVersion=off
 	*/
@@ -60,12 +59,20 @@ bool Config::readConfig()
 	if (!file.good() || file.eof())
 		return false;
 
-	getNextOption(file, OS);
-	getNextOption(file, version);
-	getNextOption(file, versionHash);
+	string line;
+	map<string, string> options;
 
-	getNextOption(file, customOS);
-	getNextOption(file, customVersion);
+	while (getline(file, line))
+	{
+		options[getShitBeforeDelim(line, '=')] = getShitAfterDelim(line, '=');
+	}
+
+	this->OS = options["OS"];
+	this->version = options["version"];
+	this->versionHash = options["versionHash"];
+
+	this->customOS = options["customOS"];
+	this->customVersion = options["customVersion"];
 
 	file.close();
 
