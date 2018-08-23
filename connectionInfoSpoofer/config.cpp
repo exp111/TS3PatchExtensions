@@ -2,6 +2,15 @@
 
 Config* config = new Config;
 
+string getShitBeforeDelim(string line, char delim)
+{
+	size_t findPos = line.find(delim);
+	if (findPos == string::npos)
+		return line;
+
+	return line.substr(0, findPos);
+}
+
 string getShitAfterDelim(string line, char delim)
 {
 	size_t findPos = line.find(delim);
@@ -11,19 +20,13 @@ string getShitAfterDelim(string line, char delim)
 	return line.substr(findPos + 1);
 }
 
-string getShitAfterDelim(string line, char delim, char delim2)
+int toInt(string s, int ret = 0)
 {
-	size_t findPos = line.find(delim);
-	if (findPos == string::npos)
-		return line;
+	if (s.empty())
+		return ret;
 
-	size_t findPos2 = line.find(delim2, findPos);
-	if (findPos2 == string::npos)
-		findPos2 = line.size();
-
-	return line.substr(findPos + 1, findPos2 - findPos - 1);
+	return stoi(s);
 }
-
 bool Config::readConfig(string dir)
 {
 	directory = dir;
@@ -42,24 +45,31 @@ bool Config::readConfig(string dir)
 		return false;
 
 	string line;
+	map<string, string> options;
 
-	getline(file, line);
-	this->blockSetConnectionInfo = stoi(getShitAfterDelim(line, '='));
-	getline(file, line);
-	this->blockConnectionInfoAutoUpdate = stoi(getShitAfterDelim(line, '='));
+	while (getline(file, line))
+	{
+		options[getShitBeforeDelim(line, '=')] = getShitAfterDelim(line, '=');
+	}
+
+	this->blockSetConnectionInfo = toInt(options["blockSetConnectionInfo"], blockSetConnectionInfo);
+	this->blockConnectionInfoAutoUpdate = toInt(options["blockConnectionInfoAutoUpdate"], blockSetConnectionInfo);
 
 	for (int i = 0; i < this->setConnectionInfo.size(); i++)
 	{
-		getline(file, line);
-		get<1>(this->setConnectionInfo[i]) = getShitAfterDelim(line, '=', ',');
-		get<2>(this->setConnectionInfo[i]) = stoi(getShitAfterDelim(line, ','));
+		string line = options[get<0>(this->setConnectionInfo[i])];
+		if (line.empty())
+			continue;
+		get<1>(this->setConnectionInfo[i]) = getShitBeforeDelim(line, ',');
+		get<2>(this->setConnectionInfo[i]) = toInt(getShitAfterDelim(line, ','), get<2>(this->setConnectionInfo[i]));
 	}
-	
 	for (int i = 0; i < this->connectionInfoAutoUpdate.size(); i++)
 	{
-		getline(file, line);
-		get<1>(this->connectionInfoAutoUpdate[i]) = getShitAfterDelim(line, '=', ',');
-		get<2>(this->connectionInfoAutoUpdate[i]) = stoi(getShitAfterDelim(line, ','));
+		string line = options[get<0>(this->connectionInfoAutoUpdate[i])];
+		if (line.empty())
+			continue;
+		get<1>(this->connectionInfoAutoUpdate[i]) = getShitBeforeDelim(line, ',');
+		get<2>(this->connectionInfoAutoUpdate[i]) = toInt(getShitAfterDelim(line, ','), get<2>(this->setConnectionInfo[i]));
 	}
 
 	file.close();
