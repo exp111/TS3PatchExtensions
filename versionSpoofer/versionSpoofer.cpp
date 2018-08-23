@@ -130,7 +130,7 @@ void onPacketOut(api::SCHId schId, api::CommandPacket* command, bool &canceled)
 	for (int i = 0; i < find_pos + 15; i++)
 		s += buffer.at(i);
 
-	s += escape(config->version) + " client_platform=" + config->OS;
+	s += escape(config->version) + " client_platform=" + escape(config->OS);
 	for (int i = find_pos2; i < findPos3 + 21; i++)
 		s += buffer.at(i);
 
