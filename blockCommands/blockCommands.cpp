@@ -91,21 +91,27 @@ string getOriginalValue(string buffer, string prefix)
 	return buffer.substr(start, count);
 }
 
+void cancelCommand(api::CommandPacket* command, bool &canceled)
+{
+	//canceled = true; //ts3patch will set it to "_hook_canceled", but that will send a not implemented error
+	command->data("clientupdate");
+}
+
 void onPacketOut(api::SCHId schId, api::CommandPacket* command, bool &canceled)
 {
 	string buffer = command->data();
 
-	for (string command : config->blockOutgoing)
-		if (buffer.substr(0, command.size()) == command)
-			canceled = true;
+	for (string cmd : config->blockOutgoing)
+		if (buffer.substr(0, cmd.size()) == cmd)
+			cancelCommand(command, canceled);
 }
 
 void onPacketIn(api::SCHId schId, api::CommandPacket* command, bool &canceled)
 {
 	string buffer = command->data();
 
-	for (string command : config->blockIncoming)
-		if (buffer.substr(0, command.size()) == command)
+	for (string cmd : config->blockIncoming)
+		if (buffer.substr(0, cmd.size()) == cmd)
 			canceled = true;
 }
 
