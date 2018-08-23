@@ -33,12 +33,24 @@ string getShitAfterDelim(string line, char delim)
 	return line.substr(findPos + 1);
 }
 
+void getNextOption(ifstream &file, string &s)
+{
+	if (file.eof())
+		return;
+
+	string line;
+	getline(file, line);
+	s = getShitAfterDelim(line, '=');
+}
+
 bool Config::readConfig()
 {
 	/*
 	OS=iOS
 	Version=3.0.11 [Build: 1374563791]
 	VersionHash=hQCwiLP5f4GIcDG5KQ1T+CNFGqRxyw5MXCHE8KjWRIgkjCuGSryK4vpPy70EURH3blQ8TKrax8BEorHlpnpdAQ==
+	customOS=frick
+	customVersion=off
 	*/
 
 	string configFile = this->directory + configName;
@@ -48,13 +60,12 @@ bool Config::readConfig()
 	if (!file.good() || file.eof())
 		return false;
 
-	string line;
-	getline(file, line);
-	OS = getShitAfterDelim(line, '='); //OS
-	getline(file, line);
-	version = getShitAfterDelim(line, '='); //version
-	getline(file, line);
-	versionHash = getShitAfterDelim(line, '='); //versionHash
+	getNextOption(file, OS);
+	getNextOption(file, version);
+	getNextOption(file, versionHash);
+
+	getNextOption(file, customOS);
+	getNextOption(file, customVersion);
 
 	file.close();
 
@@ -106,6 +117,9 @@ bool Config::writeConfig()
 	file << "OS=" << OS << endl;
 	file << "version=" << version << endl;
 	file << "versionHash=" << versionHash << endl;
+
+	file << "customOS=" << customOS << endl;
+	file << "customVersion=" << customVersion << endl;
 
 	file.close();
 

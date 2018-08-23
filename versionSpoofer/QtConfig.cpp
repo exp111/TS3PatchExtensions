@@ -47,6 +47,10 @@ void QtConfig::updateCombos()
 
 	ui.OSComboBox->setCurrentIndex(std::find(config->OSList.begin(), config->OSList.end(), config->OS) - config->OSList.begin());
 	ui.versionComboBox->setCurrentIndex(getIndex(config->versionList[config->OS], config->version));
+
+	ui.customVersionBox->setChecked(config->useCustomOSVersion);
+	ui.customOSLine->setText(QString::fromStdString(config->customOS));
+	ui.customVersionLine->setText(QString::fromStdString(config->customVersion));
 }
 
 void QtConfig::updateVersionCombo(QString newOS)
@@ -60,6 +64,12 @@ void QtConfig::updateVersionCombo(QString newOS)
 
 void QtConfig::saveToConfig()
 {
+	config->useCustomOSVersion = ui.customVersionBox->isChecked();
+	if (!ui.customOSLine->text().isEmpty())
+		config->customOS = ui.customOSLine->text().toStdString();
+	if (!ui.customVersionLine->text().isEmpty())
+		config->customVersion = ui.customVersionLine->text().toStdString();
+
 	string OS = config->OSList[ui.OSComboBox->currentIndex()];
 	config->OS = OS;
 	pair<string, string> versionPair = config->versionList[OS][ui.versionComboBox->currentIndex()];

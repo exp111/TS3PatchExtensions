@@ -3,6 +3,14 @@
 #include <map>
 using namespace std;
 
+enum ServerInstanceType : int
+{
+	UNKNOWN = 0,
+	VANILLA = 1,
+	SDK = 2,
+	TEASPEAK = 3
+};
+
 vector<pair<string, string>> parse(string command)
 {
 	vector<pair<string, string>> results;
@@ -102,18 +110,18 @@ string setField(string command, string field, string value)
 	return buffer;
 }
 
-string setFields(string command, vector<string> fields, vector<string> values)
+/*string setFields(string command, vector<string> fields, vector<string> values)
 {
 	string buffer = command;
 	for (int i = 0; i < fields.size(); i++)
 	{
-		size_t findPos = command.find(fields[i]);
+		size_t findPos = buffer.find(fields[i]);
 		if (findPos == string::npos)
 			continue;
 
-		size_t findEndPos = command.find(' ', findPos);
+		size_t findEndPos = buffer.find(' ', findPos);
 		if (findEndPos == string::npos)
-			findEndPos = command.size();
+			findEndPos = buffer.size();
 
 		size_t start = findPos + fields[i].size() + 1;
 		size_t origSize = findEndPos - start;
@@ -127,6 +135,7 @@ string setFields(string command, vector<string> fields, vector<string> values)
 			buffer.insert(start, -sizeDiff, ' ');
 		}
 		buffer.replace(start, values[i].size(), values[i]);
+		//buffer = setField(buffer, fields[i], values[i]);
 	}
 	return buffer;
-}
+}*/

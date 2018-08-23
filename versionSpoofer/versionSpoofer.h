@@ -3,6 +3,7 @@
 #include <api/api.h>
 #include <api/plugin_header.h>
 #include <teamspeak/ts3_functions.h>
+#include <teamspeak/teamspeak/public_errors.h>
 
 #include <cstddef>
 #include <string>

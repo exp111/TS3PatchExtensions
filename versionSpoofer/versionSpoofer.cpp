@@ -3,6 +3,7 @@
 #include <memory>
 #include <iostream>
 #include <api/api.h>
+#include <helpers.h>
 #include "versionSpoofer.h"
 #include "QtConfig.h"
 #include "config.h"
@@ -98,6 +99,34 @@ void ts3plugin_configure(void* handle, void* qParentWidget)
 	cfg->show();
 }
 
+vector<string> validPlatforms = { "Windows", "Linux", "OS X", "FreeBSD" };
+
+int getServerType(uint64 schid)
+{
+	static QString pattern = "3(?:\\.\\d+)* \\[Build: \\d+\\]";
+	static QRegExp regExp = QRegExp(pattern);
+	unsigned result = 0;
+	char* version = new char[128];
+	result = functions.getServerVariableAsString(schid, VIRTUALSERVER_VERSION, &version);
+	if (result != ERROR_ok)
+		return ServerInstanceType::UNKNOWN;
+	char* platform = new char[128];
+	result = functions.getServerVariableAsString(schid, VIRTUALSERVER_PLATFORM, &platform);
+	if (result != ERROR_ok)
+		return ServerInstanceType::UNKNOWN;
+	bool validPlatform = find(validPlatforms.begin(), validPlatforms.end(), platform) != validPlatforms.end();
+	
+	bool validVersion = regExp.indexIn(version) != -1;
+	if (validVersion && validPlatform)
+		return ServerInstanceType::VANILLA;
+	string sVersion(version);
+	transform(sVersion.begin(), sVersion.end(), sVersion.begin(), ::tolower);
+	if (sVersion.find("teaspeak") != string::npos)
+		return ServerInstanceType::TEASPEAK;
+
+	return ServerInstanceType::UNKNOWN;
+}
+
 string escape(string toEscape)
 {
 	string buf = toEscape;
@@ -116,29 +145,19 @@ string escape(string toEscape)
 void onPacketOut(api::SCHId schId, api::CommandPacket* command, bool &canceled)
 {
 	string buffer = command->data();
-	size_t find_pos = buffer.find("client_version="); //15 long
+	size_t find_pos = buffer.find("client_version=");
 	if (find_pos == string::npos)
 		return;
 
-	size_t find_pos2 = buffer.find(" client_input_hardware=");
-	if (find_pos2 == string::npos)
-		return;
+	string version = config->useCustomOSVersion ? escape(config->customVersion) : escape(config->version);
+	string versionHash = config->versionHash;
+	string OS = config->useCustomOSVersion ? escape((config->customOS + "[Build: 1337]")) : escape(config->OS);
 
-	size_t findPos3 = buffer.find(" client_version_sign="); //21 long
-	size_t findPos4 = buffer.find(" client_key_offset=");
-	string s;
-	for (int i = 0; i < find_pos + 15; i++)
-		s += buffer.at(i);
-
-	s += escape(config->version) + " client_platform=" + escape(config->OS);
-	for (int i = find_pos2; i < findPos3 + 21; i++)
-		s += buffer.at(i);
-
-	s += config->versionHash;
-	for (int i = findPos4; i < buffer.size(); i++)
-		s += buffer.at(i);	
+	buffer = setField(buffer, "client_version", version);
+	buffer = setField(buffer, "client_version_sign", versionHash);
+	buffer = setField(buffer, "client_platform", OS);
 	
-	command->data(s);
+	command->data(buffer);
 }
 
 int hook_initialized(const wolverindev::ts::ApiFunctions fn) {

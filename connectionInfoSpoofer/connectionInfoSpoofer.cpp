@@ -100,13 +100,6 @@ string getOriginalValue(string buffer, string prefix)
 	return buffer.substr(start, count);
 }
 
-bool cancelCommand(string &data, bool &canceled)
-{
-	//canceled = true; //ts3patch will set it to "_hook_canceled", but that will send a not implemented error
-	data = "clientupdate";
-	return true;
-}
-
 bool setConnectionInfo(string &data, bool &canceled)
 {
 	//setconnectioninfo connection_ping=13.0000 connection_ping_deviation=2.4515 connection_packets_sent_speech=0 
@@ -126,7 +119,7 @@ bool setConnectionInfo(string &data, bool &canceled)
 
 	if (config->blockSetConnectionInfo)
 	{
-		return cancelCommand(data, canceled);
+		return "setclientconnectioninfo";
 	}
 
 	stringstream buf;
@@ -160,7 +153,7 @@ bool connectionInfoAutoUpdate(string &data, bool &canceled)
 
 	if (config->blockConnectionInfoAutoUpdate)
 	{
-		return cancelCommand(data, canceled);
+		return "connectioninfoautoupdate";
 	}
 
 	stringstream buf; 
