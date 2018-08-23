@@ -119,7 +119,8 @@ bool setConnectionInfo(string &data, bool &canceled)
 
 	if (config->blockSetConnectionInfo)
 	{
-		return "setclientconnectioninfo";
+		data = "setconnectioninfo";
+		return true;
 	}
 
 	stringstream buf;
@@ -153,7 +154,8 @@ bool connectionInfoAutoUpdate(string &data, bool &canceled)
 
 	if (config->blockConnectionInfoAutoUpdate)
 	{
-		return "connectioninfoautoupdate";
+		data = "connectioninfoautoupdate";
+		return true;
 	}
 
 	stringstream buf; 
