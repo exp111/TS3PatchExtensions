@@ -57,19 +57,19 @@ bool Config::readConfig(string dir)
 
 	for (int i = 0; i < this->setConnectionInfo.size(); i++)
 	{
-		string line = options[get<0>(this->setConnectionInfo[i])];
+		string line = options[this->setConnectionInfo[i].name];
 		if (line.empty())
 			continue;
-		get<1>(this->setConnectionInfo[i]) = getShitBeforeDelim(line, ',');
-		get<2>(this->setConnectionInfo[i]) = toInt(getShitAfterDelim(line, ','), get<2>(this->setConnectionInfo[i]));
+		this->setConnectionInfo[i].value = getShitBeforeDelim(line, ',');
+		this->setConnectionInfo[i].useOriginal = toInt(getShitAfterDelim(line, ','), this->setConnectionInfo[i].useOriginal);
 	}
 	for (int i = 0; i < this->connectionInfoAutoUpdate.size(); i++)
 	{
-		string line = options[get<0>(this->connectionInfoAutoUpdate[i])];
+		string line = options[this->connectionInfoAutoUpdate[i].name];
 		if (line.empty())
 			continue;
-		get<1>(this->connectionInfoAutoUpdate[i]) = getShitBeforeDelim(line, ',');
-		get<2>(this->connectionInfoAutoUpdate[i]) = toInt(getShitAfterDelim(line, ','), get<2>(this->setConnectionInfo[i]));
+		this->connectionInfoAutoUpdate[i].value = getShitBeforeDelim(line, ',');
+		this->connectionInfoAutoUpdate[i].useOriginal = toInt(getShitAfterDelim(line, ','), this->setConnectionInfo[i].useOriginal);
 	}
 
 	file.close();
@@ -87,11 +87,11 @@ bool Config::writeConfig()
 	file << "blockSetConnectionInfo=" << int(this->blockSetConnectionInfo) << endl;
 	file << "blockConnectionInfoAutoUpdate=" << int(this->blockConnectionInfoAutoUpdate) << endl;
 
-	for (tuple<string, string, bool> tuple : this->setConnectionInfo)
-		file << get<0>(tuple) << '=' << get<1>(tuple) << ',' << get<2>(tuple) << endl;
+	for (ConnectionInfo info : this->setConnectionInfo)
+		file << info.name << '=' << info.value << ',' << info.useOriginal << endl;
 	
-	for (tuple<string, string, bool> tuple : this->connectionInfoAutoUpdate)
-		file << get<0>(tuple) << '=' << get<1>(tuple) << ',' << get<2>(tuple) << endl;
+	for (ConnectionInfo info : this->connectionInfoAutoUpdate)
+		file << info.name << '=' << info.value << ',' << info.useOriginal << endl;
 
 	file.close();
 

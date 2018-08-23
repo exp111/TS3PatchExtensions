@@ -7,6 +7,14 @@
 #include <map>
 using namespace std;
 
+struct ConnectionInfo
+{
+	string name;
+	string value = "0";
+	bool useOriginal = true;
+
+};
+
 class Config
 {
 public:
@@ -19,7 +27,7 @@ public:
 	bool blockSetConnectionInfo = false;
 	bool blockConnectionInfoAutoUpdate = false;
 	
-	vector<tuple<string, string, bool>> setConnectionInfo =
+	vector<ConnectionInfo> setConnectionInfo =
 	{
 		{"connection_ping","0.0000", true},
 		{"connection_ping_deviation","0", true},
@@ -52,7 +60,7 @@ public:
 		{"connection_bandwidth_received_last_minute_keepalive","0", true},
 		{"connection_bandwidth_received_last_minute_control","0", true}
 	};
-	vector<tuple<string, string, bool>> connectionInfoAutoUpdate = 
+	vector<ConnectionInfo> connectionInfoAutoUpdate =
 	{	{"connection_server2client_packetloss_speech",	"0.0000", true},
 		{"connection_server2client_packetloss_keepalive","0.0000", true},
 		{"connection_server2client_packetloss_control",	"0.0000", true},

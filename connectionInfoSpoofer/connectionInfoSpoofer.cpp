@@ -124,17 +124,17 @@ bool setConnectionInfo(string &data, bool &canceled)
 
 	stringstream buf;
 	buf << "setconnectioninfo";
-	for (tuple<string, string, bool> tuple : config->setConnectionInfo)
+	for (ConnectionInfo info : config->setConnectionInfo)
 	{
-		if (get<2>(tuple)) //do we want the original value?
+		if (info.useOriginal) //do we want the original value?
 		{
-			string origValue = getOriginalValue(data, get<0>(tuple));
+			string origValue = getOriginalValue(data, info.name);
 			if (origValue.size() == 0)
 				continue;
-			buf << " " << get<0>(tuple).c_str() << "=" << origValue.c_str();
+			buf << " " << info.name << "=" << origValue;
 		}
 		else
-			buf << " " << get<0>(tuple).c_str() << "=" << get<1>(tuple).c_str();
+			buf << " " << info.name << "=" << info.value;
 	}
 	printf("%s\n%s\n", data.c_str(), buf.str().c_str());
 
@@ -158,17 +158,17 @@ bool connectionInfoAutoUpdate(string &data, bool &canceled)
 
 	stringstream buf; 
 	buf << "connectioninfoautoupdate";
-	for (tuple<string, string, bool> tuple : config->connectionInfoAutoUpdate)
+	for (ConnectionInfo info : config->connectionInfoAutoUpdate)
 	{
-		if (get<2>(tuple)) //do we want the original value?
+		if (info.useOriginal) //do we want the original value?
 		{
-			string origValue = getOriginalValue(data, get<0>(tuple));
+			string origValue = getOriginalValue(data, info.name);
 			if (origValue.size() == 0)
 				continue;
-			buf << " " << get<0>(tuple).c_str() << "=" << origValue.c_str();
+			buf << " " << info.name << "=" << origValue;
 		}
 		else
-			buf << " " << get<0>(tuple).c_str() << "=" << get<1>(tuple).c_str();
+			buf << " " << info.name << "=" << info.value;
 	}
 		
 
