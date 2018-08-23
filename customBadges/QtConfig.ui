@@ -26,18 +26,14 @@
     <widget class="QCheckBox" name="overwolfCheckBox">
      <property name="geometry">
       <rect>
-       <x>400</x>
-       <y>50</y>
-       <width>91</width>
+       <x>390</x>
+       <y>20</y>
+       <width>131</width>
        <height>17</height>
       </rect>
      </property>
      <property name="text">
       <string>Overwolf</string>
-     </property>
-     <property name="icon">
-      <iconset>
-       <normaloff>:/badge/icons/overwolf.png</normaloff>:/badge/icons/overwolf.png</iconset>
      </property>
     </widget>
     <widget class="QTreeWidget" name="badgeList">
@@ -71,9 +67,9 @@
      <property name="geometry">
       <rect>
        <x>60</x>
-       <y>20</y>
+       <y>9</y>
        <width>101</width>
-       <height>80</height>
+       <height>91</height>
       </rect>
      </property>
      <property name="title">
@@ -83,7 +79,7 @@
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>12</y>
+        <y>20</y>
         <width>64</width>
         <height>64</height>
        </rect>
@@ -92,7 +88,7 @@
        <string/>
       </property>
       <property name="scaledContents">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
      </widget>
     </widget>
@@ -100,9 +96,9 @@
      <property name="geometry">
       <rect>
        <x>280</x>
-       <y>20</y>
+       <y>9</y>
        <width>101</width>
-       <height>80</height>
+       <height>91</height>
       </rect>
      </property>
      <property name="title">
@@ -112,7 +108,7 @@
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>12</y>
+        <y>20</y>
         <width>64</width>
         <height>64</height>
        </rect>
@@ -120,15 +116,18 @@
       <property name="text">
        <string/>
       </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
      </widget>
     </widget>
     <widget class="QGroupBox" name="badge2Box">
      <property name="geometry">
       <rect>
        <x>170</x>
-       <y>20</y>
+       <y>9</y>
        <width>101</width>
-       <height>80</height>
+       <height>91</height>
       </rect>
      </property>
      <property name="title">
@@ -138,13 +137,16 @@
       <property name="geometry">
        <rect>
         <x>20</x>
-        <y>12</y>
+        <y>20</y>
         <width>64</width>
         <height>64</height>
        </rect>
       </property>
       <property name="text">
        <string/>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
       </property>
      </widget>
     </widget>

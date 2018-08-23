@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'QtConfigp15576.ui'
+** Form generated from reading UI file 'QtConfigh15400.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.9.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef QTCONFIGP15576_H
-#define QTCONFIGP15576_H
+#ifndef QTCONFIGH15400_H
+#define QTCONFIGH15400_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -54,10 +54,7 @@ public:
         widget->setGeometry(QRect(10, 10, 531, 381));
         overwolfCheckBox = new QCheckBox(widget);
         overwolfCheckBox->setObjectName(QStringLiteral("overwolfCheckBox"));
-        overwolfCheckBox->setGeometry(QRect(400, 50, 91, 17));
-        QIcon icon;
-        icon.addFile(QStringLiteral(":/badge/icons/overwolf.png"), QSize(), QIcon::Normal, QIcon::Off);
-        overwolfCheckBox->setIcon(icon);
+        overwolfCheckBox->setGeometry(QRect(390, 20, 131, 17));
         badgeList = new QTreeWidget(widget);
         badgeList->setObjectName(QStringLiteral("badgeList"));
         badgeList->setGeometry(QRect(50, 120, 431, 241));
@@ -67,23 +64,25 @@ public:
         badgeList->setIndentation(0);
         badge1Box = new QGroupBox(widget);
         badge1Box->setObjectName(QStringLiteral("badge1Box"));
-        badge1Box->setGeometry(QRect(60, 20, 101, 80));
+        badge1Box->setGeometry(QRect(60, 9, 101, 91));
         badge1Label = new ClickableLabel(badge1Box);
         badge1Label->setObjectName(QStringLiteral("badge1Label"));
-        badge1Label->setGeometry(QRect(20, 12, 64, 64));
-        badge1Label->setScaledContents(false);
+        badge1Label->setGeometry(QRect(20, 20, 64, 64));
+        badge1Label->setScaledContents(true);
         badge3Box = new QGroupBox(widget);
         badge3Box->setObjectName(QStringLiteral("badge3Box"));
-        badge3Box->setGeometry(QRect(280, 20, 101, 80));
+        badge3Box->setGeometry(QRect(280, 9, 101, 91));
         badge3Label = new ClickableLabel(badge3Box);
         badge3Label->setObjectName(QStringLiteral("badge3Label"));
-        badge3Label->setGeometry(QRect(20, 12, 64, 64));
+        badge3Label->setGeometry(QRect(20, 20, 64, 64));
+        badge3Label->setScaledContents(true);
         badge2Box = new QGroupBox(widget);
         badge2Box->setObjectName(QStringLiteral("badge2Box"));
-        badge2Box->setGeometry(QRect(170, 20, 101, 80));
+        badge2Box->setGeometry(QRect(170, 9, 101, 91));
         badge2Label = new ClickableLabel(badge2Box);
         badge2Label->setObjectName(QStringLiteral("badge2Label"));
-        badge2Label->setGeometry(QRect(20, 12, 64, 64));
+        badge2Label->setGeometry(QRect(20, 20, 64, 64));
+        badge2Label->setScaledContents(true);
         manualBadgeOverride = new QToolButton(widget);
         manualBadgeOverride->setObjectName(QStringLiteral("manualBadgeOverride"));
         manualBadgeOverride->setGeometry(QRect(420, 80, 61, 21));
@@ -139,4 +138,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // QTCONFIGP15576_H
+#endif // QTCONFIGH15400_H
