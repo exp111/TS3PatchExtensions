@@ -154,7 +154,7 @@ bool connectionInfoAutoUpdate(string &data, bool &canceled)
 
 	if (config->blockConnectionInfoAutoUpdate)
 	{
-		data = "connectioninfoautoupdate";
+		data = "clientupdate"; //prints error with no parameters
 		return true;
 	}
 
