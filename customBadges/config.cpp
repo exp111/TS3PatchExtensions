@@ -198,3 +198,32 @@ string Config::getIconPath(string iconName, bool largeIcon)
 
 	return config->directory + "icons/placeholder" + (largeIcon ? "_64.png" : ".png"); //if not found use placeholder
 }
+
+void Config::updateIcons()
+{
+	if (downloader == nullptr)
+		downloader = new QtDownloader;
+
+	QString path = QString::fromStdString(this->directory);
+	QDir dir = QDir(path);
+	if (!dir.exists())
+		dir.mkpath(path);
+
+	QString iconPath = QString::fromStdString(this->directory + "icons/");
+	QDir iconDir = QDir(iconPath);
+	if (!iconDir.exists())
+		iconDir.mkpath(iconPath);
+
+	for (Badge badge : this->allBadges)
+	{
+		string filePath = iconPath.toStdString() + badge.fileName;
+		
+		string filePathSmall = filePath + ".png";
+		string urlSmall = this->iconURL + badge.fileName + ".png";
+		string filePathLarge = filePath + "_64.png";
+		string urlLarge = this->iconURL + badge.fileName + "_64.png";
+
+		downloader->doDownload(QString::fromStdString(urlSmall), QString::fromStdString(filePathSmall));
+		downloader->doDownload(QString::fromStdString(urlLarge), QString::fromStdString(filePathLarge));
+	}
+}

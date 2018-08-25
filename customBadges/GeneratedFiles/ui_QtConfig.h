@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'QtConfigh15400.ui'
+** Form generated from reading UI file 'QtConfigp12748.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.9.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef QTCONFIGH15400_H
-#define QTCONFIGH15400_H
+#ifndef QTCONFIGP12748_H
+#define QTCONFIGP12748_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -39,6 +39,7 @@ public:
     QGroupBox *badge2Box;
     ClickableLabel *badge2Label;
     QToolButton *manualBadgeOverride;
+    QPushButton *updateIconsButton;
     QPushButton *acceptButton;
     QPushButton *rejectButton;
 
@@ -54,7 +55,7 @@ public:
         widget->setGeometry(QRect(10, 10, 531, 381));
         overwolfCheckBox = new QCheckBox(widget);
         overwolfCheckBox->setObjectName(QStringLiteral("overwolfCheckBox"));
-        overwolfCheckBox->setGeometry(QRect(390, 20, 131, 17));
+        overwolfCheckBox->setGeometry(QRect(390, 30, 131, 17));
         badgeList = new QTreeWidget(widget);
         badgeList->setObjectName(QStringLiteral("badgeList"));
         badgeList->setGeometry(QRect(50, 120, 431, 241));
@@ -86,6 +87,9 @@ public:
         manualBadgeOverride = new QToolButton(widget);
         manualBadgeOverride->setObjectName(QStringLiteral("manualBadgeOverride"));
         manualBadgeOverride->setGeometry(QRect(420, 80, 61, 21));
+        updateIconsButton = new QPushButton(widget);
+        updateIconsButton->setObjectName(QStringLiteral("updateIconsButton"));
+        updateIconsButton->setGeometry(QRect(440, 0, 91, 23));
         acceptButton = new QPushButton(centralWidget);
         acceptButton->setObjectName(QStringLiteral("acceptButton"));
         acceptButton->setGeometry(QRect(90, 390, 131, 23));
@@ -109,6 +113,7 @@ public:
         QObject::connect(badge1Label, SIGNAL(dropFromTreeWidgetOnNotEmpty(QString,QTreeWidgetItem*)), QtConfig, SLOT(swapBadge(QString,QTreeWidgetItem*)));
         QObject::connect(badge2Label, SIGNAL(dropFromTreeWidgetOnNotEmpty(QString,QTreeWidgetItem*)), QtConfig, SLOT(swapBadge(QString,QTreeWidgetItem*)));
         QObject::connect(badge3Label, SIGNAL(dropFromTreeWidgetOnNotEmpty(QString,QTreeWidgetItem*)), QtConfig, SLOT(swapBadge(QString,QTreeWidgetItem*)));
+        QObject::connect(updateIconsButton, SIGNAL(clicked()), QtConfig, SLOT(updateIcons()));
 
         QMetaObject::connectSlotsByName(QtConfig);
     } // setupUi
@@ -126,6 +131,7 @@ public:
         badge2Box->setTitle(QApplication::translate("QtConfig", "Badge 2", Q_NULLPTR));
         badge2Label->setText(QString());
         manualBadgeOverride->setText(QApplication::translate("QtConfig", "...", Q_NULLPTR));
+        updateIconsButton->setText(QApplication::translate("QtConfig", "Update Icons", Q_NULLPTR));
         acceptButton->setText(QApplication::translate("QtConfig", "Annehmen", Q_NULLPTR));
         rejectButton->setText(QApplication::translate("QtConfig", "Abbrechen", Q_NULLPTR));
     } // retranslateUi
@@ -138,4 +144,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // QTCONFIGH15400_H
+#endif // QTCONFIGP12748_H

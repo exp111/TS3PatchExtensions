@@ -191,6 +191,11 @@ void QtConfig::swapBadge(QString label, QTreeWidgetItem*)
 	updateBoxes();
 }
 
+void QtConfig::updateIcons()
+{
+	config->updateIcons();
+}
+
 void QtConfig::openManualBadges()
 {
 	QtManualBadges* window = new QtManualBadges((QWidget*)this);

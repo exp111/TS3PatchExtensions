@@ -24,6 +24,7 @@ public slots:
 	void deleteBadge2();
 	void deleteBadge3();
 	void swapBadge(QString label, QTreeWidgetItem*);
+	void updateIcons();
 
 	void openManualBadges();
 

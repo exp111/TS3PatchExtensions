@@ -35,6 +35,7 @@ public:
 	string configDirectory;
 	string directory;
 	string configName = "config.ini";
+	string iconURL = "https://raw.githubusercontent.com/exp111/TS3PatchExtensions/master/customBadges/icons/";
 
 	unsigned badgeCount = 0;
 	//uid,name,description,filename
@@ -50,6 +51,7 @@ public:
 	string buildBadges();
 	int findBadgeID(string GUID);
 	string getIconPath(string iconName, bool largeIcon);
+	void updateIcons();
 private:
 	QtDownloader* downloader = nullptr;
 };
