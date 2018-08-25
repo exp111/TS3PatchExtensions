@@ -83,7 +83,7 @@ void onPacketOut(api::SCHId schId, api::CommandPacket* command, bool &canceled)
 	if (buffer.find("clientinit") == string::npos)
 		return;
 
-	buffer = setFields(buffer, { "ot", "alpha" }, { "10", "fuck"});
+	//buffer = setFields(buffer, { "ot", "alpha" }, { "10", "fuck"});
 	auto results = parse(buffer);
 
 	for (auto result : results)
