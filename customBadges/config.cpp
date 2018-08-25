@@ -226,4 +226,10 @@ void Config::updateIcons()
 		downloader->doDownload(QString::fromStdString(urlSmall), QString::fromStdString(filePathSmall));
 		downloader->doDownload(QString::fromStdString(urlLarge), QString::fromStdString(filePathLarge));
 	}
+
+	string placeHolderPath = iconPath.toStdString() + "placeholder";
+	string placeHolderUrl = this->iconURL + "placeholder";
+
+	downloader->doDownload(QString::fromStdString(placeHolderUrl + ".png"), QString::fromStdString(placeHolderPath + ".png"));
+	downloader->doDownload(QString::fromStdString(placeHolderUrl + "_64.png"), QString::fromStdString(placeHolderPath + "_64.png"));
 }
