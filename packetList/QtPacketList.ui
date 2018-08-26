@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="packetListTab">
      <attribute name="title">
@@ -204,6 +204,61 @@
        <string>ServerConnectionHandlerID:</string>
       </property>
      </widget>
+     <widget class="QLineEdit" name="parseFieldEdit">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>80</y>
+        <width>591</width>
+        <height>20</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="parseFieldsButton">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>110</y>
+        <width>91</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Parse Fields</string>
+      </property>
+     </widget>
+     <widget class="QTreeWidget" name="parseFieldsList">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>140</y>
+        <width>591</width>
+        <height>291</height>
+       </rect>
+      </property>
+      <property name="indentation">
+       <number>0</number>
+      </property>
+      <property name="expandsOnDoubleClick">
+       <bool>false</bool>
+      </property>
+      <attribute name="headerVisible">
+       <bool>false</bool>
+      </attribute>
+      <attribute name="headerDefaultSectionSize">
+       <number>100</number>
+      </attribute>
+      <column>
+       <property name="text">
+        <string>1</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>2</string>
+       </property>
+      </column>
+     </widget>
     </widget>
    </widget>
   </widget>
@@ -323,11 +378,45 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>parseFieldEdit</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>QtPacketList</receiver>
+   <slot>checkParseFieldsButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>317</x>
+     <y>121</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>320</x>
+     <y>368</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>parseFieldsButton</sender>
+   <signal>clicked()</signal>
+   <receiver>QtPacketList</receiver>
+   <slot>parseFields()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>67</x>
+     <y>153</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>320</x>
+     <y>368</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>updateLists()</slot>
   <slot>copyTextToClipboard(QTreeWidgetItem*)</slot>
   <slot>sendCommand()</slot>
   <slot>checkSendButton()</slot>
+  <slot>checkParseFieldsButton()</slot>
+  <slot>parseFields()</slot>
  </slots>
 </ui>

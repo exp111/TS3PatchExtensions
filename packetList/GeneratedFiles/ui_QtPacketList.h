@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'QtPacketListmU7328.ui'
+** Form generated from reading UI file 'QtPacketListHp9472.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.9.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef QTPACKETLISTMU7328_H
-#define QTPACKETLISTMU7328_H
+#ifndef QTPACKETLISTHP9472_H
+#define QTPACKETLISTHP9472_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -46,6 +46,9 @@ public:
     QPushButton *sendButton;
     QSpinBox *sendSchidSpin;
     QLabel *sendSchidLabel;
+    QLineEdit *parseFieldEdit;
+    QPushButton *parseFieldsButton;
+    QTreeWidget *parseFieldsList;
 
     void setupUi(QMainWindow *QtPacketList)
     {
@@ -104,6 +107,19 @@ public:
         sendSchidLabel = new QLabel(sendCommandTab);
         sendSchidLabel->setObjectName(QStringLiteral("sendSchidLabel"));
         sendSchidLabel->setGeometry(QRect(400, 40, 151, 20));
+        parseFieldEdit = new QLineEdit(sendCommandTab);
+        parseFieldEdit->setObjectName(QStringLiteral("parseFieldEdit"));
+        parseFieldEdit->setGeometry(QRect(10, 80, 591, 20));
+        parseFieldsButton = new QPushButton(sendCommandTab);
+        parseFieldsButton->setObjectName(QStringLiteral("parseFieldsButton"));
+        parseFieldsButton->setGeometry(QRect(10, 110, 91, 23));
+        parseFieldsList = new QTreeWidget(sendCommandTab);
+        parseFieldsList->setObjectName(QStringLiteral("parseFieldsList"));
+        parseFieldsList->setGeometry(QRect(10, 140, 591, 291));
+        parseFieldsList->setIndentation(0);
+        parseFieldsList->setExpandsOnDoubleClick(false);
+        parseFieldsList->header()->setVisible(false);
+        parseFieldsList->header()->setDefaultSectionSize(200);
         tabWidget->addTab(sendCommandTab, QString());
         QtPacketList->setCentralWidget(centralWidget);
 
@@ -115,8 +131,10 @@ public:
         QObject::connect(sendCommandLine, SIGNAL(textChanged(QString)), QtPacketList, SLOT(checkSendButton()));
         QObject::connect(searchLine, SIGNAL(textChanged(QString)), QtPacketList, SLOT(updateLists()));
         QObject::connect(searchCaseBox, SIGNAL(stateChanged(int)), QtPacketList, SLOT(updateLists()));
+        QObject::connect(parseFieldEdit, SIGNAL(textChanged(QString)), QtPacketList, SLOT(checkParseFieldsButton()));
+        QObject::connect(parseFieldsButton, SIGNAL(clicked()), QtPacketList, SLOT(parseFields()));
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(QtPacketList);
@@ -137,6 +155,10 @@ public:
         tabWidget->setTabText(tabWidget->indexOf(packetListTab), QApplication::translate("QtPacketList", "Packet List", Q_NULLPTR));
         sendButton->setText(QApplication::translate("QtPacketList", "Send", Q_NULLPTR));
         sendSchidLabel->setText(QApplication::translate("QtPacketList", "ServerConnectionHandlerID:", Q_NULLPTR));
+        parseFieldsButton->setText(QApplication::translate("QtPacketList", "Parse Fields", Q_NULLPTR));
+        QTreeWidgetItem *___qtreewidgetitem2 = parseFieldsList->headerItem();
+        ___qtreewidgetitem2->setText(1, QApplication::translate("QtPacketList", "2", Q_NULLPTR));
+        ___qtreewidgetitem2->setText(0, QApplication::translate("QtPacketList", "1", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(sendCommandTab), QApplication::translate("QtPacketList", "Send Packet", Q_NULLPTR));
     } // retranslateUi
 
@@ -148,4 +170,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // QTPACKETLISTMU7328_H
+#endif // QTPACKETLISTHP9472_H

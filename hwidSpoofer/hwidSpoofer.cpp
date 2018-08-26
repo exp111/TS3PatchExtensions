@@ -12,7 +12,7 @@ using namespace std::chrono;
 namespace api = wolverindev::ts;
 
 string pluginId;
-vector<string> originalHWID;
+string originalHWID;
 struct TS3Functions functions{};
 struct wolverindev::ts::ApiFunctions hook_functions{};
 
@@ -107,8 +107,8 @@ void onPacketOut(api::SCHId schId, api::CommandPacket* command, bool &canceled)
 	if (origHWID.empty()) //hwid not found
 		return;
 	if (originalHWID.empty())
-		originalHWID[schId] = origHWID;
-	else if (originalHWID[schId] != origHWID) //we need to check if we've already changed it cuz we else it will crash
+		originalHWID = origHWID;
+	else if (originalHWID != origHWID) //we need to check if we've already changed it cuz we else it will crash
 		return;
 	
 	buffer = setField(buffer, "hwid", getRandomHWID());

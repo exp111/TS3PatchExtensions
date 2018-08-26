@@ -21,6 +21,8 @@ public slots:
 	void copyTextToClipboard(QTreeWidgetItem*);
 	void sendCommand();
 	void checkSendButton();
+	void checkParseFieldsButton();
+	void parseFields();
 
 private:
 	Ui::QtPacketList ui;

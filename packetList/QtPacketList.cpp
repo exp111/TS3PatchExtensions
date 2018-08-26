@@ -1,5 +1,6 @@
 #include "QtPacketList.h"
 #include "packetList.h"
+#include <helpers.h>
 
 QtPacketList::QtPacketList(QWidget *parent) : QMainWindow(parent)
 {
@@ -12,7 +13,8 @@ QtPacketList::QtPacketList(QWidget *parent) : QMainWindow(parent)
 
 	ui.tabWidget->setCurrentIndex(0); //set to first page
 	ui.sendButton->setEnabled(false); //disable cuz we don't want to send nothing (wouldn't be possible but looks better ya know)
-
+	ui.parseFieldsButton->setEnabled(false);
+	
 	updateLists();
 }
 
@@ -41,6 +43,28 @@ void QtPacketList::sendCommand()
 void QtPacketList::checkSendButton()
 {
 	ui.sendButton->setEnabled(!ui.sendCommandLine->text().isEmpty());
+}
+
+void QtPacketList::checkParseFieldsButton()
+{
+	ui.parseFieldsButton->setEnabled(!ui.parseFieldEdit->text().isEmpty());
+}
+
+void QtPacketList::parseFields()
+{
+	if (ui.parseFieldEdit->text().isEmpty())
+		return;
+
+	string cmd = ui.parseFieldEdit->text().toStdString();
+	vector<pair<string, string>> fields = parse(cmd);
+	ui.parseFieldsList->clear();
+	for (int i = 0; i < fields.size(); i++)
+	{
+		QTreeWidgetItem* item = new QTreeWidgetItem;
+		item->setText(0, QString::fromStdString(fields[i].first));
+		item->setText(1, QString::fromStdString(fields[i].second));
+		ui.parseFieldsList->insertTopLevelItem(i, item);
+	}
 }
 
 void QtPacketList::updateLists()
