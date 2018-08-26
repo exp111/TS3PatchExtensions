@@ -67,7 +67,20 @@ string parseField(string command, string field)
 	if (findEndPos == string::npos)
 		findEndPos = command.size();
 
-	size_t start = findPos + field.size() + 1; //+1 cuz seperator
+	size_t start = findPos + field.size();
+	if (field.back() != '=') //check if we already have the = at the end
+	{
+		if (command[start] != '=') //we have no seperator? cancel
+			return string();
+		start++;
+	}
+	else
+	{
+		if (command[start] != '=') //we have no seperator? cancel
+			return string();
+	}
+	if (start > findEndPos)
+		return string();
 	return command.substr(start, findEndPos - start);
 }
 
