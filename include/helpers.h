@@ -108,7 +108,15 @@ string setField(string command, string field, string value)
 	if (findEndPos == string::npos)
 		findEndPos = command.size();
 
-	size_t start = findPos + field.size() + 1;
+	size_t start = findPos + field.size();
+	if (field.back() != '=')
+	{
+		if (command[start] != '=') //we don't have a '=' insert it
+		{
+			buffer.insert(start, 1, '=');
+		}
+		start++;
+	}
 	size_t origSize = findEndPos - start;
 	int sizeDiff = origSize - value.size();
 	if (sizeDiff > 0) //delete some unneeded space

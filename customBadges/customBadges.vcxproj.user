@@ -7,7 +7,7 @@
     <LocalDebuggerCommandArguments>-nosingleinstance</LocalDebuggerCommandArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <QTDIR>$(QTDIR)</QTDIR>
+    <QTDIR>D:\Programme\Qt\5.9.3\msvc2017_64</QTDIR>
     <LocalDebuggerCommand>D:\Visual Studio\TS3\dev\ts3client_win64.exe</LocalDebuggerCommand>
     <LocalDebuggerAttach>true</LocalDebuggerAttach>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
@@ -15,7 +15,7 @@
     <LocalDebuggerEnvironment>PATH=$(QTDIR)\bin%3b$(PATH)</LocalDebuggerEnvironment>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseAll|x64'">
-    <QTDIR>$(QTDIR)</QTDIR>
+    <QTDIR>D:\Programme\Qt\5.9.3\msvc2017_64</QTDIR>
     <LocalDebuggerCommand>D:\Visual Studio\TS3\dev\ts3client_win64.exe</LocalDebuggerCommand>
     <LocalDebuggerAttach>true</LocalDebuggerAttach>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
@@ -23,7 +23,7 @@
     <LocalDebuggerEnvironment>PATH=$(QTDIR)\bin%3b$(PATH)</LocalDebuggerEnvironment>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <QTDIR>$(QTDIR)</QTDIR>
+    <QTDIR>D:\Programme\Qt\5.9.3\msvc2017_64</QTDIR>
     <LocalDebuggerCommand>D:\Visual Studio\TS3\dev\ts3client_win64.exe</LocalDebuggerCommand>
     <LocalDebuggerAttach>false</LocalDebuggerAttach>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>

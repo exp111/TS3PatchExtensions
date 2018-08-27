@@ -61,9 +61,10 @@ namespace wolverindev {
 				std::string data() { return std::string(buffer, _length); }
 				void data(const std::string& data) {
 					if(data.length() > allocated) {
-						if(buffer) free(buffer);
+						if (buffer)
+							free(buffer);
 						allocated = data.length();
-						buffer = (char*) malloc(allocated);
+						buffer = (char*)malloc(allocated);
 					}
 					memcpy(buffer, data.data(), data.length());
 					_length = data.length();

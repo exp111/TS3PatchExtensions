@@ -103,11 +103,16 @@ void onPacketOut(api::SCHId schId, api::CommandPacket* command, bool &canceled)
 	if (buffer.find("clientinit ") != 0)
 		return;
 
-	string origHWID = parseField(buffer, "hwid");
-	if (origHWID.empty()) //hwid not found
+	if (buffer.find("hwid") == string::npos)
 		return;
+	string origHWID = parseField(buffer, "hwid");
 	if (originalHWID.empty())
-		originalHWID = origHWID;
+	{
+		if (origHWID.empty())
+			originalHWID = "nohwid";
+		else
+			originalHWID = origHWID;
+	}
 	else if (originalHWID != origHWID) //we need to check if we've already changed it cuz we else it will crash
 		return;
 	
@@ -122,6 +127,7 @@ int hook_initialized(const wolverindev::ts::ApiFunctions fn) {
 	hwidSpooferHook.reset(new api::Hook());
 	hwidSpooferHook->activated = [](){ return true; };
 	hwidSpooferHook->on_packet_out = &onPacketOut;
+	hwidSpooferHook->weight = []() { return 1; };
 	
 	hook_functions.registerHook(hwidSpooferHook.get());
 	return 0;

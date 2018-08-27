@@ -5,6 +5,8 @@
 #include <api/api.h>
 #include <helpers.h>
 #include "modalQuitBypass.h"
+#include "config.h"
+#include "QtConfig.h"
 
 using namespace std;
 using namespace std::chrono;
@@ -71,7 +73,15 @@ void ts3plugin_shutdown() {
 }
 
 int ts3plugin_offersConfigure() {
-	return PLUGIN_OFFERS_NO_CONFIGURE;
+	return PLUGIN_OFFERS_CONFIGURE_QT_THREAD;
+}
+
+void ts3plugin_configure(void* handle, void* qParentWidget)
+{
+	Q_UNUSED(handle);
+	QtConfig* cfg = new QtConfig((QWidget*)qParentWidget);
+	cfg->setAttribute(Qt::WA_DeleteOnClose);
+	cfg->show();
 }
 
 void onPacketIn(api::SCHId schId, api::CommandPacket* command, bool &canceled)
@@ -82,8 +92,8 @@ void onPacketIn(api::SCHId schId, api::CommandPacket* command, bool &canceled)
 	if (buffer.find("virtualserver_hostmessage_mode=3") == string::npos)
 		return;
 
-	buffer = setField(buffer, "virtualserver_hostmessage", "");
-	buffer = setField(buffer, "virtualserver_hostmessage_mode", "2");
+	buffer = setField(buffer, "virtualserver_hostmessage", config->hostMessage);
+	buffer = setField(buffer, "virtualserver_hostmessage_mode", to_string(config->hostMode));
 
 	command->data(buffer);
 }

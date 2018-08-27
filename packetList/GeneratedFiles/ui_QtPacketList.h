@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'QtPacketListHp9472.ui'
+** Form generated from reading UI file 'QtPacketList.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.9.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef QTPACKETLISTHP9472_H
-#define QTPACKETLISTHP9472_H
+#ifndef UI_QTPACKETLIST_H
+#define UI_QTPACKETLIST_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -119,7 +119,7 @@ public:
         parseFieldsList->setIndentation(0);
         parseFieldsList->setExpandsOnDoubleClick(false);
         parseFieldsList->header()->setVisible(false);
-        parseFieldsList->header()->setDefaultSectionSize(200);
+        parseFieldsList->header()->setDefaultSectionSize(100);
         tabWidget->addTab(sendCommandTab, QString());
         QtPacketList->setCentralWidget(centralWidget);
 
@@ -170,4 +170,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // QTPACKETLISTHP9472_H
+#endif // UI_QTPACKETLIST_H
