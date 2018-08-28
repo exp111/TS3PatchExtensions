@@ -13,6 +13,7 @@ namespace api = wolverindev::ts;
 
 string pluginId;
 string originalHWID;
+string lastHWID;
 struct TS3Functions functions{};
 struct wolverindev::ts::ApiFunctions hook_functions{};
 
@@ -73,7 +74,12 @@ void ts3plugin_shutdown() {
 }
 
 int ts3plugin_offersConfigure() {
-	return PLUGIN_OFFERS_NO_CONFIGURE;
+	return PLUGIN_OFFERS_CONFIGURE_NEW_THREAD;
+}
+
+void ts3plugin_configure(void* handle, void* qParentWidget)
+{
+	functions.printMessageToCurrentTab(("Last HWID: " + lastHWID).c_str());
 }
 
 string randomString(size_t length) //https://stackoverflow.com/a/12468109
@@ -116,7 +122,8 @@ void onPacketOut(api::SCHId schId, api::CommandPacket* command, bool &canceled)
 	else if (originalHWID != origHWID) //we need to check if we've already changed it cuz we else it will crash
 		return;
 	
-	buffer = setField(buffer, "hwid", getRandomHWID());
+	lastHWID = getRandomHWID();
+	buffer = setField(buffer, "hwid", lastHWID);
 	command->data(buffer);
 }
 
