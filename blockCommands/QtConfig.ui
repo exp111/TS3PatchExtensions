@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>QtConfig</class>
+ <widget class="QWidget" name="QtConfig">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>690</width>
+    <height>439</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Block Commands</string>
+  </property>
+  <widget class="QGroupBox" name="commandInGroup">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>331</width>
+     <height>391</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Command In</string>
+   </property>
+   <widget class="QTreeWidget" name="commandInList">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>311</width>
+      <height>301</height>
+     </rect>
+    </property>
+    <property name="indentation">
+     <number>0</number>
+    </property>
+    <attribute name="headerVisible">
+     <bool>false</bool>
+    </attribute>
+    <column>
+     <property name="text">
+      <string notr="true">1</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QLineEdit" name="commandInLine">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>360</y>
+      <width>311</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QToolButton" name="commandInAddButton">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>330</y>
+      <width>25</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>...</string>
+    </property>
+    <property name="arrowType">
+     <enum>Qt::UpArrow</enum>
+    </property>
+   </widget>
+   <widget class="QToolButton" name="commandInDeleteButton">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>330</y>
+      <width>25</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>...</string>
+    </property>
+    <property name="autoRaise">
+     <bool>false</bool>
+    </property>
+    <property name="arrowType">
+     <enum>Qt::DownArrow</enum>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="acceptButton">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>410</y>
+     <width>151</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Accept</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="cancelButton">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>410</y>
+     <width>151</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Cancel</string>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="commandOutGroup">
+   <property name="geometry">
+    <rect>
+     <x>340</x>
+     <y>10</y>
+     <width>331</width>
+     <height>391</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Command Out</string>
+   </property>
+   <widget class="QTreeWidget" name="commandOutList">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>311</width>
+      <height>301</height>
+     </rect>
+    </property>
+    <property name="indentation">
+     <number>0</number>
+    </property>
+    <attribute name="headerVisible">
+     <bool>false</bool>
+    </attribute>
+    <column>
+     <property name="text">
+      <string notr="true">1</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QLineEdit" name="commandOutLine">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>360</y>
+      <width>311</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QToolButton" name="commandOutAddButton">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>330</y>
+      <width>25</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>...</string>
+    </property>
+    <property name="arrowType">
+     <enum>Qt::UpArrow</enum>
+    </property>
+   </widget>
+   <widget class="QToolButton" name="commandOutDeleteButton">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>330</y>
+      <width>25</width>
+      <height>19</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>...</string>
+    </property>
+    <property name="autoRaise">
+     <bool>false</bool>
+    </property>
+    <property name="arrowType">
+     <enum>Qt::DownArrow</enum>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>acceptButton</sender>
+   <signal>clicked()</signal>
+   <receiver>QtConfig</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>175</x>
+     <y>421</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>344</x>
+     <y>219</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>acceptButton</sender>
+   <signal>clicked()</signal>
+   <receiver>QtConfig</receiver>
+   <slot>saveToConfig()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>175</x>
+     <y>421</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>344</x>
+     <y>219</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cancelButton</sender>
+   <signal>clicked()</signal>
+   <receiver>QtConfig</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>505</x>
+     <y>421</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>344</x>
+     <y>219</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>commandInLine</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>QtConfig</receiver>
+   <slot>checkInAddButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>175</x>
+     <y>379</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>344</x>
+     <y>219</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>commandOutLine</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>QtConfig</receiver>
+   <slot>checkOutAddButton()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>505</x>
+     <y>379</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>344</x>
+     <y>219</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>commandInAddButton</sender>
+   <signal>clicked()</signal>
+   <receiver>QtConfig</receiver>
+   <slot>commandInAdd()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>152</x>
+     <y>349</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>344</x>
+     <y>219</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>commandOutAddButton</sender>
+   <signal>clicked()</signal>
+   <receiver>QtConfig</receiver>
+   <slot>commandOutAdd()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>482</x>
+     <y>349</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>344</x>
+     <y>219</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>commandInDeleteButton</sender>
+   <signal>clicked()</signal>
+   <receiver>QtConfig</receiver>
+   <slot>commandInDelete()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>192</x>
+     <y>349</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>344</x>
+     <y>219</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>commandOutDeleteButton</sender>
+   <signal>clicked()</signal>
+   <receiver>QtConfig</receiver>
+   <slot>commandOutDelete()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>522</x>
+     <y>349</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>344</x>
+     <y>219</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>saveToConfig()</slot>
+  <slot>checkInAddButton()</slot>
+  <slot>checkOutAddButton()</slot>
+  <slot>commandInAdd()</slot>
+  <slot>commandOutAdd()</slot>
+  <slot>commandInDelete()</slot>
+  <slot>commandOutDelete()</slot>
+ </slots>
+</ui>
