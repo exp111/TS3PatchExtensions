@@ -60,6 +60,7 @@ const char *ts3plugin_description() {
 int ts3plugin_init() { 
 	printf("%s: Library hook initialized\n", ts3plugin_name());
 
+	srand(time(NULL));
 	//If we get initialized after the hook we dont recive the hook_initialized event so we have to notify the hook that we're alive!
 	//Defined within the API
 	trigger_plugin_loaded();
