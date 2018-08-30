@@ -3,7 +3,9 @@
 #include <memory>
 #include <iostream>
 #include <api/api.h>
+#include <random>
 #include <algorithm>
+#include <vector>
 #include <helpers.h>
 #include "hwidSpoofer.h"
 
@@ -14,6 +16,7 @@ namespace api = wolverindev::ts;
 string pluginId;
 string originalHWID;
 string lastHWID;
+
 struct TS3Functions functions{};
 struct wolverindev::ts::ApiFunctions hook_functions{};
 
@@ -57,10 +60,32 @@ const char *ts3plugin_description() {
 	return "Spoof your Hardware ID";
 }
 
+string randomString(size_t length) //https://stackoverflow.com/a/24586587
+{
+	static auto& chrs = "0123456789"
+		"abcdefghijklmnopqrstuvwxyz";
+
+	thread_local static std::mt19937 rg{ std::random_device{}() };
+	thread_local static std::uniform_int_distribution<std::string::size_type> pick(0, sizeof(chrs) - 2);
+
+	std::string s;
+
+	s.reserve(length);
+
+	while (length--)
+		s += chrs[pick(rg)];
+
+	return s;
+}
+
+string getRandomHWID()
+{
+	return randomString(32) + "," + randomString(32);
+}
+
 int ts3plugin_init() { 
 	printf("%s: Library hook initialized\n", ts3plugin_name());
 
-	srand(time(NULL));
 	//If we get initialized after the hook we dont recive the hook_initialized event so we have to notify the hook that we're alive!
 	//Defined within the API
 	trigger_plugin_loaded();
@@ -81,26 +106,6 @@ int ts3plugin_offersConfigure() {
 void ts3plugin_configure(void* handle, void* qParentWidget)
 {
 	functions.printMessageToCurrentTab(("Last HWID: " + lastHWID).c_str());
-}
-
-string randomString(size_t length) //https://stackoverflow.com/a/12468109
-{
-	auto randchar = []() -> char
-	{
-		const char charset[] =
-			"0123456789"
-			"abcdefghijklmnopqrstuvwxyz";
-		const size_t max_index = (sizeof(charset) - 1);
-		return charset[rand() % max_index];
-	};
-	string str(length, 0);
-	generate_n(str.begin(), length, randchar);
-	return str;
-}
-
-string getRandomHWID()
-{
-	return randomString(32) + "," + randomString(32);
 }
 
 void onPacketOut(api::SCHId schId, api::CommandPacket* command, bool &canceled)
