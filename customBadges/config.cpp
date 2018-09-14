@@ -33,15 +33,6 @@ vector<string> getNextLineAndSplitIntoTokens(istream& str)
 	return result;
 }
 
-void Config::readCSVLine(vector<string> results)
-{
-	//uid,name,description,filename
-	if (results.size() < 4)
-		return;
-	this->allBadges.push_back(Badge(results[0], results[1], results[2], results[3]));
-	this->badgeCount++;
-}
-
 bool Config::readDatabase()
 {
 	//https://github.com/Bluscream/pyTSon_plugins/blob/c0c2baa38ba59bfbbb88496b20edcf3fc889e439/include/bluscream.py#L601
@@ -67,7 +58,7 @@ bool Config::readDatabase()
 	int next = 12;
 	int guid_len = 0; string guid = "";
 	int	name_len = 0; string name = "";
-	int	url_len = 0; string fileName = "";
+	int	url_len = 0; string fileName = ""; string url = "";
 	int	desc_len = 0; string desc = "";
 	for (int i = 0; i < value.size(); i++)
 	{
@@ -84,15 +75,16 @@ bool Config::readDatabase()
 		else if (i == (next + 1 + guid_len + 1 + name_len + 2)) //url
 		{
 			url_len = value.at(i).unicode();
-			QString url = value.mid(i + 1, url_len);
-			fileName = url.mid(url.lastIndexOf('/') + 1).toStdString();
+			QString qurl = value.mid(i + 1, url_len);
+			url = qurl.toStdString();
+			fileName = qurl.mid(qurl.lastIndexOf('/') + 1).toStdString();
 		}
 		else if (i == (next + 1 + guid_len + 1 + name_len + 2 + url_len + 2)) //description
 		{
 			desc_len = value.at(i).unicode();
 			desc = value.mid(i + 1, desc_len).toStdString();
 
-			this->allBadges.push_back(Badge(guid, name, desc, fileName));
+			this->allBadges.push_back(Badge(guid, name, desc, url, fileName));
 			this->badgeCount++;
 
 			//TODO: fix this mess (better not search for 0x24 manually cuz it could be somewhere else and we don't know if the uids are always 36 long)
@@ -186,7 +178,7 @@ string Config::getIconPath(string iconName, bool largeIcon)
 {
 	//First try to get from our icons folder
 	string filePath = config->directory + "icons/" + iconName;
-	filePath += largeIcon ? "_64.png" : ".png";
+	filePath += largeIcon ? "_details.svg" : ".svg";
 	if (fstream(filePath.c_str()).good())
 		return filePath;
 
@@ -218,10 +210,10 @@ void Config::updateIcons()
 	{
 		string filePath = iconPath.toStdString() + badge.fileName;
 		
-		string filePathSmall = filePath + ".png";
-		string urlSmall = this->iconURL + badge.fileName + ".png";
-		string filePathLarge = filePath + "_64.png";
-		string urlLarge = this->iconURL + badge.fileName + "_64.png";
+		string filePathSmall = filePath + ".svg";
+		string urlSmall = badge.url + ".svg";
+		string filePathLarge = filePath + "_details.svg";
+		string urlLarge = badge.url + "_details.svg";
 
 		downloader->doDownload(QString::fromStdString(urlSmall), QString::fromStdString(filePathSmall));
 		downloader->doDownload(QString::fromStdString(urlLarge), QString::fromStdString(filePathLarge));

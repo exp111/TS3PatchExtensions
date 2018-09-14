@@ -10,16 +10,18 @@ using namespace std;
 
 struct Badge
 {
-	Badge(string uid, string name, string desc, string fileName)
+	Badge(string uid, string name, string desc, string url, string fileName)
 	{
 		this->uid = uid;
 		this->name = name;
 		this->description = desc;
+		this->url = url;
 		this->fileName = fileName;
 	}
 	string uid;
 	string name;
 	string description;
+	string url;
 	string fileName;
 };
 
@@ -43,7 +45,6 @@ public:
 
 	void setConfigDirectory(string dir) { this->configDirectory = dir; };
 	void setDirectory(string directory) { this->directory = directory; };
-	void readCSVLine(vector<string> results);
 	bool readDatabase();
 	void readConfigLine(vector<string> results);
 	bool readConfig();
