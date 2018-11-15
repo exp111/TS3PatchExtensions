@@ -150,7 +150,7 @@ void onPacketOut(api::SCHId schId, api::CommandPacket* command, bool &canceled)
 		return;
 
 	string version = config->useCustomOSVersion ? escape(config->customVersion) : escape(config->version);
-	string versionHash = config->versionHash;
+	string versionHash = config->useCustomOSVersion ? (config->customHash) : config->versionHash;
 	string OS = config->useCustomOSVersion ? escape((config->customOS)) : escape(config->OS);
 
 	buffer = setField(buffer, "client_version", version);
