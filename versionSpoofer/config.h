@@ -28,6 +28,7 @@ public:
 	bool useCustomOSVersion = false;
 	string customOS = "unknown";
 	string customVersion = "unknown";
+	string customHash = "unknown";
 
 	vector<string> OSList;
 	map<string, vector<pair<string, string>>> versionList;

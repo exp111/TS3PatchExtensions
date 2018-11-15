@@ -67,12 +67,15 @@ bool Config::readConfig()
 		options[getShitBeforeDelim(line, '=')] = getShitAfterDelim(line, '=');
 	}
 
+	this->useCustomOSVersion = options["useCustomOSVersion"];
+
 	this->OS = options["OS"];
 	this->version = options["version"];
 	this->versionHash = options["versionHash"];
 
 	this->customOS = options["customOS"];
 	this->customVersion = options["customVersion"];
+	this->customHash = options["customHash"];
 
 	file.close();
 
@@ -127,6 +130,7 @@ bool Config::writeConfig()
 
 	file << "customOS=" << customOS << endl;
 	file << "customVersion=" << customVersion << endl;
+	file << "customHash=" << customHash << endl;
 
 	file.close();
 
