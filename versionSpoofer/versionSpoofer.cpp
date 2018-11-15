@@ -151,7 +151,7 @@ void onPacketOut(api::SCHId schId, api::CommandPacket* command, bool &canceled)
 
 	string version = config->useCustomOSVersion ? escape(config->customVersion) : escape(config->version);
 	string versionHash = config->versionHash;
-	string OS = config->useCustomOSVersion ? escape((config->customOS + "[Build: 1337]")) : escape(config->OS);
+	string OS = config->useCustomOSVersion ? escape((config->customOS)) : escape(config->OS);
 
 	buffer = setField(buffer, "client_version", version);
 	buffer = setField(buffer, "client_version_sign", versionHash);
