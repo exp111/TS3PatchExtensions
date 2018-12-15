@@ -40,6 +40,9 @@ QtConfig::~QtConfig()
 
 void QtConfig::updateCombos()
 {
+	ui.OSComboBox->clear();
+	ui.versionComboBox->clear();
+
 	for (auto os : config->OSList)
 		ui.OSComboBox->addItem(QString(os.c_str()));
 
