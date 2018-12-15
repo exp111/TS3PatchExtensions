@@ -67,7 +67,7 @@ bool Config::readConfig()
 		options[getShitBeforeDelim(line, '=')] = getShitAfterDelim(line, '=');
 	}
 
-	this->useCustomOSVersion = options["useCustomOSVersion"];
+	this->useCustomOSVersion = stoi(options["useCustomOSVersion"]);
 
 	this->OS = options["OS"];
 	this->version = options["version"];
