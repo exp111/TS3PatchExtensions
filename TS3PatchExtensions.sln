@@ -38,6 +38,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "qtDownloadExample", "qtDown
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "shittyExploits", "shittyExploits\shittyExploits.vcxproj", "{2F93B657-1C79-4AF0-9FA0-301AD403A58B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "clientLeftViewFix", "clientLeftViewFix\clientLeftViewFix.vcxproj", "{E19775D0-84B3-4E12-A9DA-986F45F9DD08}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -228,12 +230,24 @@ Global
 		{2F93B657-1C79-4AF0-9FA0-301AD403A58B}.ReleaseAll|x64.Build.0 = ReleaseAll|x64
 		{2F93B657-1C79-4AF0-9FA0-301AD403A58B}.ReleaseAll|x86.ActiveCfg = ReleaseAll|Win32
 		{2F93B657-1C79-4AF0-9FA0-301AD403A58B}.ReleaseAll|x86.Build.0 = ReleaseAll|Win32
+		{E19775D0-84B3-4E12-A9DA-986F45F9DD08}.Debug|x64.ActiveCfg = Debug|x64
+		{E19775D0-84B3-4E12-A9DA-986F45F9DD08}.Debug|x64.Build.0 = Debug|x64
+		{E19775D0-84B3-4E12-A9DA-986F45F9DD08}.Debug|x86.ActiveCfg = Debug|Win32
+		{E19775D0-84B3-4E12-A9DA-986F45F9DD08}.Debug|x86.Build.0 = Debug|Win32
+		{E19775D0-84B3-4E12-A9DA-986F45F9DD08}.Release|x64.ActiveCfg = Release|x64
+		{E19775D0-84B3-4E12-A9DA-986F45F9DD08}.Release|x64.Build.0 = Release|x64
+		{E19775D0-84B3-4E12-A9DA-986F45F9DD08}.Release|x86.ActiveCfg = Release|Win32
+		{E19775D0-84B3-4E12-A9DA-986F45F9DD08}.Release|x86.Build.0 = Release|Win32
+		{E19775D0-84B3-4E12-A9DA-986F45F9DD08}.ReleaseAll|x64.ActiveCfg = ReleaseAll|x64
+		{E19775D0-84B3-4E12-A9DA-986F45F9DD08}.ReleaseAll|x64.Build.0 = ReleaseAll|x64
+		{E19775D0-84B3-4E12-A9DA-986F45F9DD08}.ReleaseAll|x86.ActiveCfg = ReleaseAll|Win32
+		{E19775D0-84B3-4E12-A9DA-986F45F9DD08}.ReleaseAll|x86.Build.0 = ReleaseAll|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {86DF49CF-0F04-485A-844A-471F9E1CB4B1}
 		Qt5Version = $(DefaultQtVersion)
+		SolutionGuid = {86DF49CF-0F04-485A-844A-471F9E1CB4B1}
 	EndGlobalSection
 EndGlobal
