@@ -106,15 +106,15 @@ bool Config::readCSV()
 
 void Config::readLine(vector<string> results)
 {
-	//channel,version,platform,hash
-	if (results.size() < 4)
+	//version,platform,hash
+	if (results.size() < 3)
 		return;
 
-	if (find(OSList.begin(), OSList.end(), results[2]) == OSList.end())
-		OSList.push_back(results[2]);
+	if (find(OSList.begin(), OSList.end(), results[1]) == OSList.end())
+		OSList.push_back(results[1]);
 
-	pair<string, string> pair = { results[1], results[3] };
-	versionList[results[2]].push_back(pair);
+	pair<string, string> pair = { results[0], results[2] };
+	versionList[results[1]].push_back(pair);
 }
 
 bool Config::writeConfig()
