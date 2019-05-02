@@ -33,9 +33,9 @@ QtConfig::QtConfig(QWidget *parent)
 	{
 		int j = (int)setConnectionInfoSize + i;
 		ui.tableWidget->insertRow(j);
-		QTableWidgetItem* item = new QTableWidgetItem(QString::fromStdString(config->setConnectionInfo[i].name));
-		ui.tableWidget->setItem(i, 0, item);
-		QTableWidgetItem* item2 = new QTableWidgetItem(QString::fromStdString(config->setConnectionInfo[i].value));
+		QTableWidgetItem* item = new QTableWidgetItem(QString::fromStdString(config->connectionInfoAutoUpdate[i].name));
+		ui.tableWidget->setItem(j, 0, item);
+		QTableWidgetItem* item2 = new QTableWidgetItem(QString::fromStdString(config->connectionInfoAutoUpdate[i].value));
 		ui.tableWidget->setItem(j, 1, item2);
 		QTableWidgetItem* item3 = new QTableWidgetItem();
 		item3->setCheckState(config->connectionInfoAutoUpdate[i].useOriginal ? Qt::Checked : Qt::Unchecked);
