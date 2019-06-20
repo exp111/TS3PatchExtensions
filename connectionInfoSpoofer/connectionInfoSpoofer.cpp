@@ -137,7 +137,7 @@ bool setConnectionInfo(string &data, bool &canceled)
 		else
 			buf << " " << info.name << "=" << info.value;
 	}
-	printf("%s\n%s\n", data.c_str(), buf.str().c_str());
+	//printf("%s\n%s\n", data.c_str(), buf.str().c_str());
 
 	data = buf.str();
 

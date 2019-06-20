@@ -122,6 +122,11 @@ bool Config::writeConfig()
 	if (directory.empty())
 		return false;
 
+	QString path = QString::fromStdString(directory);
+	QDir dir = QDir();
+	if (!dir.exists())
+		dir.mkpath(path);
+
 	ofstream file(directory + configName, ofstream::out | ofstream::trunc);
 
 	file << "OS=" << OS << endl;

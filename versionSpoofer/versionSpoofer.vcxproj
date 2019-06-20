@@ -136,14 +136,14 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <PreprocessorDefinitions>_WINDOWS;_WINDLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;QT_NETWORK_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(QT_DIR)\include\;$(QT_DIR)\include\QtCore;$(QT_DIR)\include\QtGui;$(QT_DIR)\include\QtANGLE;$(QT_DIR)\include\QtWidgets;$(QTDIR)\include\QtNetwork;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_WINDOWS;_WINDLL;QT_GUI_LIB;QT_WIDGETS_LIB;QT_NETWORK_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(QT_DIR)\include\;$(QT_DIR)\include\QtCore;$(QT_DIR)\include\QtGui;$(QT_DIR)\include\QtANGLE;$(QT_DIR)\include\QtWidgets;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtCore;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>$(QT_DIR)\lib\</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Qt5Core.lib;Qt5Gui.lib;Qt5Widgets.lib;Qt5Network.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Qt5Gui.lib;Qt5Widgets.lib;Qt5Network.lib;Qt5Core.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseAll|x64'">
@@ -154,14 +154,14 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <PreprocessorDefinitions>_WINDOWS;_WINDLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;QT_NETWORK_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(QT_DIR)\include\;$(QT_DIR)\include\QtCore;$(QT_DIR)\include\QtGui;$(QT_DIR)\include\QtANGLE;$(QT_DIR)\include\QtWidgets;$(QTDIR)\include\QtNetwork;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_WINDOWS;_WINDLL;QT_GUI_LIB;QT_WIDGETS_LIB;QT_NETWORK_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(QT_DIR)\include\;$(QT_DIR)\include\QtCore;$(QT_DIR)\include\QtGui;$(QT_DIR)\include\QtANGLE;$(QT_DIR)\include\QtWidgets;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtCore;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>$(QT_DIR)\lib\</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Qt5Core.lib;Qt5Gui.lib;Qt5Widgets.lib;Qt5Network.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Qt5Gui.lib;Qt5Widgets.lib;Qt5Network.lib;Qt5Core.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -170,12 +170,12 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <PreprocessorDefinitions>_WINDOWS;_WINDLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;QT_NETWORK_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(QT_DIR)\include\;$(QT_DIR)\include\QtCore;$(QT_DIR)\include\QtGui;$(QT_DIR)\include\QtANGLE;$(QT_DIR)\include\QtWidgets;$(QTDIR)\include\QtNetwork;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_WINDOWS;_WINDLL;QT_GUI_LIB;QT_WIDGETS_LIB;QT_NETWORK_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(QT_DIR)\include\;$(QT_DIR)\include\QtCore;$(QT_DIR)\include\QtGui;$(QT_DIR)\include\QtANGLE;$(QT_DIR)\include\QtWidgets;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtCore;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(QT_DIR)\lib\</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Qt5Cored.lib;Qt5Guid.lib;Qt5Widgetsd.lib;Qt5Networkd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Qt5Guid.lib;Qt5Widgetsd.lib;Qt5Networkd.lib;Qt5Cored.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -184,12 +184,12 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <PreprocessorDefinitions>_WINDOWS;_WINDLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;QT_NETWORK_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(QT_DIR)\include\;$(QT_DIR)\include\QtCore;$(QT_DIR)\include\QtGui;$(QT_DIR)\include\QtANGLE;$(QT_DIR)\include\QtWidgets;$(QTDIR)\include\QtNetwork;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_WINDOWS;_WINDLL;QT_GUI_LIB;QT_WIDGETS_LIB;QT_NETWORK_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(QT_DIR)\include\;$(QT_DIR)\include\QtCore;$(QT_DIR)\include\QtGui;$(QT_DIR)\include\QtANGLE;$(QT_DIR)\include\QtWidgets;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtCore;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(QT_DIR)\lib\</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Qt5Cored.lib;Qt5Guid.lib;Qt5Widgetsd.lib;Qt5Networkd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Qt5Guid.lib;Qt5Widgetsd.lib;Qt5Networkd.lib;Qt5Cored.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -200,14 +200,14 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <PreprocessorDefinitions>_WINDOWS;_WINDLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;QT_NETWORK_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(QT_DIR)\include\;$(QT_DIR)\include\QtCore;$(QT_DIR)\include\QtGui;$(QT_DIR)\include\QtANGLE;$(QT_DIR)\include\QtWidgets;$(QTDIR)\include\QtNetwork;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_WINDOWS;_WINDLL;QT_GUI_LIB;QT_WIDGETS_LIB;QT_NETWORK_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(QT_DIR)\include\;$(QT_DIR)\include\QtCore;$(QT_DIR)\include\QtGui;$(QT_DIR)\include\QtANGLE;$(QT_DIR)\include\QtWidgets;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtCore;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>$(QT_DIR)\lib\</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Qt5Core.lib;Qt5Gui.lib;Qt5Widgets.lib;Qt5Network.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Qt5Gui.lib;Qt5Widgets.lib;Qt5Network.lib;Qt5Core.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseAll|Win32'">
@@ -218,14 +218,14 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <PreprocessorDefinitions>_WINDOWS;_WINDLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;QT_NETWORK_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(QT_DIR)\include\;$(QT_DIR)\include\QtCore;$(QT_DIR)\include\QtGui;$(QT_DIR)\include\QtANGLE;$(QT_DIR)\include\QtWidgets;$(QTDIR)\include\QtNetwork;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_WINDOWS;_WINDLL;QT_GUI_LIB;QT_WIDGETS_LIB;QT_NETWORK_LIB;QT_CORE_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(QT_DIR)\include\;$(QT_DIR)\include\QtCore;$(QT_DIR)\include\QtGui;$(QT_DIR)\include\QtANGLE;$(QT_DIR)\include\QtWidgets;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtCore;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>$(QT_DIR)\lib\</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Qt5Core.lib;Qt5Gui.lib;Qt5Widgets.lib;Qt5Network.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Qt5Gui.lib;Qt5Widgets.lib;Qt5Network.lib;Qt5Core.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -234,22 +234,22 @@
     <CustomBuild Include="QtConfig.h">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -D_WINDLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_NETWORK_LIB -D_MBCS  "-I$(QT_DIR)\include" "-I$(QT_DIR)\include\QtCore" "-I$(QT_DIR)\include\QtGui" "-I$(QT_DIR)\include\QtANGLE" "-I$(QT_DIR)\include\QtWidgets" "-I$(QTDIR)\include\QtNetwork"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -D_WINDLL -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -D%(PreprocessorDefinitions)  "-I$(QT_DIR)\include" "-I$(QT_DIR)\include\QtCore" "-I$(QT_DIR)\include\QtGui" "-I$(QT_DIR)\include\QtANGLE" "-I$(QT_DIR)\include\QtWidgets" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtCore"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -D_WINDLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_NETWORK_LIB -D_MBCS  "-I$(QT_DIR)\include" "-I$(QT_DIR)\include\QtCore" "-I$(QT_DIR)\include\QtGui" "-I$(QT_DIR)\include\QtANGLE" "-I$(QT_DIR)\include\QtWidgets" "-I$(QTDIR)\include\QtNetwork"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -D_WINDLL -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -D%(PreprocessorDefinitions)  "-I$(QT_DIR)\include" "-I$(QT_DIR)\include\QtCore" "-I$(QT_DIR)\include\QtGui" "-I$(QT_DIR)\include\QtANGLE" "-I$(QT_DIR)\include\QtWidgets" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtCore"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing %(Identity)...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='ReleaseAll|Win32'">Moc%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='ReleaseAll|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -D_WINDLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_NETWORK_LIB -D_MBCS  "-I$(QT_DIR)\include" "-I$(QT_DIR)\include\QtCore" "-I$(QT_DIR)\include\QtGui" "-I$(QT_DIR)\include\QtANGLE" "-I$(QT_DIR)\include\QtWidgets" "-I$(QTDIR)\include\QtNetwork"</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='ReleaseAll|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -D_WINDLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_NETWORK_LIB -D_MBCS  "-I$(QT_DIR)\include" "-I$(QT_DIR)\include\QtCore" "-I$(QT_DIR)\include\QtGui" "-I$(QT_DIR)\include\QtANGLE" "-I$(QT_DIR)\include\QtWidgets" "-I$(QTDIR)\include\QtNetwork"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -D_WINDLL -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -D%(PreprocessorDefinitions)  "-I$(QT_DIR)\include" "-I$(QT_DIR)\include\QtCore" "-I$(QT_DIR)\include\QtGui" "-I$(QT_DIR)\include\QtANGLE" "-I$(QT_DIR)\include\QtWidgets" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtCore"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='ReleaseAll|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -D_WINDLL -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -D%(PreprocessorDefinitions)  "-I$(QT_DIR)\include" "-I$(QT_DIR)\include\QtCore" "-I$(QT_DIR)\include\QtGui" "-I$(QT_DIR)\include\QtANGLE" "-I$(QT_DIR)\include\QtWidgets" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtCore"</Command>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing %(Identity)...</Message>
       <Message Condition="'$(Configuration)|$(Platform)'=='ReleaseAll|x64'">Moc%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='ReleaseAll|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -D_WINDLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_NETWORK_LIB -D_MBCS  "-I$(QT_DIR)\include" "-I$(QT_DIR)\include\QtCore" "-I$(QT_DIR)\include\QtGui" "-I$(QT_DIR)\include\QtANGLE" "-I$(QT_DIR)\include\QtWidgets" "-I$(QTDIR)\include\QtNetwork"</Command>
-      <Command Condition="'$(Configuration)|$(Platform)'=='ReleaseAll|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -D_WINDLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_NETWORK_LIB -D_MBCS  "-I$(QT_DIR)\include" "-I$(QT_DIR)\include\QtCore" "-I$(QT_DIR)\include\QtGui" "-I$(QT_DIR)\include\QtANGLE" "-I$(QT_DIR)\include\QtWidgets" "-I$(QTDIR)\include\QtNetwork"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -D_WINDLL -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -D%(PreprocessorDefinitions)  "-I$(QT_DIR)\include" "-I$(QT_DIR)\include\QtCore" "-I$(QT_DIR)\include\QtGui" "-I$(QT_DIR)\include\QtANGLE" "-I$(QT_DIR)\include\QtWidgets" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtCore"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='ReleaseAll|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -D_WINDLL -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -D%(PreprocessorDefinitions)  "-I$(QT_DIR)\include" "-I$(QT_DIR)\include\QtCore" "-I$(QT_DIR)\include\QtGui" "-I$(QT_DIR)\include\QtANGLE" "-I$(QT_DIR)\include\QtWidgets" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtCore"</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
@@ -261,27 +261,27 @@
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -D_WINDLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_NETWORK_LIB -D_MBCS  "-I$(QT_DIR)\include" "-I$(QT_DIR)\include\QtCore" "-I$(QT_DIR)\include\QtGui" "-I$(QT_DIR)\include\QtANGLE" "-I$(QT_DIR)\include\QtWidgets" "-I$(QTDIR)\include\QtNetwork"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -D_WINDLL -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -D%(PreprocessorDefinitions)  "-I$(QT_DIR)\include" "-I$(QT_DIR)\include\QtCore" "-I$(QT_DIR)\include\QtGui" "-I$(QT_DIR)\include\QtANGLE" "-I$(QT_DIR)\include\QtWidgets" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtCore"</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Moc%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -D_WINDLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_NETWORK_LIB -D_MBCS  "-I$(QT_DIR)\include" "-I$(QT_DIR)\include\QtCore" "-I$(QT_DIR)\include\QtGui" "-I$(QT_DIR)\include\QtANGLE" "-I$(QT_DIR)\include\QtWidgets" "-I$(QTDIR)\include\QtNetwork"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -D_WINDLL -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -D%(PreprocessorDefinitions)  "-I$(QT_DIR)\include" "-I$(QT_DIR)\include\QtCore" "-I$(QT_DIR)\include\QtGui" "-I$(QT_DIR)\include\QtANGLE" "-I$(QT_DIR)\include\QtWidgets" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtCore"</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Moc%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -D_WINDLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_NETWORK_LIB -D_MBCS  "-I$(QT_DIR)\include" "-I$(QT_DIR)\include\QtCore" "-I$(QT_DIR)\include\QtGui" "-I$(QT_DIR)\include\QtANGLE" "-I$(QT_DIR)\include\QtWidgets" "-I$(QTDIR)\include\QtNetwork"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -D_WINDLL -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -D%(PreprocessorDefinitions)  "-I$(QT_DIR)\include" "-I$(QT_DIR)\include\QtCore" "-I$(QT_DIR)\include\QtGui" "-I$(QT_DIR)\include\QtANGLE" "-I$(QT_DIR)\include\QtWidgets" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtCore"</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Moc%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -D_WINDLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_NETWORK_LIB -D_MBCS  "-I$(QT_DIR)\include" "-I$(QT_DIR)\include\QtCore" "-I$(QT_DIR)\include\QtGui" "-I$(QT_DIR)\include\QtANGLE" "-I$(QT_DIR)\include\QtWidgets" "-I$(QTDIR)\include\QtNetwork"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -D_WINDLL -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -D%(PreprocessorDefinitions)  "-I$(QT_DIR)\include" "-I$(QT_DIR)\include\QtCore" "-I$(QT_DIR)\include\QtGui" "-I$(QT_DIR)\include\QtANGLE" "-I$(QT_DIR)\include\QtWidgets" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtCore"</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='ReleaseAll|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='ReleaseAll|x64'">Moc%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='ReleaseAll|x64'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='ReleaseAll|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -D_WINDLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_NETWORK_LIB -D_MBCS  "-I$(QT_DIR)\include" "-I$(QT_DIR)\include\QtCore" "-I$(QT_DIR)\include\QtGui" "-I$(QT_DIR)\include\QtANGLE" "-I$(QT_DIR)\include\QtWidgets" "-I$(QTDIR)\include\QtNetwork"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='ReleaseAll|x64'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -D_WINDLL -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -D%(PreprocessorDefinitions)  "-I$(QT_DIR)\include" "-I$(QT_DIR)\include\QtCore" "-I$(QT_DIR)\include\QtGui" "-I$(QT_DIR)\include\QtANGLE" "-I$(QT_DIR)\include\QtWidgets" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtCore"</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='ReleaseAll|Win32'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
       <Message Condition="'$(Configuration)|$(Platform)'=='ReleaseAll|Win32'">Moc%27ing %(Identity)...</Message>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='ReleaseAll|Win32'">.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</Outputs>
-      <Command Condition="'$(Configuration)|$(Platform)'=='ReleaseAll|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -D_WINDLL -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_NETWORK_LIB -D_MBCS  "-I$(QT_DIR)\include" "-I$(QT_DIR)\include\QtCore" "-I$(QT_DIR)\include\QtGui" "-I$(QT_DIR)\include\QtANGLE" "-I$(QT_DIR)\include\QtWidgets" "-I$(QTDIR)\include\QtNetwork"</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='ReleaseAll|Win32'">"$(QTDIR)\bin\moc.exe"  "%(FullPath)" -o ".\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp"  -D_WINDOWS -D_WINDLL -DQT_GUI_LIB -DQT_WIDGETS_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -D%(PreprocessorDefinitions)  "-I$(QT_DIR)\include" "-I$(QT_DIR)\include\QtCore" "-I$(QT_DIR)\include\QtGui" "-I$(QT_DIR)\include\QtANGLE" "-I$(QT_DIR)\include\QtWidgets" "-I$(QTDIR)\include\QtNetwork" "-I$(QTDIR)\include\QtCore"</Command>
     </CustomBuild>
     <ClInclude Include="versionSpoofer.h" />
   </ItemGroup>
@@ -333,7 +333,7 @@
   </ImportGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties Qt5Version_x0020_x64="$(DefaultQtVersion)" />
+      <UserProperties Qt5Version_x0020_x64="5.10.1" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
