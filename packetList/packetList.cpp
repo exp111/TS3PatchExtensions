@@ -44,7 +44,7 @@ const char *ts3plugin_version() {
 }
 
 int ts3plugin_apiVersion() {
-	return 22;
+	return 23;
 }
 
 const char *ts3plugin_author() {
@@ -52,7 +52,7 @@ const char *ts3plugin_author() {
 }
 
 const char *ts3plugin_description() {
-	return "Lists Packet in a nice gui (r/niceguys)";
+	return "Lists Packet in a nice gui (r/niceguis)";
 }
 
 int ts3plugin_init() { 
